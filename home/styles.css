@@ -1,0 +1,235 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Garante que a navbar fique acima dos outros elementos */
+    background-color: black;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para destacar */
+}
+
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 55px;
+    width: 80px;
+    margin-right: 20px;
+}
+
+.navbar-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-list li {
+    margin-right: 20px;
+}
+
+.navbar-list a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar-list a:hover {
+    text-decoration: underline;
+}
+
+.brand-name {
+    color: white; /* Cor do texto */
+    font-family: 'Monoton', sans-serif; /* Fonte Monoton */
+    font-size: 32px; /* Tamanho da fonte */
+    text-align: center; /* Alinhamento central */
+    flex-grow: 1; /* Permite que o título cresça se houver espaço */
+    letter-spacing: 2px; /* Espaçamento entre letras */
+}
+
+
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.search-bar {
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.register {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Carrossel */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+}
+
+
+
+/* Seção Sobre a Empresa */
+#sobre-empresa {
+    background-color: #111;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#sobre-empresa .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#sobre-empresa h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #00aaff;
+    margin-bottom: 20px;
+}
+
+#sobre-empresa p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 10px 0;
+    font-weight: 300;
+}
+
+/* Seção de Produtos */
+#produtos {
+    background-color: #222;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 20px;
+    width: 30%;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-image {
+    width: auto;
+    height: 300px; /* Aumenta a altura da imagem para deixá-la mais visível */
+    object-fit: cover;
+    transform: rotate(90deg);
+    margin-bottom: 15px; /* Espaço extra entre a imagem e o título */
+}
+
+
+.card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    margin: 10px 0;
+    color: #00aaff;
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 300;
+    text-align: justify;
+}
+
+.footer {
+    background-color: #000000; /* Cor de fundo do rodapé */
+    color: #ffffff; /* Cor do texto */
+    padding: 20px 0; /* Espaçamento interno do rodapé */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.footer-container {
+    max-width: 800px; /* Largura máxima do rodapé */
+    margin: 0 auto; /* Centraliza o rodapé na página */
+}
+
+.footer p {
+    margin: 10px 0; /* Espaçamento do parágrafo */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+.footer a {
+    color: #00aaff; /* Cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.social-media {
+    margin-top: 10px; /* Espaçamento acima das redes sociais */
+}
+
+.social-media a {
+    margin: 0 10px; /* Espaçamento entre os ícones das redes sociais */
+    font-size: 24px; /* Tamanho dos ícones */
+    color: #ffffff; /* Cor dos ícones */
+}
+
+.social-media a:hover {
+    color: #00aaff; /* Altera a cor ao passar o mouse */
+}

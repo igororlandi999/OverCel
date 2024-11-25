@@ -1,0 +1,174 @@
+/* Estilo Geral */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+    background-color: black;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 55px;
+    width: auto;
+    margin-right: 20px;
+}
+
+.navbar-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-list li {
+    margin-right: 20px;
+}
+
+.navbar-list a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar-list a:hover {
+    text-decoration: underline;
+}
+
+.brand-name {
+    color: white;
+    font-family: 'Monoton', sans-serif;
+    font-size: 32px;
+    text-align: center;
+    flex-grow: 1;
+    letter-spacing: 2px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.search-bar {
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.register {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Estilo da Página de Produtos */
+.product-page {
+    padding: 20px; /* Espaçamento interno da página */
+    text-align: center; /* Centraliza texto */
+}
+
+.product-content {
+    display: flex; /* Permite que a imagem e as especificações fiquem lado a lado */
+    justify-content: center; /* Centraliza o conteúdo no eixo horizontal */
+    align-items: flex-start; /* Alinha itens no topo */
+}
+
+.product-image {
+    width: 50%; /* Largura da imagem do produto */
+    max-width: 400px; /* Largura máxima da imagem */
+    height: auto; /* Mantém proporção da imagem */
+    margin: 20px; /* Margem acima e abaixo da imagem */
+}
+
+.product-specifications {
+    text-align: left; /* Alinha texto à esquerda */
+    margin: 20px; /* Margem para o parágrafo de especificações */
+    max-width: 400px; /* Largura máxima para especificações */
+}
+
+/* Aviso */
+.warning-text {
+    text-align: center; /* Centraliza o texto de aviso */
+    margin: 20px; /* Margem para o aviso */
+}
+
+.warning-text p {
+    margin-bottom: 10px; /* Diminui a margem abaixo do texto do aviso */
+}
+
+.warning-text ul {
+    list-style-position: inside; /* Mova os marcadores para dentro da lista */
+    text-align: center; /* Centraliza o texto da lista */
+    padding: 0; /* Remove o padding padrão */
+    margin: 0; /* Remove a margem padrão */
+}
+
+
+/* Rodapé */
+.footer {
+    background-color: #000000; /* Cor de fundo do rodapé */
+    color: #ffffff; /* Cor do texto */
+    padding: 20px 0; /* Espaçamento interno do rodapé */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.footer-container {
+    max-width: 800px; /* Largura máxima do rodapé */
+    margin: 0 auto; /* Centraliza o rodapé na página */
+}
+
+.footer p {
+    margin: 10px 0; /* Espaçamento do parágrafo */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+.footer a {
+    color: #00aaff; /* Cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.social-media {
+    margin-top: 10px; /* Espaçamento acima das redes sociais */
+}
+
+.social-media a {
+    margin: 0 10px; /* Espaçamento entre os ícones das redes sociais */
+    font-size: 24px; /* Tamanho dos ícones */
+    color: #ffffff; /* Cor dos ícones */
+}
+
+.social-media a:hover {
+    color: #00aaff; /* Altera a cor ao passar o mouse */
+}
+

@@ -1,3 +1,4 @@
+/* home.css */
 /* Estilo base para dispositivos móveis */
 body {
     margin: 0;
@@ -13,25 +14,22 @@ body {
     background-color: black;
     padding: 10px 15px;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+    align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Centraliza a logo e o nome da marca */
 .navbar-center {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espaçamento entre logo e brandname */
+    gap: 10px;
 }
 
-/* Ajuste da logo */
 .logo {
     height: 40px;
     width: auto;
 }
 
-/* Nome da marca */
 .brand-name {
     color: white;
     font-family: 'Monoton', sans-serif;
@@ -39,7 +37,6 @@ body {
     letter-spacing: 2px;
 }
 
-/* Configurações gerais do banner */
 .carousel-container {
     position: relative;
     width: 100%;
@@ -51,28 +48,26 @@ body {
     display: block;
 }
 
-/* Container dos botões no banner */
 .banner-buttons {
     position: absolute;
-    top: 55%; /* Ajusta a posição no banner */
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    flex-direction: row; /* Alinha os botões lado a lado */
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Espaçamento horizontal entre os botões */
-    width: 100%; /* Ocupa toda a largura do banner */
-    max-width: 90%; /* Garante que não ultrapasse o espaço */
-    flex-wrap: nowrap; /* Evita quebra de linha */
-    box-sizing: border-box; /* Inclui padding e bordas no tamanho */
+    gap: 10px;
+    width: 100%;
+    max-width: 90%;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
 }
 
-/* Estilo dos botões */
 .contact-button {
-    flex: 1; /* Garante que os botões ocupem espaço proporcional */
+    flex: 1;
     text-align: center;
-    padding: 10px 15px; /* Ajusta o tamanho do botão */
+    padding: 10px 15px;
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
@@ -80,14 +75,13 @@ body {
     color: white;
     background: linear-gradient(90deg, #00aaff, #0077cc);
     border: none;
-    border-radius: 25px; /* Arredonda os botões */
+    border-radius: 25px;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s ease;
-    white-space: nowrap; /* Evita quebra de texto */
+    white-space: nowrap;
 }
 
-/* Efeito hover */
 .contact-button:hover {
     background: linear-gradient(90deg, #0077cc, #00aaff);
     transform: scale(1.05);
@@ -95,26 +89,21 @@ body {
 }
 
 section {
-    scroll-margin-top: 80px; /* Ajusta o espaço para o scroll */
+    scroll-margin-top: 80px;
 }
 
-
-/* Ajustes para dispositivos móveis */
 @media (max-width: 480px) {
     .banner-buttons {
-        gap: 5px; /* Reduz o espaçamento entre os botões */
+        gap: 5px;
     }
 
     .contact-button {
-        font-size: 12px; /* Reduz o tamanho do texto */
-        padding: 8px 10px; /* Reduz o tamanho do botão */
-        flex: none; /* Desativa a expansão dos botões */
+        font-size: 12px;
+        padding: 8px 10px;
+        flex: none;
     }
 }
 
-
-
-/* Seção Sobre a Empresa */
 #sobre-empresa {
     background-color: #111;
     color: #ffffff;
@@ -124,14 +113,14 @@ section {
 
 #sobre-empresa .container {
     max-width: 100%;
-    margin: 0 auto; /* Centraliza o texto */
+    margin: 0 auto;
 }
 
 #sobre-empresa h2 {
     font-family: 'Oswald', sans-serif;
     font-size: 24px;
     font-weight: 600;
-    color: #00aaff; /* Azul */
+    color: #00aaff;
     margin-bottom: 15px;
 }
 
@@ -142,7 +131,6 @@ section {
     font-weight: 300;
 }
 
-/* Seção Produtos */
 #produtos {
     background-color: #222;
     color: #ffffff;
@@ -154,7 +142,7 @@ section {
     font-family: 'Oswald', sans-serif;
     font-size: 24px;
     font-weight: 600;
-    color: #00aaff; /* Azul */
+    color: #00aaff;
     margin-bottom: 15px;
 }
 
@@ -181,13 +169,11 @@ section {
     margin-bottom: 15px;
 }
 
-
-
 .card h3 {
     font-family: 'Oswald', sans-serif;
     font-size: 20px;
     margin: 10px 0;
-    color: #00aaff; /* Azul */
+    color: #00aaff;
 }
 
 .card p {
@@ -197,7 +183,6 @@ section {
     text-align: justify;
 }
 
-/* Rodapé */
 .footer {
     background-color: #000000;
     color: #ffffff;
@@ -240,33 +225,33 @@ section {
     color: #00aaff;
 }
 
-/* Responsividade: Telas maiores */
 @media (min-width: 768px) {
     #sobre-empresa .container {
         max-width: 800px;
     }
 
     .card-container {
-        flex-direction: row;   /* Mudando para linha */
-        flex-wrap: wrap;       /* Permite que os itens se movam para a próxima linha */
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
     }
 
     .card {
-        width: 45%;   /* Ajuste para dois produtos por linha */
+        width: 45%;
     }
 }
+
 .product-link {
     color: #00aaff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
 .product-link:hover {
     color: #ffffff;
     text-decoration: none;
 }
+
 /* Coming Soon Specific Styles */
 .coming-soon-banner {
     background: linear-gradient(90deg, #00aaff, #0077cc);

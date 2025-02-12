@@ -1,0 +1,304 @@
+/* Estilo base para dispositivos móveis */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: black;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Centraliza a logo e o nome da marca */
+.navbar-center {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre logo e brandname */
+}
+
+/* Ajuste da logo */
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+/* Nome da marca */
+.brand-name {
+    color: white;
+    font-family: 'Monoton', sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+/* Configurações gerais do banner */
+.carousel-container {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Container dos botões no banner */
+.banner-buttons {
+    position: absolute;
+    top: 55%; /* Ajusta a posição no banner */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row; /* Alinha os botões lado a lado */
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaçamento horizontal entre os botões */
+    width: 100%; /* Ocupa toda a largura do banner */
+    max-width: 90%; /* Garante que não ultrapasse o espaço */
+    flex-wrap: nowrap; /* Evita quebra de linha */
+    box-sizing: border-box; /* Inclui padding e bordas no tamanho */
+}
+
+/* Estilo dos botões */
+.contact-button {
+    flex: 1; /* Garante que os botões ocupem espaço proporcional */
+    text-align: center;
+    padding: 10px 15px; /* Ajusta o tamanho do botão */
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(90deg, #00aaff, #0077cc);
+    border: none;
+    border-radius: 25px; /* Arredonda os botões */
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Evita quebra de texto */
+}
+
+/* Efeito hover */
+.contact-button:hover {
+    background: linear-gradient(90deg, #0077cc, #00aaff);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 170, 255, 0.5);
+}
+
+section {
+    scroll-margin-top: 80px; /* Ajusta o espaço para o scroll */
+}
+
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 480px) {
+    .banner-buttons {
+        gap: 5px; /* Reduz o espaçamento entre os botões */
+    }
+
+    .contact-button {
+        font-size: 12px; /* Reduz o tamanho do texto */
+        padding: 8px 10px; /* Reduz o tamanho do botão */
+        flex: none; /* Desativa a expansão dos botões */
+    }
+}
+
+
+
+/* Seção Sobre a Empresa */
+#sobre-empresa {
+    background-color: #111;
+    color: #ffffff;
+    padding: 20px 15px;
+    text-align: center;
+}
+
+#sobre-empresa .container {
+    max-width: 100%;
+    margin: 0 auto; /* Centraliza o texto */
+}
+
+#sobre-empresa h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #00aaff; /* Azul */
+    margin-bottom: 15px;
+}
+
+#sobre-empresa p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+    font-weight: 300;
+}
+
+/* Seção Produtos */
+#produtos {
+    background-color: #222;
+    color: #ffffff;
+    padding: 20px 15px;
+    text-align: center;
+}
+
+#produtos h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #00aaff; /* Azul */
+    margin-bottom: 15px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+
+
+.card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    margin: 10px 0;
+    color: #00aaff; /* Azul */
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 300;
+    text-align: justify;
+}
+
+/* Rodapé */
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.social-media {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-media a {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.social-media a:hover {
+    color: #00aaff;
+}
+
+/* Responsividade: Telas maiores */
+@media (min-width: 768px) {
+    #sobre-empresa .container {
+        max-width: 800px;
+    }
+
+    .card-container {
+        flex-direction: row;   /* Mudando para linha */
+        flex-wrap: wrap;       /* Permite que os itens se movam para a próxima linha */
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .card {
+        width: 45%;   /* Ajuste para dois produtos por linha */
+    }
+}
+.product-link {
+    color: #00aaff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.product-link:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+/* Coming Soon Specific Styles */
+.coming-soon-banner {
+    background: linear-gradient(90deg, #00aaff, #0077cc);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 10px 0;
+    display: inline-block;
+    text-transform: uppercase;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.product-title {
+    color: #00aaff;
+    opacity: 0.8;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff;
+    }
+    to {
+        box-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff;
+    }
+}
+
+/* These styles will only apply to mobile screens */
+@media (max-width: 768px) {
+    .coming-soon-banner {
+        font-size: 12px;
+        padding: 6px 15px;
+    }
+}

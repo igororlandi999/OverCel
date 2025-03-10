@@ -13,6 +13,8 @@ Website institucional da Overcel, empresa especializada em células de bateria i
 1. Clone o repositório
 2. Abra o arquivo index.html em seu navegador
 
+Outra opção - Acesse: www.overcel.com.br
+
 ## Tecnologias utilizadas
 
 - HTML5

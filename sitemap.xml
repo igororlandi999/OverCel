@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <!-- Página inicial -->
+   <url>
+      <loc>https://www.overcel.com.br/</loc>
+      <lastmod>2025-03-10</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>1.0</priority>
+   </url>
+   
+   <!-- Página de produto 26V -->
+   <url>
+      <loc>https://www.overcel.com.br/pages/26v.html</loc>
+      <lastmod>2025-03-10</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   
+   <!-- Página de produto 33V -->
+   <url>
+      <loc>https://www.overcel.com.br/pages/33v.html</loc>
+      <lastmod>2025-03-10</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   
+   <!-- Página de produto 35V -->
+   <url>
+      <loc>https://www.overcel.com.br/pages/35v.html</loc>
+      <lastmod>2025-03-10</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+</urlset>

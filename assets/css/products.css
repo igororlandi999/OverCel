@@ -10,7 +10,17 @@ body {
     min-height: 100vh;
 }
 
-/* Navbar - Enhanced Responsiveness */
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: rgba(0, 170, 255, 0.3);
+    color: #ffffff;
+}
+
+/* Navbar */
 .navbar {
     background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(15px);
@@ -34,7 +44,7 @@ body {
     transform: scale(1.05) rotate(3deg);
 }
 
-/* Contêiner Principal - Improved Layout */
+/* Container Principal */
 .main-container {
     flex: 1;
     width: 100%;
@@ -44,7 +54,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Conteúdo do Produto - Enhanced Animations */
+/* Página do Produto */
 .product-page {
     display: flex;
     flex-direction: column;
@@ -70,40 +80,79 @@ body {
     text-align: center;
     font-size: 3em;
     background: linear-gradient(45deg, #00aaff, #ffffff);
-    background-clip: text;              /* Added standard property */
-    -webkit-background-clip: text;      /* Webkit prefixed version */
+    background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 40px rgba(0, 170, 255, 0.4);
     margin-bottom: 40px;
 }
 
+/* Layout de Conteúdo em Coluna */
 .product-content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
+    flex-direction: column;
+    align-items: center;
     gap: 40px;
     width: 100%;
 }
 
-.product-image {
-    flex: 0 1 100px;  /* Reduced from 400px */
-    max-width: 70%;   /* Added max-width constraint */
-    border-radius: 20px;
-    box-shadow: 0 15px 50px rgba(0, 170, 255, 0.3);
-    transition: all 0.4s ease;
+/* Container da Imagem */
+.product-image-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+}
+
+/* Imagem do Produto */
+.card-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 480px;
     object-fit: contain;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 15px;    /* Slightly reduced padding */
+    display: block;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 170, 255, 0.2);
+    transition: transform 0.3s ease;
 }
 
-.product-image:hover {
-    transform: scale(1.02) rotateY(5deg);
-    box-shadow: 0 20px 60px rgba(0, 170, 255, 0.4);
+.card-image:hover {
+    transform: scale(1.02);
 }
 
+/* Botão de Compra */
+.purchase-button {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00aaff;
+    color: white;
+    border: 2px solid white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.purchase-button:hover {
+    background-color: #00aaff;
+    transform: translateX(-50%) scale(1.05);
+}
+
+/* Especificações do Produto */
 .product-specifications {
-    flex: 0 1 500px;
+    width: 100%;
+    max-width: 800px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     padding: 40px;
@@ -113,7 +162,7 @@ body {
 }
 
 .product-specifications:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 0 15px 50px rgba(0, 170, 255, 0.2);
 }
 
@@ -146,9 +195,10 @@ body {
     font-size: 1.2em;
 }
 
-/* Warning Section Enhanced */
+/* Seção de Aviso */
 .warning-text {
     width: 100%;
+    max-width: 800px;
     background: rgba(255, 0, 0, 0.05);
     border: 1px solid rgba(255, 0, 0, 0.2);
     border-radius: 15px;
@@ -176,30 +226,6 @@ body {
     font-size: 1.2em;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .product-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .product-image,
-    .product-specifications {
-        flex: 0 1 100%;
-        max-width: 100%;
-    }
-}
-
-/* Additional Enhancements */
-* {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-::selection {
-    background: rgba(0, 170, 255, 0.3);
-    color: #ffffff;
-}
 /* Rodapé */
 .footer {
     background: rgba(0, 0, 0, 0.8);
@@ -248,21 +274,63 @@ body {
     color: #00aaff;
     transform: translateY(-3px);
 }
-/* Existing CSS... (previous improvements remain) */
 
-/* Purchase Button Styles */
-/* Purchase Button Styles */
-/* Existing purchase button styles remain the same for desktop */
-.product-image-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Responsividade */
+@media (max-width: 768px) {
+    .product-page h1 {
+        font-size: 2.5em;
+    }
+    
+    .product-image-container {
+        max-width: 450px;
+    }
+    
+    .card-image {
+        max-height: 400px;
+    }
+    
+    .product-specifications {
+        padding: 30px;
+    }
+    
+    .purchase-button {
+        padding: 12px 25px;
+        font-size: 18px;
+    }
+    
+    .warning-text {
+        padding: 20px;
+    }
 }
 
+@media (max-width: 480px) {
+    .product-page h1 {
+        font-size: 2em;
+    }
+    
+    .product-image-container {
+        max-width: 320px;
+    }
+    
+    .card-image {
+        max-height: 350px;
+    }
+    
+    .product-specifications {
+        padding: 20px;
+    }
+    
+    .purchase-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        top: -15px;
+    }
+}
+
+/* Mantém o botão de compra como está para desktop */
 .purchase-button {
     position: absolute;
-    top: 50px;
+    top: -20px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #00aaff;
@@ -283,16 +351,39 @@ body {
     transform: translateX(-50%) scale(1.05);
 }
 
-/* Mobile-specific adjustments */
+/* Ajustes específicos para mobile */
 @media (max-width: 768px) {
+    /* Reposiciona o botão de compra em dispositivos móveis */
     .purchase-button {
-        top: 20px; /* Move button higher up */
-        padding: 10px 20px; /* Reduce padding */
-        font-size: 16px; /* Smaller font size */
-        border-radius: 25px; /* Slightly smaller border radius */
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 80%;
+        margin: 0 auto 20px auto;
+        text-align: center;
+        display: block;
+        padding: 12px 20px;
+        font-size: 18px;
     }
     
     .purchase-button:hover {
-        transform: translateX(-50%) scale(1.03); /* Slightly reduced hover effect */
+        transform: scale(1.03);
+    }
+    
+    /* Ajusta o container da imagem para comportar o botão acima */
+    .product-image-container {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+    .purchase-button {
+        width: 90%;
+        padding: 10px 15px;
+        font-size: 16px;
     }
 }

@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /admin/
+
 Sitemap: https://www.overcel.com.br/sitemap.xml

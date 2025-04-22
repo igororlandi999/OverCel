@@ -3,32 +3,56 @@
    <!-- Página inicial -->
    <url>
       <loc>https://www.overcel.com.br/</loc>
-      <lastmod>2025-03-10</lastmod>
+      <lastmod>2025-04-22</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
    
    <!-- Página de produto 26V -->
    <url>
-      <loc>https://www.overcel.com.br/pages/26v.html</loc>
-      <lastmod>2025-03-10</lastmod>
+      <loc>https://www.overcel.com.br/pages/18650.html</loc>
+      <lastmod>2025-04-22</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    
    <!-- Página de produto 33V -->
    <url>
-      <loc>https://www.overcel.com.br/pages/33v.html</loc>
-      <lastmod>2025-03-10</lastmod>
+      <loc>https://www.overcel.com.br/pages/18650-33v.html</loc>
+      <lastmod>2025-04-22</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    
    <!-- Página de produto 35V -->
    <url>
-      <loc>https://www.overcel.com.br/pages/35v.html</loc>
-      <lastmod>2025-03-10</lastmod>
+      <loc>https://www.overcel.com.br/pages/18650-35v.html</loc>
+      <lastmod>2025-04-22</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
+   </url>
+   
+   <!-- Política de Privacidade -->
+   <url>
+      <loc>https://www.overcel.com.br/politica-privacidade.html</loc>
+      <lastmod>2025-04-22</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.5</priority>
+   </url>
+   
+   <!-- Termos e Condições -->
+   <url>
+      <loc>https://www.overcel.com.br/termos-condicoes.html</loc>
+      <lastmod>2025-04-22</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.5</priority>
+   </url>
+   
+   <!-- Blog (para futura implementação) -->
+   <url>
+      <loc>https://www.overcel.com.br/blog/</loc>
+      <lastmod>2025-04-22</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
    </url>
 </urlset>

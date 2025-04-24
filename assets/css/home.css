@@ -1,11 +1,3 @@
-/* 
-==============================================
-OVERCEL - ESTILOS PRINCIPAIS
-==============================================
-*/
-
-/* RESET & VARIÁVEIS
-============================================== */
 :root {
     /* Cores Principais */
     --primary: #00aaff;
@@ -2058,3 +2050,4 @@ select {
 .text-success { color: var(--success); }
 .text-warning { color: var(--warning); }
 .text-danger { color: var(--danger); }
+

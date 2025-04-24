@@ -12,8 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Habilitar animações após o preloader
         setTimeout(function() {
             document.body.classList.add('loaded');
-            initAnimations();
-        }, 300);
+            
+            // Inicializar animações apenas após o preloader
+            // Verificar se a função existe (para garantir que o script foi carregado)
+            if (typeof window.initScrollAnimations === 'function') {
+                window.initScrollAnimations();
+            }
+        }, 500); // Aumentado para 500ms para garantir que o preloader tenha tempo suficiente
     }, 1500);
     
     // Menu Mobile Toggle
@@ -191,40 +196,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animação das partículas de energia no hero
     initEnergyParticles();
 });
-
-// Inicializar animações com interseção observer
-function initAnimations() {
-    const animatedElements = document.querySelectorAll('.section-header, .produto-card, .aplicacao-card, .sobre-text, .sobre-image, .porque-item');
-    
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fadeIn');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Adicionar delays diferentes para criar um efeito cascata
-    animatedElements.forEach((el, index) => {
-        // Adicionar classes de delay baseadas no índice
-        if (index % 3 === 0) {
-            el.classList.add('animate-delay-1');
-        } else if (index % 3 === 1) {
-            el.classList.add('animate-delay-2');
-        } else {
-            el.classList.add('animate-delay-3');
-        }
-        
-        observer.observe(el);
-    });
-}
 
 // Criar e animar partículas de energia na seção hero
 function initEnergyParticles() {

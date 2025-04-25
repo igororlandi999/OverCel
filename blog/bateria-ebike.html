@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Guia Completo: Como Montar uma Bateria para E-Bike | Overcel</title>
+    <meta name="description" content="Tutorial passo a passo para montar sua própria bateria de bicicleta elétrica com células 18650, incluindo ferramentas necessárias, técnicas de soldagem e configurações recomendadas.">
+    <meta name="keywords" content="e-bike, bicicleta elétrica, bateria ebike, células 18650, montar bateria, diy baterias, kit bicicleta elétrica">
+    <meta name="author" content="Overcel">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.overcel.com.br/blog/guia-montagem-bateria-ebike.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.overcel.com.br/blog/guia-montagem-bateria-ebike.html">
+    <meta property="og:title" content="Guia Completo: Como Montar uma Bateria para E-Bike | Overcel">
+    <meta property="og:description" content="Tutorial passo a passo para montar sua própria bateria de bicicleta elétrica com células 18650, incluindo ferramentas necessárias, técnicas de soldagem e configurações recomendadas.">
+    <meta property="og:image" content="https://www.overcel.com.br/assets/images/blog/guia-montagem-ebike.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.overcel.com.br/blog/guia-montagem-bateria-ebike.html">
+    <meta property="twitter:title" content="Guia Completo: Como Montar uma Bateria para E-Bike | Overcel">
+    <meta property="twitter:description" content="Tutorial passo a passo para montar sua própria bateria de bicicleta elétrica com células 18650, incluindo ferramentas necessárias, técnicas de soldagem e configurações recomendadas.">
+    <meta property="twitter:image" content="https://www.overcel.com.br/assets/images/blog/guia-montagem-ebike.jpg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Blog Post Specific Styles */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .blog-post-header {
+            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .blog-post-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 170, 255, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(0, 120, 200, 0.1) 0%, transparent 20%);
+            z-index: 0;
+        }
+        
+        .blog-post-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .blog-post-category {
+            display: inline-block;
+            background: rgba(var(--primary-rgb), 0.2);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: var(--radius-md);
+            margin-bottom: 15px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all var(--transition-normal);
+        }
+        
+        .blog-post-category:hover {
+            background: rgba(var(--primary-rgb), 0.3);
+        }
+        
+        .blog-post-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .blog-post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .blog-post-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            padding: var(--spacing-xl) 0;
+            background-color: var(--darker);
+        }
+        
+        .blog-post-content {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .blog-post-image {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .blog-post-text {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .blog-post-text p {
+            margin-bottom: 20px;
+        }
+        
+        .blog-post-text h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 40px 0 20px;
+            position: relative;
+            padding-bottom: 10px;
+            scroll-margin-top: 100px;
+        }
+        
+        .blog-post-text h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-pill);
+        }
+        
+        .blog-post-text h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin: 30px 0 15px;
+            scroll-margin-top: 100px;
+        }
+        
+        .blog-post-text ul, 
+        .blog-post-text ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .blog-post-text li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .blog-post-text a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+        
+        .blog-post-text a:hover {
+            color: var(--primary-light);
+            text-decoration: underline;
+        }
+        
+        .blog-post-highlight {
+            background: rgba(var(--primary-rgb), 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 20px 25px;
+            margin: 30px 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+        
+        .blog-post-highlight.warning {
+            background: rgba(255, 59, 48, 0.1);
+            border-left: 4px solid #ff3b30;
+        }
+        
+        .blog-post-highlight.warning strong {
+            color: #ff3b30;
+        }
+        
+        .blog-post-highlight.tip {
+            background: rgba(52, 199, 89, 0.1);
+            border-left: 4px solid #34c759;
+        }
+        
+        .blog-post-highlight.tip strong {
+            color: #34c759;
+        }
+        
+        .blog-post-cta {
+            background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.2), rgba(var(--secondary-rgb), 0.2));
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .blog-post-cta h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .blog-post-cta p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        
+        .blog-post-cta .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+        }
+        
+        .blog-post-cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .blog-post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+        }
+        
+        .blog-post-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+        }
+        
+        .blog-post-tag:hover {
+            background: rgba(var(--primary-rgb), 0.2);
+            color: var(--primary);
+        }
+        
+        .blog-post-author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .blog-post-author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .blog-post-author-info {
+            flex: 1;
+        }
+        
+        .blog-post-author-name {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        
+        .blog-post-author-bio {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .blog-post-share {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .blog-post-share-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .blog-post-share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .blog-post-share-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all var(--transition-normal);
+        }
+        
+        .blog-post-share-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        .blog-post-share-button.facebook:hover {
+            background: #3b5998;
+            color: white;
+        }
+        
+        .blog-post-share-button.twitter:hover {
+            background: #1da1f2;
+            color: white;
+        }
+        
+        .blog-post-share-button.linkedin:hover {
+            background: #0077b5;
+            color: white;
+        }
+        
+        .blog-post-share-button.whatsapp:hover {
+            background: #25d366;
+            color: white;
+        }
+        
+        .blog-post-related {
+            margin-top: 60px;
+        }
+        
+        .blog-post-related-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .blog-post-related-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-pill);
+        }
+        
+        .blog-post-related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .blog-post-related-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all var(--transition-normal);
+            text-decoration: none;
+        }
+        
+        .blog-post-related-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .blog-post-related-image {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+        }
+        
+        .blog-post-related-info {
+            flex: 1;
+        }
+        
+        .blog-post-related-category {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .blog-post-related-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+        
+        .blog-post-related-title::after {
+            display: none;
+        }
+        
+        .blog-sidebar {
+            align-self: start;
+            position: sticky;
+            top: 30px;
+        }
+        
+        .sidebar-widget {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .sidebar-widget-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .sidebar-widget-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-pill);
+        }
+        
+        /* Table of Contents */
+        .blog-toc {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .blog-toc-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .blog-toc-link {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .blog-toc-link:last-child {
+            border-bottom: none;
+        }
+        
+        .blog-toc-link a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .blog-toc-link a:hover {
+            color: var(--primary);
+        }
+        
+        .blog-toc-link a i {
+            font-size: 0.7rem;
+            color: var(--primary);
+        }
+        
+        .blog-toc-sublinks {
+            list-style: none;
+            padding-left: 20px;
+            margin: 5px 0 0 0;
+        }
+        
+        .blog-toc-sublink {
+            padding: 5px 0;
+        }
+        
+        .blog-toc-sublink a {
+            font-size: 0.85rem;
+        }
+        
+        .step-image {
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            margin: 20px 0;
+            width: 100%;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .tool-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .tool-name {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .tool-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .materials-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .material-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px 15px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .material-icon {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .material-name {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        
+        .config-table th,
+        .config-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .config-table th {
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .config-table tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .config-table td {
+            color: var(--text-light);
+        }
+        
+        .step-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .step-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 991px) {
+            .blog-post-content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-sidebar {
+                position: static;
+            }
+            
+            .blog-post-related-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-grid,
+            .materials-list {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-post-title {
+                font-size: 2rem;
+            }
+            
+            .blog-post-content {
+                padding: 25px;
+            }
+            
+            .blog-post-author {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .blog-post-share {
+                justify-content: center;
+            }
+            
+            .step-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .step-number {
+                margin-right: 0;
+            }
+            
+            .tools-grid,
+            .materials-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo-container">
+                    <a href="/index.html" class="logo">
+                        <img src="/assets/images/logoo.png" alt="Overcel Logo" class="logo-img">
+                        <span class="logo-text">OVERCEL</span>
+                    </a>
+                </div>
+                
+                <div class="navbar-right">
+                    <a href="https://api.whatsapp.com/send?phone=5511999714280" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Comprar agora</span>
+                    </a>
+                    
+                    <div class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+                
+                <div class="menu-overlay"></div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Início</a></li>
+                    <li class="nav-item"><a href="/index.html#sobre" class="nav-link">Sobre Nós</a></li>
+                    <li class="nav-item"><a href="/index.html#produtos" class="nav-link">Produtos</a></li>
+                    <li class="nav-item"><a href="/index.html#aplicacoes" class="nav-link">Aplicações</a></li>
+                    <li class="nav-item"><a href="/index.html#contato" class="nav-link">Contato</a></li>
+                    <li class="nav-item"><a href="/blog/" class="nav-link active">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Post Header -->
+    <header class="blog-post-header">
+        <div class="blog-container">
+            <div class="blog-post-header-content">
+                <a href="/blog/categoria/bicicletas-eletricas.html" class="blog-post-category">Bicicletas Elétricas</a>
+                <h1 class="blog-post-title">Guia Completo: Como Montar uma Bateria para E-Bike</h1>
+                <div class="blog-post-meta">
+                    <span><i class="far fa-calendar-alt"></i> 10 Abr, 2025</span>
+                    <span><i class="far fa-clock"></i> 18 min de leitura</span>
+                    <span><i class="far fa-user"></i> Por Carlos Almeida</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Post Content -->
+    <div class="blog-container">
+        <div class="blog-post-content-wrapper">
+            <div class="blog-post-content">
+                <img src="/assets/images/blog/guia-montagem-ebike.jpg" alt="Montagem de bateria para E-Bike com células 18650" class="blog-post-image">
+                
+                <div class="blog-post-text">
+                    <p>As baterias são um dos componentes mais críticos de qualquer bicicleta elétrica, pois determinam diretamente a autonomia, potência e confiabilidade do sistema. Com o aumento da popularidade das e-bikes, muitos entusiastas têm optado por montar suas próprias baterias utilizando células 18650 de alta qualidade, seja para substituir baterias antigas, melhorar o desempenho ou reduzir custos.</p>
+                    
+                    <p>Neste guia completo, abordaremos todos os aspectos da montagem de uma bateria para e-bike, desde a escolha das células, planejamento da configuração, soldagem dos componentes, instalação do BMS e encapsulamento final. Nosso objetivo é fornecer um roteiro detalhado para que mesmo iniciantes possam construir baterias seguras e de alta performance.</p>
+                    
+                    <div class="blog-post-highlight warning">
+                        <strong>ATENÇÃO: Segurança em Primeiro Lugar!</strong><br>
+                        Trabalhar com células de lítio envolve riscos. Curtos-circuitos, sobrecargas ou uso de componentes inadequados podem causar incêndios ou explosões. Este guia é apenas informativo. Se você não tem experiência, considere buscar ajuda profissional ou optar por baterias pré-montadas.
+                    </div>
+                    
+                    <h2 id="materiais-ferramentas">1. Materiais e Ferramentas Necessárias</h2>
+                    
+                    <p>Antes de iniciar o projeto, vamos garantir que você tenha todos os componentes e ferramentas necessários para a montagem segura e eficiente de sua bateria.</p>
+                    
+                    <h3>Componentes Essenciais</h3>
+                    
+                    <div class="materials-list">
+                        <div class="material-item">
+                            <div class="material-icon"><i class="fas fa-battery-full"></i></div>
+                            <div class="material-name">Células 18650 (quantidade conforme configuração)</div>
+                        </div>
+                        <div class="material-item">
+                            <div class="material-icon"><i class="fas fa-microchip"></i></div>
+                            <div class="material-name">BMS (Battery Management System) compatível</div>
+                        </div>
+                        <div class="material-item">
+                            <div class="material-icon"><i class="fas fa-tape"></i></div>
+                            <div class="material-name">Nickel strips (0.15mm x 8mm)</div>
+                        </div>
+                        <div class="material-item">
+                            <div class="material-icon"><i class="fas fa-plug"></i></div>
+                            <div class="material-name">Fios de silicone (12-14 AWG)</div>
+                        </div>
+                        <div class="material-item">
+                            <div class="material-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="material-name">Conectores XT60/XT90 ou Anderson</div>
+                        </div>
+                        <div class="material-item">
+                            <div class="material-icon"><i class="fas fa-thermometer-half"></i></div>
+                            <div class="material-name">Sensores de temperatura NTC</div>
+                        </div>
+                        <div class="material-item">
+                            <div class="material-icon"><i class="fas fa-tape"></i></div>
+                            <div class="material-name">Fita Kapton e isolamento para células</div>
+                        </div>
+                        <div class="material-item">
+                            <div class="material-icon"><i class="fas fa-box"></i></div>
+                            <div class="material-name">Material para encapsulamento</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Ferramentas Necessárias</h3>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-tools"></i></div>
+                            <div class="tool-name">Spot Welder</div>
+                            <div class="tool-desc">Equipamento para solda por pontos, essencial para conectar as nickel strips às células com segurança</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="tool-name">Multímetro Digital</div>
+                            <div class="tool-desc">Para medir tensão, verificar polaridade e validar conexões durante todo o processo</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-balance-scale"></i></div>
+                            <div class="tool-name">Balanceador de Células</div>
+                            <div class="tool-desc">Para verificar e balancear individualmente células antes da montagem (opcional, mas recomendado)</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-plug"></i></div>
+                            <div class="tool-name">Carregador Adequado</div>
+                            <div class="tool-desc">Específico para a tensão final da bateria (36V, 48V ou 52V)</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-thermometer"></i></div>
+                            <div class="tool-name">Termômetro Infravermelho</div>
+                            <div class="tool-desc">Para monitorar a temperatura das células durante soldagem e testes iniciais</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-cut"></i></div>
+                            <div class="tool-name">Ferramentas de Corte</div>
+                            <div class="tool-desc">Tesoura resistente, alicate de corte e estilete para preparação de materiais</div>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-post-highlight tip">
+                        <strong>Dica importante:</strong> O spot welder é a ferramenta mais importante para esse projeto. Evite usar ferro de solda diretamente nas células, pois o calor excessivo pode danificá-las e comprometer a segurança.
+                    </div>
+                    
+                    <h2 id="planejamento">2. Planejamento da Configuração</h2>
+                    
+                    <p>Antes de iniciar a montagem física, é crucial planejar cuidadosamente a configuração da bateria, considerando a tensão, capacidade e espaço disponível na sua bicicleta.</p>
+                    
+                    <h3>Entendendo as Configurações Série-Paralelo</h3>
+                    
+                    <p>As baterias de e-bike são organizadas em configuração série-paralelo, geralmente descrita como "xSyP", onde:</p>
+                    <ul>
+                        <li><strong>xS</strong> = quantidade de células em série (determina a tensão)</li>
+                        <li><strong>yP</strong> = quantidade de células em paralelo (determina a capacidade)</li>
+                    </ul>
+                    
+                    <p>Por exemplo, uma configuração 13S4P significa 13 células em série (aproximadamente 48V) com 4 células em paralelo em cada grupo, totalizando 52 células.</p>
+                    
+                    <h3>Configurações Comuns para E-bikes</h3>
+                    
+                    <div class="step-box">
+                        <table class="config-table">
+                            <thead>
+                                <tr>
+                                    <th>Configuração</th>
+                                    <th>Tensão Nominal</th>
+                                    <th>Tensão Máxima</th>
+                                    <th>Aplicação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>7S (7 células em série)</td>
+                                    <td>25.2V</td>
+                                    <td>29.4V</td>
+                                    <td>E-bikes de baixa potência</td>
+                                </tr>
+                                <tr>
+                                    <td>10S (10 células em série)</td>
+                                    <td>36V</td>
+                                    <td>42V</td>
+                                    <td>E-bikes urbanas padrão</td>
+                                </tr>
+                                <tr>
+                                    <td>13S (13 células em série)</td>
+                                    <td>48V</td>
+                                    <td>54.6V</td>
+                                    <td>E-bikes de média potência</td>
+                                </tr>
+                                <tr>
+                                    <td>14S (14 células em série)</td>
+                                    <td>52V</td>
+                                    <td>58.8V</td>
+                                    <td>E-bikes de alta performance</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h3>Cálculo de Capacidade e Autonomia</h3>
+                    
+                    <p>A capacidade total da bateria depende da capacidade individual das células e da quantidade de grupos em paralelo:</p>
+                    
+                    <div class="blog-post-highlight">
+                        <strong>Capacidade (Ah) = Capacidade da célula (Ah) × Número de grupos em paralelo (P)</strong><br>
+                        Exemplo: Com células de 3500mAh (3.5Ah) em configuração 4P, a capacidade total é de 3.5Ah × 4 = 14Ah
+                    </div>
+                    
+                    <p>Para calcular a energia total da bateria, multiplicamos a tensão nominal pela capacidade:</p>
+                    
+                    <div class="blog-post-highlight">
+                        <strong>Energia (Wh) = Tensão (V) × Capacidade (Ah)</strong><br>
+                        Exemplo: Uma bateria 48V 14Ah tem energia total de 48V × 14Ah = 672Wh
+                    </div>
+                    
+                    <p>A autonomia estimada pode ser calculada considerando um consumo médio para e-bikes:</p>
+                    
+                    <div class="blog-post-highlight">
+                        <strong>Autonomia (km) = Energia (Wh) ÷ Consumo médio (Wh/km)</strong><br>
+                        Considerando um consumo médio de 15 Wh/km, uma bateria de 672Wh ofereceria aproximadamente 45km de autonomia.
+                    </div>
+                    
+                    <p>O consumo real varia conforme peso, terreno, velocidade e nível de assistência utilizado.</p>
+                    
+                    <div class="blog-post-cta">
+                        <h3>Não sabe qual configuração escolher?</h3>
+                        <p>Nossa equipe técnica pode ajudar a dimensionar a bateria ideal para seu projeto de e-bike, considerando seu orçamento, necessidades de autonomia e espaço disponível.</p>
+                        <a href="https://api.whatsapp.com/send?phone=5511999714280" class="btn">
+                            <i class="fab fa-whatsapp"></i> Falar com Especialista
+                        </a>
+                    </div>
+                    
+                    <h2 id="testando-celulas">3. Testando e Preparando as Células</h2>
+                    
+                    <p>Antes de iniciar a montagem, é essencial verificar e preparar adequadamente cada célula 18650. Este passo é fundamental para garantir performance, equilíbrio e segurança da bateria final.</p>
+                    
+                    <h3>Verificação Inicial das Células</h3>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">1</span>Inspeção Visual</h4>
+                        <p>Inspecione cada célula visualmente, procurando por:</p>
+                        <ul>
+                            <li>Danos físicos (amassados, riscos profundos)</li>
+                            <li>Sinais de vazamento</li>
+                            <li>Deformações na estrutura</li>
+                            <li>Terminais danificados</li>
+                        </ul>
+                        <p>Descarte imediatamente qualquer célula que apresente esses problemas.</p>
+                    </div>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">2</span>Medição de Tensão</h4>
+                        <p>Com um multímetro digital, meça a tensão de cada célula:</p>
+                        <ul>
+                            <li>Células novas devem apresentar entre 3.6V-3.7V</li>
+                            <li>Células com tensão abaixo de 3.0V devem ser descartadas ou recuperadas com carregamento especial</li>
+                            <li>Células com tensão acima de 4.2V indicam problema e devem ser descartadas</li>
+                        </ul>
+                        <img src="/assets/images/blog/medicao-celulas.jpg" alt="Medição de tensão em células 18650" class="step-image">
+                    </div>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">3</span>Agrupamento por Tensão</h4>
+                        <p>Para bateria bem balanceada, agrupe células com tensões similares:</p>
+                        <ul>
+                            <li>Organize células em grupos com diferença máxima de 0.02-0.05V</li>
+                            <li>Células do mesmo grupo paralelo devem ter tensões muito próximas</li>
+                            <li>Utilize planilha ou aplicativo para organizar os grupos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="blog-post-highlight">
+                        <strong>Por que o agrupamento é importante?</strong><br>
+                        Células com tensões diferentes em um mesmo grupo paralelo causarão correntes circulantes entre elas, gerando calor desnecessário e reduzindo a vida útil da bateria. Esse passo simples aumenta significativamente a performance e durabilidade do pack.
+                    </div>
+                    
+                    <h3>Teste de Capacidade (Opcional mas Recomendado)</h3>
+                    
+                    <p>Para packs maiores ou aplicações críticas, é recomendável testar a capacidade real de cada célula:</p>
+                    
+                    <ol>
+                        <li>Utilize um analisador de baterias ou carregador/descarregador inteligente</li>
+                        <li>Carregue completamente cada célula até 4.2V</li>
+                        <li>Descarregue com corrente baixa (0.5A) até 3.0V, medindo a capacidade real</li>
+                        <li>Agrupe células com capacidades similares (diferença máxima de 5%)</li>
+                    </ol>
+                    
+                    <img src="/assets/images/blog/teste-capacidade.jpg" alt="Testador de capacidade para células 18650" class="step-image">
+                    
+                    <h3>Preparação das Células para Montagem</h3>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">4</span>Limpeza dos Terminais</h4>
+                        <p>Prepare os terminais para garantir boa conexão elétrica:</p>
+                        <ul>
+                            <li>Limpe os terminais positivo e negativo com álcool isopropílico</li>
+                            <li>Utilize cotonete ou pano que não solte fiapos</li>
+                            <li>Certifique-se que os terminais estejam totalmente secos antes da soldagem</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">5</span>Isolamento</h4>
+                        <p>Isole as células para prevenir curtos-circuitos:</p>
+                        <ul>
+                            <li>Aplique fita Kapton nas laterais das células, especialmente próximo ao terminal positivo</li>
+                            <li>Utilize separadores plásticos entre células quando disponíveis</li>
+                            <li>Verifique se não há pontos metálicos expostos que possam causar curtos</li>
+                        </ul>
+                        <img src="/assets/images/blog/isolamento-celulas.jpg" alt="Isolamento de células 18650 com fita Kapton" class="step-image">
+                    </div>
+                    
+                    <h2 id="montagem-pack">4. Montagem do Pack de Baterias</h2>
+                    
+                    <p>Com as células testadas e preparadas, chegamos à fase de montagem física do pack. Esta é a etapa mais crítica do processo, onde a atenção aos detalhes e técnicas adequadas são fundamentais para a segurança e durabilidade da bateria.</p>
+                    
+                    <div class="blog-post-highlight warning">
+                        <strong>AVISO DE SEGURANÇA:</strong><br>
+                        Durante a montagem, mantenha ferramentas isoladas, ambiente organizado e tenha um extintor classe B ou C próximo. NUNCA coloque ferramentas metálicas sobre as células. Trabalhe com um grupo de células por vez para minimizar riscos.
+                    </div>
+                    
+                    <h3>Disposição e Suporte das Células</h3>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">1</span>Definição do Layout</h4>
+                        <p>Organize as células conforme a configuração planejada:</p>
+                        <ul>
+                            <li>Utilize gabaritos ou suportes específicos para 18650 (recomendado)</li>
+                            <li>Mantenha polaridades alternadas em configuração "zig-zag" para facilitar conexões</li>
+                            <li>Considere o formato final do pack e o espaço disponível na bicicleta</li>
+                        </ul>
+                        <img src="/assets/images/blog/layout-celulas.jpg" alt="Layout de células 18650 em suporte" class="step-image">
+                    </div>
+                    
+                    <p>A seguir, apresentamos alguns layouts comuns para diferentes configurações:</p>
+                    
+                    <div class="step-box">
+                        <table class="config-table">
+                            <thead>
+                                <tr>
+                                    <th>Configuração</th>
+                                    <th>Layout Sugerido</th>
+                                    <th>Dimensões Aproximadas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10S3P (30 células)</td>
+                                    <td>10×3 ou 6×5</td>
+                                    <td>65mm × 180mm × 80mm</td>
+                                </tr>
+                                <tr>
+                                    <td>13S4P (52 células)</td>
+                                    <td>13×4 ou 8×6.5</td>
+                                    <td>65mm × 260mm × 80mm</td>
+                                </tr>
+                                <tr>
+                                    <td>14S5P (70 células)</td>
+                                    <td>14×5 ou 10×7</td>
+                                    <td>70mm × 350mm × 80mm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h3>Conexão das Células (Soldagem)</h3>
+                    
+                    <div class="blog-post-highlight">
+                        <strong>Método preferencial: Spot Welding (solda por pontos)</strong><br>
+                        É o método mais seguro e recomendado, pois aplica energia concentrada por milissegundos, sem aquecer excessivamente a célula. A solda tradicional com estanho NÃO é recomendada, pois transfere muito calor às células.
+                    </div>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">2</span>Preparação das Nickel Strips</h4>
+                        <p>Corte as nickel strips no comprimento adequado para cada conexão:</p>
+                        <ul>
+                            <li>Utilize nickel strips de 0.15mm de espessura e 8mm de largura</li>
+                            <li>Para conexões em paralelo, corte tiras que cubram o polo de todas as células do grupo</li>
+                            <li>Para conexões em série, prepare tiras menores para conectar entre grupos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">3</span>Soldagem das Conexões Paralelas</h4>
+                        <p>Comece soldando todos os grupos em paralelo:</p>
+                        <ol>
+                            <li>Posicione a nickel strip sobre os terminais positivos do primeiro grupo paralelo</li>
+                            <li>Ajuste a potência do spot welder para o mínimo eficaz (comece baixo e aumente gradualmente)</li>
+                            <li>Aplique 2-3 pontos de solda em cada terminal</li>
+                            <li>Verifique a firmeza de cada ponto puxando suavemente a nickel strip</li>
+                            <li>Repita o processo para os terminais negativos e para todos os grupos paralelos</li>
+                        </ol>
+                        <img src="/assets/images/blog/soldagem-paralela.jpg" alt="Soldagem de conexões paralelas em células 18650" class="step-image">
+                    </div>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">4</span>Soldagem das Conexões em Série</h4>
+                        <p>Depois de concluir todos os grupos paralelos, faça as conexões em série:</p>
+                        <ol>
+                            <li>Conecte o terminal negativo do primeiro grupo ao positivo do segundo</li>
+                            <li>Continue o processo em "zig-zag" até conectar todos os grupos</li>
+                            <li>Deixe os terminais principal positivo (primeiro grupo) e principal negativo (último grupo) preparados para conexão ao BMS</li>
+                        </ol>
+                        <img src="/assets/images/blog/soldagem-serie.jpg" alt="Soldagem de conexões em série entre grupos de células" class="step-image">
+                    </div>
+                    
+                    <h3>Verificação das Conexões</h3>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">5</span>Medição de Tensão entre Grupos</h4>
+                        <p>Verifique a tensão em diferentes pontos:</p>
+                        <ul>
+                            <li>Meça a tensão total do pack (deve ser aproximadamente 3.6-3.7V × número de grupos em série)</li>
+                            <li>Meça a tensão entre cada grupo em série para garantir valores similares</li>
+                            <li>Verifique se não há curtos-circuitos com o multímetro</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="blog-post-highlight tip">
+                        <strong>Dica profissional:</strong><br>
+                        Após completar as soldagens, deixe o pack descansar por 24 horas e meça novamente as tensões. Variações significativas indicam possíveis problemas como microcurtos ou células desbalanceadas que precisam ser corrigidos antes de prosseguir.
+                    </div>
+                    
+                    <h2 id="instalacao-bms">5. Instalação do BMS</h2>
+                    
+                    <p>O BMS (Battery Management System) é o "cérebro" da sua bateria, responsável por proteger as células contra sobrecarga, sobredescarga, curtos-circuitos e desbalanceamento. Nunca monte uma bateria de lítio sem um BMS adequado!</p>
+                    
+                    <h3>Seleção do BMS Adequado</h3>
+                    
+                    <div class="step-box">
+                        <p>Escolha um BMS que atenda às seguintes especificações:</p>
+                        <ul>
+                            <li><strong>Número de células em série:</strong> Deve corresponder exatamente à sua configuração (10S, 13S, 14S)</li>
+                            <li><strong>Corrente nominal:</strong> Deve suportar a corrente máxima do motor (geralmente 15-30A contínuos para e-bikes)</li>
+                            <li><strong>Corrente de pico:</strong> Deve suportar 1.5-2x a corrente nominal para acelerações e subidas</li>
+                            <li><strong>Balanceamento:</strong> Preferencialmente com balanceamento ativo ou, no mínimo, passivo</li>
+                            <li><strong>Proteções:</strong> Sobrecarga, sobredescarga, sobrecorrente, curto-circuito e temperatura</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="blog-post-highlight">
+                        <strong>Recomendação:</strong><br>
+                        Para e-bikes urbanas (36V), recomendamos <a href="/produtos/bms-10s-30a.html">BMS 10S 30A com balanceamento</a>. Para bikes de trail/mountain (48-52V), sugerimos <a href="/produtos/bms-13s-40a.html">BMS 13S/14S 40A com monitoramento de temperatura</a>.
+                    </div>
+                    
+                    <h3>Preparação dos Cabos para BMS</h3>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">1</span>Identificação dos Cabos do BMS</h4>
+                        <p>Um BMS típico possui os seguintes cabos:</p>
+                        <ul>
+                            <li><strong>Cabos de potência:</strong> B- (negativo principal), P- (negativo de carga), B+ (positivo principal)</li>
+                            <li><strong>Cabos de balanceamento:</strong> Um fio para cada grupo em série (B1, B2, etc.)</li>
+                            <li><strong>Cabos opcionais:</strong> Sensores de temperatura, comunicação, etc.</li>
+                        </ul>
+                        <img src="/assets/images/blog/bms-cabos.jpg" alt="Cabos de um BMS típico para e-bike" class="step-image">
+                    </div>
+                    
+                    <h3>Conexão do BMS ao Pack</h3>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">2</span>Conexão dos Cabos de Balanceamento</h4>
+                        <p>Conecte os cabos de balanceamento na sequência correta:</p>
+                        <ol>
+                            <li>O fio B1 deve conectar ao negativo da primeira série</li>
+                            <li>O fio B2 deve conectar à junção entre a primeira e segunda série</li>
+                            <li>Siga esta lógica até o último fio de balanceamento</li>
+                        </ol>
+                        <p>Este é um processo minucioso que requer atenção a cada conexão. Um erro pode danificar o BMS ou a bateria.</p>
+                    </div>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">3</span>Conexão dos Cabos de Potência</h4>
+                        <p>Conecte os cabos principais do BMS:</p>
+                        <ol>
+                            <li>B- (negativo principal) ao terminal negativo do pack</li>
+                            <li>B+ (positivo principal) ao terminal positivo do pack</li>
+                            <li>P- (negativo de descarga) será conectado posteriormente à saída negativa do pack</li>
+                        </ol>
+                        <p>Utilize fios de silicone de alta corrente (12-14 AWG) para essas conexões.</p>
+                    </div>
+                    
+                    <div class="blog-post-highlight warning">
+                        <strong>Atenção:</strong><br>
+                        Um erro comum é inverter os cabos de balanceamento. Sempre siga o diagrama específico do seu modelo de BMS. Conexões incorretas podem danificar o BMS e até mesmo causar incêndio.
+                    </div>
+                    
+                    <h3>Instalação dos Sensores de Temperatura</h3>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">4</span>Posicionamento Estratégico</h4>
+                        <p>Se seu BMS possuir sensores NTC:</p>
+                        <ul>
+                            <li>Instale um sensor no centro do pack, onde o calor tende a se acumular</li>
+                            <li>Posicione outro sensor próximo às células que receberão maior carga durante a operação</li>
+                            <li>Fixe os sensores com fita Kapton, garantindo bom contato térmico</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Teste Inicial do BMS</h3>
+                    
+                    <div class="step-box">
+                        <h4 class="step-title"><span class="step-number">5</span>Verificação Preliminar</h4>
+                        <p>Antes de fechar o encapsulamento:</p>
+                        <ol>
+                            <li>Verifique todas as conexões visualmente</li>
+                            <li>Meça a tensão de saída do pack</li>
+                            <li>Teste as funções de proteção do BMS com cargas controladas (se possível)</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="blog-post-cta">
+                        <h3>Com dúvidas sobre o BMS ideal?</h3>
+                        <p>O BMS correto é essencial para a segurança e durabilidade da sua bateria. Entre em contato para orientação personalizada sobre o modelo mais adequado para seu projeto.</p>
+                        <a href="https://api.whatsapp.com/send?phone=5511999714280" class="btn">
+                            <i class="fab fa-whatsapp"></i> Consultar Especialista
+                        </a>
+                    </div>
+                    
+                    <h2 id="encapsulamento">6. Encapsulamento da Bateria</h2>
+                    
+                    <p>O encapsulamento protege sua bateria contra impactos, umidade e poeira, além de facilitar a instalação na bicicleta. Esta etapa é crucial para garantir a durabilidade do sistema em condições reais de uso.</p>
+                    
+                    <h3>Opções de Encapsulamento</h3>
+                    
+                    <div class="step-box">
+                        <p>Existem três abordagens principais para o encapsulamento:</p>
+                        
+                        <h4>1. Case Plástico Pré-fabricado</h4>
+                        <ul>
+                            <img src="/assets/images/aplicacoes/ebike-card.jpg" alt="Aplicações em Bicicletas Elétricas" class="blog-post-related-image">
+                            <div class="blog-post-related-info">
+                                <span class="blog-post-related-category">Aplicações</span>
+                                <h4 class="blog-post-related-title">Células 18650 para Bicicletas Elétricas</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="blog-sidebar">
+            <div class="sidebar-widget">
+                <h3 class="sidebar-widget-title">Índice do Artigo</h3>
+                <div class="blog-toc">
+                    <ul class="blog-toc-links">
+                        <li class="blog-toc-link">
+                            <a href="#materiais-ferramentas">
+                                <i class="fas fa-chevron-right"></i> 1. Materiais e Ferramentas
+                            </a>
+                        </li>
+                        <li class="blog-toc-link">
+                            <a href="#planejamento">
+                                <i class="fas fa-chevron-right"></i> 2. Planejamento da Configuração
+                            </a>
+                        </li>
+                        <li class="blog-toc-link">
+                            <a href="#testando-celulas">
+                                <i class="fas fa-chevron-right"></i> 3. Testando e Preparando as Células
+                            </a>
+                        </li>
+                        <li class="blog-toc-link">
+                            <a href="#montagem-pack">
+                                <i class="fas fa-chevron-right"></i> 4. Montagem do Pack
+                            </a>
+                        </li>
+                        <li class="blog-toc-link">
+                            <a href="#instalacao-bms">
+                                <i class="fas fa-chevron-right"></i> 5. Instalação do BMS
+                            </a>
+                        </li>
+                        <li class="blog-toc-link">
+                            <a href="#encapsulamento">
+                                <i class="fas fa-chevron-right"></i> 6. Encapsulamento da Bateria
+                            </a>
+                            <ul class="blog-toc-sublinks">
+                                <li class="blog-toc-sublink">
+                                    <a href="#opcoes-encapsulamento">
+                                        <i class="fas fa-dot-circle"></i> Opções de Encapsulamento
+                                    </a>
+                                </li>
+                                <li class="blog-toc-sublink">
+                                    <a href="#passo-encapsulamento">
+                                        <i class="fas fa-dot-circle"></i> Passo a Passo
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="blog-toc-link">
+                            <a href="#teste-verificacao">
+                                <i class="fas fa-chevron-right"></i> 7. Teste e Verificação
+                            </a>
+                        </li>
+                        <li class="blog-toc-link">
+                            <a href="#instalacao-bike">
+                                <i class="fas fa-chevron-right"></i> 8. Instalação na Bicicleta
+                            </a>
+                        </li>
+                        <li class="blog-toc-link">
+                            <a href="#manutencao-cuidados">
+                                <i class="fas fa-chevron-right"></i> 9. Manutenção e Cuidados
+                            </a>
+                        </li>
+                        <li class="blog-toc-link">
+                            <a href="#seguranca">
+                                <i class="fas fa-chevron-right"></i> 10. Considerações de Segurança
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3 class="sidebar-widget-title">Materiais Recomendados</h3>
+                <div class="sidebar-posts">
+                    <div class="sidebar-post">
+                        <img src="/assets/images/celulas/bateria-18650-33v.jpg" alt="Célula 18650 33V" class="sidebar-post-image">
+                        <div class="sidebar-post-info">
+                            <a href="/pages/18650-33v.html" class="sidebar-post-title">Células 18650 33V - Ideal para E-bikes</a>
+                            <span class="sidebar-post-date">3300mAh | 10A | 500+ ciclos</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-post">
+                        <img src="/assets/images/celulas/bateria-18650-35v.jpg" alt="Célula 18650 35V" class="sidebar-post-image">
+                        <div class="sidebar-post-info">
+                            <a href="/pages/18650-35v.html" class="sidebar-post-title">Células 18650 35V - Performance Superior</a>
+                            <span class="sidebar-post-date">3500mAh | 10.2A | 500+ ciclos</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-post">
+                        <img src="/assets/images/produtos/bms-13s-40a.jpg" alt="BMS 13S 40A" class="sidebar-post-image">
+                        <div class="sidebar-post-info">
+                            <a href="/produtos/bms-13s-40a.html" class="sidebar-post-title">BMS 13S 40A com Balanceamento</a>
+                            <span class="sidebar-post-date">Ideal para E-bikes 48V</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3 class="sidebar-widget-title">Ferramentas Essenciais</h3>
+                <div class="sidebar-posts">
+                    <div class="sidebar-post">
+                        <div class="sidebar-post-info">
+                            <a href="/produtos/spot-welder.html" class="sidebar-post-title">Spot Welder para Baterias</a>
+                            <span class="sidebar-post-date">Solda por pontos segura para células 18650</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-post">
+                        <div class="sidebar-post-info">
+                            <a href="/produtos/nickel-strips.html" class="sidebar-post-title">Nickel Strips 0.15mm</a>
+                            <span class="sidebar-post-date">Para conexões de alta qualidade</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-post">
+                        <div class="sidebar-post-info">
+                            <a href="/produtos/cases-e-suportes.html" class="sidebar-post-title">Cases e Suportes para E-bikes</a>
+                            <span class="sidebar-post-date">Diversos modelos disponíveis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-widget sidebar-cta">
+                <h3 class="sidebar-cta-title">Precisa de Ajuda com seu Projeto?</h3>
+                <p class="sidebar-cta-text">Nossa equipe pode orientar na escolha de componentes, montagem e manutenção da sua bateria de e-bike.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511999714280" class="sidebar-cta-button">
+                    <i class="fab fa-whatsapp"></i> Falar com Especialista
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Newsletter -->
+<div class="blog-container">
+    <div class="blog-newsletter">
+        <h3 class="blog-newsletter-title">Inscreva-se no Nosso Newsletter</h3>
+        <p class="blog-newsletter-subtitle">Receba novidades, tutoriais e ofertas exclusivas diretamente no seu e-mail.</p>
+        <form class="blog-newsletter-form">
+            <input type="email" class="blog-newsletter-input" placeholder="Seu melhor e-mail" required>
+            <button type="submit" class="blog-newsletter-button">Inscrever-se</button>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="enhanced-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-newsletter">
+                <div class="newsletter-content">
+                    <h3 class="newsletter-title">Receba Novidades e Ofertas Exclusivas</h3>
+                    <p class="newsletter-text">
+                        Inscreva-se para receber atualizações sobre novos produtos, promoções e conteúdo técnico.
+                    </p>
+                </div>
+                <div class="newsletter-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="email" placeholder="Seu e-mail" required />
+                            <button type="submit" class="btn btn-primary">
+                                Inscrever-se
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-main">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="/assets/images/logoo.png" alt="Overcel Logo" class="footer-logo-img" />
+                        <p>OVERCEL</p>
+                    </div>
+                    <p class="footer-tagline">Células de Bateria 18650 Importadas para Fabricantes de Baterias</p>
+                    <div class="footer-social">
+                        <a
+                            href="https://www.instagram.com/overcel.br/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon"
+                        >
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a
+                            href="https://www.youtube.com/@Overcelbr"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon"
+                        >
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/company/105758085/admin/dashboard/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon"
+                        >
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h3>Produtos</h3>
+                        <ul>
+                            <li><a href="/pages/18650-26v.html">Células 18650 26V</a></li>
+                            <li><a href="/pages/18650-33v.html">Células 18650 33V</a></li>
+                            <li><a href="/pages/18650-35v.html">Células 18650 35V</a></li>
+                            <li><a href="/produtos/comparativo-celulas.html">Comparativo</a></li>
+                            <li><a href="/produtos/guia-escolha.html">Guia de Escolha</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-links-column">
+                        <h3>Aplicações</h3>
+                        <ul>
+                            <li><a href="/aplicacoes/bicicletas-eletricas.html">Bicicletas Elétricas</a></li>
+                            <li><a href="/aplicacoes/patinetes-eletricos.html">Patinetes Elétricos</a></li>
+                            <li><a href="/aplicacoes/energia-solar.html">Energia Solar</a></li>
+                            <li><a href="/aplicacoes/ferramentas-eletricas.html">Ferramentas</a></li>
+                            <li><a href="/aplicacoes/ups-nobreaks.html">UPS e Nobreaks</a></li>
+                            <li><a href="/aplicacoes/aplicacoes-industriais.html">Aplicações Industriais</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-links-column">
+                        <h3>Recursos</h3>
+                        <ul>
+                            <li><a href="/recursos/glossario.html">Glossário Técnico</a></li>
+                            <li><a href="/recursos/calculadora-bateria.html">Calculadora</a></li>
+                            <li><a href="/recursos/guia-montagem.html">Guia de Montagem</a></li>
+                            <li><a href="/recursos/dicas-seguranca.html">Dicas de Segurança</a></li>
+                            <li><a href="/sitemap.html">Mapa do Site</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-links-column">
+                        <h3>Empresa</h3>
+                        <ul>
+                            <li><a href="/sobre-nos.html">Sobre Nós</a></li>
+                            <li><a href="/contato.html">Contato</a></li>
+                            <li><a href="/parceiros.html">Parceiros</a></li>
+                            <li><a href="/depoimentos.html">Depoimentos</a></li>
+                            <li><a href="/politica-privacidade.html">Privacidade</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>WhatsApp</h4>
+                        <a href="https://api.whatsapp.com/send?phone=5511999714280">+55 (11) 99971-4280</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>E-mail</h4>
+                        <a href="mailto:contato@overcel.com.br">contato@overcel.com.br</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Localização</h4>
+                        <p>São Paulo, SP - Brasil</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <div class="copyright">
+                    <p>&copy; 2025 Overcel - Todos os direitos reservados</p>
+                </div>
+
+                <div class="footer-bottom-links">
+                    <a href="/termos-condicoes.html">Termos e Condições</a>
+                    <a href="/politica-cookies.html">Política de Cookies</a>
+                    <a href="/politica-devolucao.html">Política de Devolução</a>
+                    <a href="/sitemap.html">Mapa do Site</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- WhatsApp Fixed Button -->
+<a href="https://api.whatsapp.com/send?phone=5511999714280" class="whatsapp-fixed">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Scripts -->
+<script src="/assets/js/main.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Accordion functionality for any accordion elements
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        if (accordionItems.length > 0) {
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+                
+                header.addEventListener('click', function() {
+                    item.classList.toggle('active');
+                });
+            });
+        }
+        
+        // Smooth scroll for TOC links
+        const tocLinks = document.querySelectorAll('.blog-toc-link a, .blog-toc-sublink a');
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>     

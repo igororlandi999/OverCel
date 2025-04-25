@@ -1,7 +1,26 @@
+# robots.txt otimizado para Overcel
 User-agent: *
 Allow: /
 Disallow: /assets/js/
 Disallow: /assets/css/
 Disallow: /admin/
 
+# Bloqueio de arquivos específicos que não devem ser indexados
+Disallow: /*.pdf$
+Disallow: /*?*
+
+# Permissões específicas para bots importantes
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Sitemaps
 Sitemap: https://www.overcel.com.br/sitemap.xml
+Sitemap: https://www.overcel.com.br/sitemap-products.xml

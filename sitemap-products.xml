@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+   <!-- Páginas de Produtos -->
+   <url>
+      <loc>https://www.overcel.com.br/pages/18650-26v.html</loc>
+      <lastmod>2025-04-25</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://www.overcel.com.br/assets/images/celulas/bateria-18650-26v.jpg</image:loc>
+         <image:title>Célula 18650 26V Overcel</image:title>
+         <image:caption>Célula de bateria 18650 26V com 2600mAh de capacidade</image:caption>
+      </image:image>
+   </url>
+   <url>
+      <loc>https://www.overcel.com.br/pages/18650-33v.html</loc>
+      <lastmod>2025-04-25</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://www.overcel.com.br/assets/images/celulas/bateria-18650-33v.jpg</image:loc>
+         <image:title>Célula 18650 33V Overcel</image:title>
+         <image:caption>Célula de bateria 18650 33V com 3300mAh de capacidade</image:caption>
+      </image:image>
+   </url>
+   <url>
+      <loc>https://www.overcel.com.br/pages/18650-35v.html</loc>
+      <lastmod>2025-04-25</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://www.overcel.com.br/assets/images/celulas/bateria-18650-35v.jpg</image:loc>
+         <image:title>Célula 18650 35V Overcel</image:title>
+         <image:caption>Célula de bateria 18650 35V com 3500mAh de capacidade</image:caption>
+      </image:image>
+   </url>
+</urlset>

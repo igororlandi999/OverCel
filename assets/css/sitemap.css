@@ -1,0 +1,98 @@
+.sitemap-container {
+    padding: 60px 0;
+    background-color: var(--darker);
+  }
+  
+  .sitemap-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .sitemap-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 15px;
+  }
+  
+  .sitemap-description {
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .sitemap-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .sitemap-section {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-lg);
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .sitemap-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .sitemap-section-title i {
+    font-size: 1.1rem;
+  }
+  
+  .sitemap-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sitemap-links li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 15px;
+  }
+  
+  .sitemap-links li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .sitemap-links li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+  }
+  
+  .sitemap-links a {
+    color: var(--text-muted);
+    transition: color var(--transition-normal);
+  }
+  
+  .sitemap-links a:hover {
+    color: var(--primary);
+  }
+  
+  @media (max-width: 768px) {
+    .sitemap-container {
+      padding: 40px 0;
+    }
+  
+    .sitemap-title {
+      font-size: 2rem;
+    }
+  
+    .sitemap-content {
+      grid-template-columns: 1fr;
+    }
+  }

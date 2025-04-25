@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Blog Técnico sobre Células 18650 e Suas Aplicações | Overcel</title>
+    <meta name="description" content="Blog especializado em células de bateria 18650, com artigos técnicos, guias, comparativos e novidades sobre aplicações em bicicletas elétricas, energia solar, ferramentas e muito mais.">
+    <meta name="keywords" content="células 18650, baterias de lítio, blog técnico, baterias, bicicletas elétricas, energia solar, ferramentas elétricas, UPS, nobreaks, aplicações industriais">
+    <meta name="author" content="Overcel">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.overcel.com.br/blog/index.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.overcel.com.br/blog/index.html">
+    <meta property="og:title" content="Blog Técnico sobre Células 18650 e Suas Aplicações | Overcel">
+    <meta property="og:description" content="Blog especializado em células de bateria 18650, com artigos técnicos, guias, comparativos e novidades sobre aplicações em bicicletas elétricas, energia solar, ferramentas e muito mais.">
+    <meta property="og:image" content="https://www.overcel.com.br/assets/images/blog/blog-hero.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.overcel.com.br/blog/index.html">
+    <meta property="twitter:title" content="Blog Técnico sobre Células 18650 e Suas Aplicações | Overcel">
+    <meta property="twitter:description" content="Blog especializado em células de bateria 18650, com artigos técnicos, guias, comparativos e novidades sobre aplicações em bicicletas elétricas, energia solar, ferramentas e muito mais.">
+    <meta property="twitter:image" content="https://www.overcel.com.br/assets/images/blog/blog-hero.jpg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Blog Specific Styles */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .blog-hero {
+            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .blog-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 170, 255, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(0, 120, 200, 0.1) 0%, transparent 20%);
+            z-index: 0;
+        }
+        
+        .blog-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .blog-hero-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-light);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .blog-hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto var(--spacing-lg);
+        }
+        
+        .blog-search {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .blog-search-form {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .blog-search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 15px 20px;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .blog-search-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .blog-search-button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+        
+        .blog-search-button:hover {
+            background: var(--primary);
+        }
+        
+        .blog-categories {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .blog-categories-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .blog-category-item a {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            font-size: 0.9rem;
+        }
+        
+        .blog-category-item a:hover,
+        .blog-category-item a.active {
+            background: rgba(var(--primary-rgb), 0.2);
+            color: var(--primary);
+        }
+        
+        .blog-main {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--darker);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .blog-post-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .blog-post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .blog-post-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+        
+        .blog-post-card:hover .blog-post-image {
+            transform: scale(1.05);
+        }
+        
+        .blog-post-content {
+            padding: 25px;
+        }
+        
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .blog-post-category {
+            background: rgba(var(--primary-rgb), 0.2);
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+        }
+        
+        .blog-post-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .blog-post-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .blog-post-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+        
+        .blog-post-title a:hover {
+            color: var(--primary);
+        }
+        
+        .blog-post-excerpt {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .blog-post-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+        
+        .blog-post-link:hover {
+            color: var(--primary-light);
+        }
+        
+        .blog-post-link i {
+            font-size: 0.8rem;
+            transition: transform var(--transition-normal);
+        }
+        
+        .blog-post-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        .blog-pagination {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .blog-pagination-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all var(--transition-normal);
+        }
+        
+        .blog-pagination-link:hover,
+        .blog-pagination-link.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .blog-featured {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .blog-section-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .blog-section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-pill);
+        }
+        
+        .blog-featured-posts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .blog-featured-main {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+            height: 100%;
+        }
+        
+        .blog-featured-main .blog-post-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-featured-main .blog-post-image {
+            height: 300px;
+        }
+        
+        .blog-featured-secondary .blog-post-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        
+        .blog-featured-secondary .blog-post-image {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+        }
+        
+        .blog-featured-secondary .blog-post-content {
+            flex: 1;
+        }
+        
+        .blog-featured-secondary .blog-post-title {
+            font-size: 1.1rem;
+        }
+        
+        .blog-featured-secondary .blog-post-excerpt {
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .blog-sidebar {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .blog-sidebar-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .blog-sidebar-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .blog-sidebar-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .blog-sidebar-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .blog-sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+        
+        .blog-sidebar-link:hover {
+            color: var(--primary);
+        }
+        
+        .blog-sidebar-link i {
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+        
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .blog-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+        }
+        
+        .blog-tag:hover {
+            background: rgba(var(--primary-rgb), 0.2);
+            color: var(--primary);
+        }
+        
+        .blog-newsletter {
+            background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.3), rgba(var(--secondary-rgb), 0.3));
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+        
+        .blog-newsletter-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        .blog-newsletter-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        
+        .blog-newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .blog-newsletter-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+            padding: 12px 15px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .blog-newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .blog-newsletter-button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: 0 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+        
+        .blog-newsletter-button:hover {
+            background: var(--primary);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 991px) {
+            .blog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .blog-featured-posts {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-featured-main {
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .blog-featured-secondary .blog-post-card {
+                flex-direction: column;
+            }
+            
+            .blog-featured-secondary .blog-post-image {
+                width: 100%;
+                height: 180px;
+            }
+            
+            .blog-newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .blog-newsletter-input,
+            .blog-newsletter-button {
+                border-radius: var(--radius-md);
+                width: 100%;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo-container">
+                    <a href="/index.html" class="logo">
+                        <img src="/assets/images/logoo.png" alt="Overcel Logo" class="logo-img">
+                        <span class="logo-text">OVERCEL</span>
+                    </a>
+                </div>
+                
+                <div class="navbar-right">
+                    <a href="https://api.whatsapp.com/send?phone=5511999714280" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Comprar agora</span>
+                    </a>
+                    
+                    <div class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+                
+                <div class="menu-overlay"></div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Início</a></li>
+                    <li class="nav-item"><a href="/index.html#sobre" class="nav-link">Sobre Nós</a></li>
+                    <li class="nav-item"><a href="/index.html#produtos" class="nav-link">Produtos</a></li>
+                    <li class="nav-item"><a href="/index.html#aplicacoes" class="nav-link">Aplicações</a></li>
+                    <li class="nav-item"><a href="/index.html#contato" class="nav-link">Contato</a></li>
+                    <li class="nav-item"><a href="/blog/" class="nav-link active">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="blog-container">
+            <div class="blog-hero-content">
+                <h1 class="blog-hero-title">Blog Técnico Overcel</h1>
+                <p class="blog-hero-subtitle">Artigos especializados, tutoriais e novidades sobre células 18650 e suas aplicações</p>
+                
+                <div class="blog-search">
+                    <form class="blog-search-form">
+                        <input type="text" class="blog-search-input" placeholder="Buscar artigos...">
+                        <button type="submit" class="blog-search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <div class="blog-categories">
+        <div class="blog-container">
+            <ul class="blog-categories-list">
+                <li class="blog-category-item"><a href="#" class="active">Todos</a></li>
+                <li class="blog-category-item"><a href="#">Bicicletas Elétricas</a></li>
+                <li class="blog-category-item"><a href="#">Energia Solar</a></li>
+                <li class="blog-category-item"><a href="#">Ferramentas</a></li>
+                <li class="blog-category-item"><a href="#">UPS & Nobreaks</a></li>
+                <li class="blog-category-item"><a href="#">Aplicações Industriais</a></li>
+                <li class="blog-category-item"><a href="#">Tutoriais</a></li>
+                <li class="blog-category-item"><a href="#">Tecnologia</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Blog Main Content -->
+    <main class="blog-main">
+        <div class="blog-container">
+            <div class="blog-featured">
+                <h2 class="blog-section-title">Artigos em Destaque</h2>
+                
+                <div class="blog-featured-posts">
+                    <div class="blog-featured-main">
+                        <article class="blog-post-card">
+                            <img src="/assets/images/blog/proteja.png" alt="BMS Explicado" class="blog-post-image">
+                            <div class="blog-post-content">
+                                <div class="blog-post-meta">
+                                    <a href="#" class="blog-post-category">Tecnologia</a>
+                                    <span class="blog-post-date">
+                                        <i class="far fa-calendar-alt"></i> 20 Abr, 2025
+                                    </span>
+                                </div>
+                                <h3 class="blog-post-title">
+                                    <a href="/blog/bms-explicado.html">BMS Explicado: Protegendo sua Bateria de Lítio em Todas as Aplicações</a>
+                                </h3>
+                                <p class="blog-post-excerpt">
+                                    Entenda o que é um BMS (Battery Management System), como ele funciona e por que é essencial para qualquer aplicação com baterias de lítio. Neste artigo completo, explicamos as funções principais, tipos de BMS disponíveis e como escolher o ideal para seu projeto.
+                                </p>
+                                <a href="/blog/bms-explicado.html" class="blog-post-link">
+                                    Ler mais <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <div class="blog-featured-secondary">
+                        <article class="blog-post-card">
+                            <img src="/assets/images/blog/montar-ebike.png" alt="Guia Montagem de Baterias para E-Bikes" class="blog-post-image">
+                            <div class="blog-post-content">
+                                <div class="blog-post-meta">
+                                    <a href="#" class="blog-post-category">Bicicletas Elétricas</a>
+                                </div>
+                                <h3 class="blog-post-title">
+                                    <a href="/blog/guia-montagem-bateria-ebike.html">Guia Completo: Como Montar uma Bateria para E-Bike</a>
+                                </h3>
+                                <p class="blog-post-excerpt">
+                                    Tutorial passo a passo para montar sua própria bateria de bicicleta elétrica com células 18650, incluindo ferramentas necessárias, técnicas de soldagem e configurações recomendadas.
+                                </p>
+                                <a href="/blog/guia-montagem-bateria-ebike.html" class="blog-post-link">
+                                    Ler mais <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <div class="blog-featured-secondary">
+                        <article class="blog-post-card">
+                            <img src="/assets/images/blog/comparativo-baterias.jpg" alt="Comparativo Baterias" class="blog-post-image">
+                            <div class="blog-post-content">
+                                <div class="blog-post-meta">
+                                    <a href="#" class="blog-post-category">Energia Solar</a>
+                                </div>
+                                <h3 class="blog-post-title">
+                                    <a href="/blog/comparativo-baterias-solares.html">Comparativo: Diferentes Tecnologias de Armazenamento</a>
+                                </h3>
+                                <p class="blog-post-excerpt">
+                                    Análise detalhada comparando baterias de lítio 18650, chumbo-ácido e outras tecnologias para sistemas de energia solar, com foco em custo-benefício a longo prazo.
+                                </p>
+                                <a href="/blog/comparativo-baterias-solares.html" class="blog-post-link">
+                                    Ler mais <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-content">
+                <h2 class="blog-section-title">Artigos Recentes</h2>
+                
+                <div class="blog-grid">
+                    <article class="blog-post-card">
+                        <img src="/aplicacoes/ups-nobreak.html" alt="Dimensionamento UPS" class="blog-post-image">
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <a href="#" class="blog-post-category">UPS & Nobreaks</a>
+                                <span class="blog-post-date">
+                                    <i class="far fa-calendar-alt"></i> 25 Abr, 2025
+                                </span>
+                            </div>
+                            <h3 class="blog-post-title">
+                                <a href="/aplicacoes/ups-nobreak.html">Guia Completo: Como Dimensionar um UPS</a>
+                            </h3>
+                            <p class="blog-post-excerpt">
+                                Aprenda a calcular corretamente a capacidade necessária para seu sistema UPS, considerando consumo, autonomia desejada e outros fatores críticos.
+                            </p>
+                            <a href="/aplicacoes/ups-nobreak.html" class="blog-post-link">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post-card">
+                        <img src="/assets/images/blog/recondicionar-baterias.jpg" alt="Recondicionar Baterias" class="blog-post-image">
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <a href="#" class="blog-post-category">Ferramentas</a>
+                                <span class="blog-post-date">
+                                    <i class="far fa-calendar-alt"></i> 23 Abr, 2025
+                                </span>
+                            </div>
+                            <h3 class="blog-post-title">
+                                <a href="/blog/recondicionar-baterias-ferramentas.html">Guia: Como Recondicionar Baterias de Ferramentas Elétricas</a>
+                            </h3>
+                            <p class="blog-post-excerpt">
+                                Tutorial detalhado sobre como dar nova vida às suas ferramentas elétricas substituindo as células da bateria por novas células 18650 de alta performance.
+                            </p>
+                            <a href="/blog/recondicionar-baterias-ferramentas.html" class="blog-post-link">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post-card">
+                        <img src="/assets/images/blog/agvs-industriais.jpg" alt="AGVs Industriais" class="blog-post-image">
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <a href="#" class="blog-post-category">Aplicações Industriais</a>
+                                <span class="blog-post-date">
+                                    <i class="far fa-calendar-alt"></i> 22 Abr, 2025
+                                </span>
+                            </div>
+                            <h3 class="blog-post-title">
+                                <a href="/blog/baterias-agvs-industriais.html">Guia Completo: Baterias para AGVs Industriais</a>
+                            </h3>
+                            <p class="blog-post-excerpt">
+                                Como projetar sistemas de bateria otimizados para veículos guiados automaticamente (AGVs) em ambientes industriais, com foco em autonomia e durabilidade.
+                            </p>
+                            <a href="/blog/baterias-agvs-industriais.html" class="blog-post-link">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post-card">
+                        <img src="/assets/images/blog/instalacao-off-grid.jpg" alt="Instalação Off-Grid" class="blog-post-image">
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <a href="#" class="blog-post-category">Energia Solar</a>
+                                <span class="blog-post-date">
+                                    <i class="far fa-calendar-alt"></i> 20 Abr, 2025
+                                </span>
+                            </div>
+                            <h3 class="blog-post-title">
+                                <a href="/blog/instalacao-sistema-off-grid.html">Passo a Passo: Instalação de Sistema Off-Grid</a>
+                            </h3>
+                            <p class="blog-post-excerpt">
+                                Tutorial completo sobre como instalar um sistema de energia solar off-grid com armazenamento em baterias de lítio 18650, desde o dimensionamento até a configuração.
+                            </p>
+                            <a href="/blog/instalacao-sistema-off-grid.html" class="blog-post-link">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post-card">
+                        <img src="/assets/images/blog/cuidados-baterias.jpg" alt="Cuidados com Baterias" class="blog-post-image">
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <a href="#" class="blog-post-category">Tutoriais</a>
+                                <span class="blog-post-date">
+                                    <i class="far fa-calendar-alt"></i> 18 Abr, 2025
+                                </span>
+                            </div>
+                            <h3 class="blog-post-title">
+                                <a href="/blog/cuidados-com-baterias-de-litio.html">Cuidados Essenciais com Baterias de Lítio</a>
+                            </h3>
+                            <p class="blog-post-excerpt">
+                                Aprenda as melhores práticas para maximizar a vida útil e segurança das suas baterias de lítio em qualquer aplicação, desde o armazenamento até a operação diária.
+                            </p>
+                            <a href="/blog/cuidados-com-baterias-de-litio.html" class="blog-post-link">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post-card">
+                        <img src="/assets/images/blog/convertendo-ups.jpg" alt="Convertendo UPS" class="blog-post-image">
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <a href="#" class="blog-post-category">UPS & Nobreaks</a>
+                                <span class="blog-post-date">
+                                    <i class="far fa-calendar-alt"></i> 16 Abr, 2025
+                                </span>
+                            </div>
+                            <h3 class="blog-post-title">
+                                <a href="/blog/convertendo-ups-para-litio.html">Tutorial: Convertendo UPS de Chumbo-Ácido para Lítio</a>
+                            </h3>
+                            <p class="blog-post-excerpt">
+                                Guia passo a passo para substituir as baterias de chumbo-ácido do seu UPS por um sistema moderno baseado em células 18650, aumentando autonomia e vida útil.
+                            </p>
+                            <a href="/blog/convertendo-ups-para-litio.html" class="blog-post-link">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post-card">
+                        <img src="/assets/images/blog/torque-voltagem.jpg" alt="Torque e Voltagem" class="blog-post-image">
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <a href="#" class="blog-post-category">Ferramentas</a>
+                                <span class="blog-post-date">
+                                    <i class="far fa-calendar-alt"></i> 14 Abr, 2025
+                                </span>
+                            </div>
+                            <h3 class="blog-post-title">
+                                <a href="/blog/torque-vs-voltagem.html">Entenda a Relação entre Voltagem da Bateria e Torque</a>
+                            </h3>
+                            <p class="blog-post-excerpt">
+                                Análise detalhada sobre como a tensão da bateria afeta o torque e potência em ferramentas elétricas, e como escolher a configuração ideal para cada aplicação.
+                            </p>
+                            <a href="/blog/torque-vs-voltagem.html" class="blog-post-link">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post-card">
+                        <img src="/assets/images/blog/calculadora-autonomia.jpg" alt="Calculadora de Autonomia" class="blog-post-image">
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <a href="#" class="blog-post-category">Bicicletas Elétricas</a>
+                                <span class="blog-post-date">
+                                    <i class="far fa-calendar-alt"></i> 12 Abr, 2025
+                                </span>
+                            </div>
+                            <h3 class="blog-post-title">
+                                <a href="/blog/calculadora-autonomia.html">Calculadora de Autonomia para E-Bikes</a>
+                            </h3>
+                            <p class="blog-post-excerpt">
+                                Ferramenta interativa para estimar a autonomia de sua bicicleta elétrica com base no peso, velocidade, terreno e configuração da bateria.
+                            </p>
+                            <a href="/blog/calculadora-autonomia.html" class="blog-post-link">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post-card">
+                        <img src="/assets/images/blog/normas-industriais.jpg" alt="Normas Industriais" class="blog-post-image">
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <a href="#" class="blog-post-category">Aplicações Industriais</a>
+                                <span class="blog-post-date">
+                                    <i class="far fa-calendar-alt"></i> 10 Abr, 2025
+                                </span>
+                            </div>
+                            <h3 class="blog-post-title">
+                                <a href="/blog/normas-baterias-industriais.html">Normas e Certificações para Baterias em Ambientes Industriais</a>
+                            </h3>
+                            <p class="blog-post-excerpt">
+                                Guia completo sobre as normas, classificações e certificações necessárias para utilização de baterias de lítio em ambientes industriais, incluindo áreas classificadas.
+                            </p>
+                            <a href="/blog/normas-baterias-industriais.html" class="blog-post-link">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="blog-pagination">
+                    <a href="#" class="blog-pagination-link active">1</a>
+                    <a href="#" class="blog-pagination-link">2</a>
+                    <a href="#" class="blog-pagination-link">3</a>
+                    <a href="#" class="blog-pagination-link">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Blog Newsletter -->
+            <div class="blog-newsletter">
+                <h3 class="blog-newsletter-title">Inscreva-se no Nosso Newsletter</h3>
+                <p class="blog-newsletter-subtitle">Receba novidades, tutoriais e ofertas exclusivas diretamente no seu e-mail.</p>
+                <form class="blog-newsletter-form">
+                    <input type="email" class="blog-newsletter-input" placeholder="Seu melhor e-mail" required>
+                    <button type="submit" class="blog-newsletter-button">Inscrever-se</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="enhanced-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-newsletter">
+                    <div class="newsletter-content">
+                        <h3 class="newsletter-title">Receba Novidades e Ofertas Exclusivas</h3>
+                        <p class="newsletter-text">
+                            Inscreva-se para receber atualizações sobre novos produtos, promoções e conteúdo técnico.
+                        </p>
+                    </div>
+                    <div class="newsletter-form">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" placeholder="Seu e-mail" required />
+                                <button type="submit" class="btn btn-primary">
+                                    Inscrever-se
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="/assets/images/logoo.png" alt="Overcel Logo" class="footer-logo-img" />
+                            <p>OVERCEL</p>
+                        </div>
+                        <p class="footer-tagline">Células de Bateria 18650 Importadas para Fabricantes de Baterias</p>
+                        <div class="footer-social">
+                            <a
+                                href="https://www.instagram.com/overcel.br/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-icon"
+                            >
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a
+                                href="https://www.youtube.com/@Overcelbr"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-icon"
+                            >
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/company/105758085/admin/dashboard/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-icon"
+                            >
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="footer-links-grid">
+                        <div class="footer-links-column">
+                            <h3>Produtos</h3>
+                            <ul>
+                                <li><a href="/pages/18650-26v.html">Células 18650 26V</a></li>
+                                <li><a href="/pages/18650-33v.html">Células 18650 33V</a></li>
+                                <li><a href="/pages/18650-35v.html">Células 18650 35V</a></li>
+                                <li><a href="/produtos/comparativo-celulas.html">Comparativo</a></li>
+                                <li><a href="/produtos/guia-escolha.html">Guia de Escolha</a></li>
+                            </ul>
+                        </div>
+    
+                        <div class="footer-links-column">
+                            <h3>Aplicações</h3>
+                            <ul>
+                                <li><a href="/aplicacoes/bicicletas-eletricas.html">Bicicletas Elétricas</a></li>
+                                <li><a href="/aplicacoes/patinetes-eletricos.html">Patinetes Elétricos</a></li>
+                                <li><a href="/aplicacoes/energia-solar.html">Energia Solar</a></li>
+                                <li><a href="/aplicacoes/ferramentas-eletricas.html">Ferramentas</a></li>
+                                <li><a href="/aplicacoes/ups-nobreaks.html">UPS e Nobreaks</a></li>
+                                <li><a href="/aplicacoes/aplicacoes-industriais.html">Aplicações Industriais</a></li>
+                            </ul>
+                        </div>
+    
+                        <div class="footer-links-column">
+                            <h3>Recursos</h3>
+                            <ul>
+                                <li><a href="/recursos/glossario.html">Glossário Técnico</a></li>
+                                <li><a href="/recursos/calculadora-bateria.html">Calculadora</a></li>
+                                <li><a href="/recursos/guia-montagem.html">Guia de Montagem</a></li>
+                                <li><a href="/recursos/dicas-seguranca.html">Dicas de Segurança</a></li>
+                                <li><a href="/sitemap.html">Mapa do Site</a></li>
+                            </ul>
+                        </div>
+    
+                        <div class="footer-links-column">
+                            <h3>Empresa</h3>
+                            <ul>
+                                <li><a href="/sobre-nos.html">Sobre Nós</a></li>
+                                <li><a href="/contato.html">Contato</a></li>
+                                <li><a href="/parceiros.html">Parceiros</a></li>
+                                <li><a href="/depoimentos.html">Depoimentos</a></li>
+                                <li><a href="/politica-privacidade.html">Privacidade</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>WhatsApp</h4>
+                            <a href="https://api.whatsapp.com/send?phone=5511999714280">+55 (11) 99971-4280</a>
+                        </div>
+                    </div>
+    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>E-mail</h4>
+                            <a href="mailto:contato@overcel.com.br">contato@overcel.com.br</a>
+                        </div>
+                    </div>
+    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Localização</h4>
+                            <p>São Paulo, SP - Brasil</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Overcel - Todos os direitos reservados</p>
+                    </div>
+    
+                    <div class="footer-bottom-links">
+                        <a href="/termos-condicoes.html">Termos e Condições</a>
+                        <a href="/politica-cookies.html">Política de Cookies</a>
+                        <a href="/politica-devolucao.html">Política de Devolução</a>
+                        <a href="/sitemap.html">Mapa do Site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- WhatsApp Fixed Button -->
+    <a href="https://api.whatsapp.com/send?phone=5511999714280" class="whatsapp-fixed">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

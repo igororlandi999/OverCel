@@ -4,8 +4,8 @@
    <!-- Páginas de Produtos -->
    <url>
       <loc>https://www.overcel.com.br/pages/18650-26v.html</loc>
-      <lastmod>2025-04-25</lastmod>
-      <changefreq>weekly</changefreq>
+      <lastmod>2025-05-05</lastmod>
+      <changefreq>monthly</changefreq>
       <priority>0.8</priority>
       <image:image>
          <image:loc>https://www.overcel.com.br/assets/images/celulas/bateria-18650-26v.jpg</image:loc>
@@ -15,8 +15,8 @@
    </url>
    <url>
       <loc>https://www.overcel.com.br/pages/18650-33v.html</loc>
-      <lastmod>2025-04-25</lastmod>
-      <changefreq>weekly</changefreq>
+      <lastmod>2025-05-05</lastmod>
+      <changefreq>monthly</changefreq>
       <priority>0.8</priority>
       <image:image>
          <image:loc>https://www.overcel.com.br/assets/images/celulas/bateria-18650-33v.jpg</image:loc>
@@ -26,13 +26,19 @@
    </url>
    <url>
       <loc>https://www.overcel.com.br/pages/18650-35v.html</loc>
-      <lastmod>2025-04-25</lastmod>
-      <changefreq>weekly</changefreq>
+      <lastmod>2025-05-05</lastmod>
+      <changefreq>monthly</changefreq>
       <priority>0.8</priority>
       <image:image>
          <image:loc>https://www.overcel.com.br/assets/images/celulas/bateria-18650-35v.jpg</image:loc>
          <image:title>Célula 18650 35V Overcel</image:title>
          <image:caption>Célula de bateria 18650 35V com 3500mAh de capacidade</image:caption>
       </image:image>
+   </url>
+   <url>
+      <loc>https://www.overcel.com.br/produtos/comparativo-celulas.html</loc>
+      <lastmod>2025-05-05</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
 </urlset>

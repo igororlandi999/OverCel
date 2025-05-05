@@ -8,6 +8,7 @@ Disallow: /admin/
 # Bloqueio de arquivos específicos que não devem ser indexados
 Disallow: /*.pdf$
 Disallow: /*?*
+Disallow: /*/rascunhos/
 
 # Permissões específicas para bots importantes
 User-agent: Googlebot
@@ -21,6 +22,10 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 2
 
+# Permissões para outros bots relevantes
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 3
+
 # Sitemaps
 Sitemap: https://www.overcel.com.br/sitemap.xml
-Sitemap: https://www.overcel.com.br/sitemap-products.xml

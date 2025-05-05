@@ -2373,3 +2373,48 @@ select {
       justify-content: center;
     }
   }
+
+  /* Estilos para aplicações clicáveis */
+.aplicacao-card.clickable {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+.aplicacao-card.clickable:hover .aplicacao-title {
+    color: var(--primary-light);
+}
+
+.aplicacao-card.clickable:hover .aplicacao-icon {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 170, 255, 0.3);
+}
+
+/* Adicionar efeito de clique visual */
+.aplicacao-card.clickable:active {
+    transform: translateY(2px);
+}
+
+.aplicacao-card.clickable:active .aplicacao-icon {
+    transform: translateY(-3px);
+}
+
+/* Indicador visual de que é clicável (opcional) */
+.aplicacao-card.clickable::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.aplicacao-card.clickable:hover::after {
+    opacity: 1;
+}

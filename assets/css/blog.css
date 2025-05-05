@@ -923,21 +923,11 @@
 
 /* WhatsApp Float Button */
 .whatsapp-fixed {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #25d366;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 100;
-  transition: all 0.3s ease;
+  position: fixed !important;
+  bottom: 30px !important;
+  right: 30px !important;
+  left: auto !important; /* Forçando a remover qualquer regra 'left' */
+  z-index: 90 !important;
 }
 
 .whatsapp-fixed:hover {
@@ -947,23 +937,13 @@
 
 /* Back to Top Button */
 .back-to-top {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: var(--primary);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 100;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
+  position: fixed !important;
+  bottom: 30px !important;
+  left: 30px !important;
+  right: auto !important; /* Forçando a remover qualquer regra 'right' */
+  width: 50px !important;
+  height: 50px !important;
+  z-index: 90 !important;
 }
 
 .back-to-top.active {
@@ -1162,5 +1142,119 @@
 
   .contact-item {
     width: 100%;
+  }
+}
+
+/* Ajustes específicos para iPhones (especialmente modelos mais recentes) */
+@media screen and (max-width: 428px) { /* iPhone 15 Plus é 428px de largura */
+  .content-wrapper {
+    padding: 0 10px;
+  }
+  
+  .article {
+    padding: 15px;
+  }
+  
+  .article-content img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+  }
+  
+  .calculator-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    width: 100%;
+  }
+  
+  /* Ajusta o tamanho do texto para melhor legibilidade em telas menores */
+  .article-title {
+    font-size: 1.8rem !important;
+  }
+  
+  .article-content h2 {
+    font-size: 1.4rem !important;
+  }
+  
+  .article-content h3 {
+    font-size: 1.2rem !important;
+  }
+  
+  /* Corrige o problema de menu em iPones mais recentes */
+  .nav-menu {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100vh !important;
+    top: 0 !important;
+    right: -100% !important;
+    transition: right 0.3s ease-in-out !important;
+    padding-top: 60px !important;
+  }
+  
+  .nav-menu.active {
+    right: 0 !important;
+  }
+  
+  /* Assegura que o botão de menu está visível e funcionando */
+  .menu-toggle {
+    display: block !important;
+    z-index: 2000 !important;
+  }
+  
+  /* Ajustes de espaçamento para telas menores */
+  .sidebar-widget {
+    padding: 15px !important;
+  }
+}
+
+/* Ajustes específicos para telas muito estreitas (ex: iPhones em modo retrato) */
+@media screen and (max-width: 375px) {
+  .whatsapp-btn span {
+    display: none !important;
+  }
+  
+  .whatsapp-btn {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 50% !important;
+  }
+  
+  .whatsapp-btn i {
+    margin: 0 !important;
+  }
+  
+  .article-banner {
+    padding: 30px 0 !important;
+  }
+  
+  .article-meta {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 5px !important;
+  }
+}
+
+/* Ajustes específicos para iPhone touch events e zoom */
+@supports (-webkit-touch-callout: none) {
+  /* CSS específico para iOS */
+  input, textarea, select {
+    font-size: 16px !important; /* Previne zoom automático em iPhones */
+  }
+  
+  .nav-menu {
+    -webkit-overflow-scrolling: touch;
   }
 }

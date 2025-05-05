@@ -1,0 +1,413 @@
+/* 
+==============================================
+OVERCEL - ESTILOS PARA PÁGINA DE PARCEIROS
+==============================================
+*/
+
+/* Hero Section
+============================================== */
+.parceiros-hero-section {
+    padding: 120px 0 60px;
+    background: linear-gradient(135deg, var(--secondary), var(--dark));
+    position: relative;
+    text-align: center;
+}
+
+.parceiros-hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 170, 255, 0.15) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(0, 120, 200, 0.1) 0%, transparent 20%);
+    z-index: var(--z-back);
+}
+
+.parceiros-hero-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.parceiros-hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Main Content
+============================================== */
+.parceiros-content-section {
+    padding: var(--spacing-xl) 0 var(--spacing-xxl);
+    background-color: var(--darker);
+}
+
+.parceiros-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.parceiros-intro {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.parceiros-intro p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.parceiros-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: var(--spacing-xl);
+}
+
+.parceiro-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.parceiro-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.parceiro-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.parceiro-logo {
+    flex: 0 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    max-width: 240px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parceiro-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.parceiro-info {
+    flex: 1;
+}
+
+.parceiro-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.parceiro-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.parceiro-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.parceiro-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.parceiro-meta-item i {
+    color: var(--primary);
+}
+
+.parceiro-meta-item a {
+    color: var(--primary);
+    transition: color var(--transition-normal);
+}
+
+.parceiro-meta-item a:hover {
+    color: var(--primary-light);
+}
+
+.parceiro-description {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.parceiro-description p {
+    margin-bottom: 15px;
+}
+
+.parceiro-description p:last-child {
+    margin-bottom: 0;
+}
+
+.parceiro-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.parceiro-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    margin: 15px 0;
+}
+
+.parceiro-highlight {
+    background: rgba(0, 170, 255, 0.05);
+    border: 1px solid rgba(0, 170, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.parceiro-highlight h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.parceiro-highlight p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.parceiros-cta {
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.parceiros-cta h2 {
+    color: var(--primary);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.parceiros-cta p {
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+/* Breadcrumb 
+============================================== */
+.breadcrumb-container {
+    background-color: var(--dark);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: var(--text-muted);
+    transition: color var(--transition-normal);
+}
+
+.breadcrumb a:hover {
+    color: var(--primary);
+}
+
+.breadcrumb i {
+    color: var(--text-muted);
+    margin: 0 10px;
+    font-size: 0.7rem;
+}
+
+.breadcrumb span {
+    color: var(--primary);
+}
+
+/* Responsivo 
+============================================== */
+@media (max-width: 991px) {
+    .parceiros-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .parceiro-actions {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .parceiros-hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .parceiros-hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .parceiro-card {
+        padding: 25px;
+    }
+    
+    .parceiro-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .parceiro-logo {
+        max-width: 200px;
+        height: 100px;
+        margin: 0 auto;
+    }
+    
+    .parceiro-title {
+        font-size: 1.5rem;
+    }
+    
+    .parceiro-actions {
+        flex-direction: column;
+    }
+    
+    .parceiro-actions .btn {
+        width: 100%;
+    }
+    
+    .parceiros-cta {
+        padding: 25px;
+    }
+    
+    .parceiros-cta h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .parceiros-hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .parceiros-intro p {
+        font-size: 1rem;
+    }
+    
+    .parceiro-card {
+        padding: 20px;
+    }
+    
+    .parceiro-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .parceiro-logo {
+        max-width: 180px;
+        height: 90px;
+    }
+    
+    .parceiro-description {
+        font-size: 0.95rem;
+    }
+    
+    .parceiro-highlight {
+        padding: 12px;
+    }
+    
+    .parceiro-highlight h4 {
+        font-size: 1rem;
+    }
+    
+    .parceiro-highlight p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Animações
+============================================== */
+.parceiro-card {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efeitos adicionais de hover
+============================================== */
+.parceiro-logo {
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.parceiro-card:hover .parceiro-logo {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.2);
+}
+
+.parceiro-title {
+    transition: color var(--transition-normal);
+}
+
+.parceiro-card:hover .parceiro-title {
+    color: var(--primary-light);
+}
+
+/* Modo escuro aprimorado
+============================================== */
+@media (prefers-color-scheme: dark) {
+    .parceiro-logo {
+        background: rgba(255, 255, 255, 0.8);
+    }
+    
+    .parceiro-highlight {
+        background: rgba(0, 170, 255, 0.07);
+    }
+}

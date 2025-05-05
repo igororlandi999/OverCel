@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Calculadora de Autonomia para E-Bikes | Overcel</title>
+    <meta name="description"
+        content="Calcule a autonomia da sua bicicleta elétrica com nossa ferramenta interativa. Determine com precisão a distância que poderá percorrer com base na capacidade da bateria, peso, velocidade e outros fatores.">
+    <meta name="keywords"
+        content="calculadora autonomia, e-bike, bicicleta elétrica, bateria, células 18650, distância, capacidade, cálculo bateria">
+    <meta name="author" content="Overcel">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.overcel.com.br/ferramentas/calculadora-autonomia-ebike.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.overcel.com.br/ferramentas/calculadora-autonomia-ebike.html">
+    <meta property="og:title" content="Calculadora de Autonomia para E-Bikes | Overcel">
+    <meta property="og:description"
+        content="Calcule a autonomia da sua bicicleta elétrica com nossa ferramenta interativa. Determine com precisão a distância que poderá percorrer com base na capacidade da bateria, peso, velocidade e outros fatores.">
+    <meta property="og:image" content="https://www.overcel.com.br/assets/images/blog/calculadora-ebike.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.overcel.com.br/ferramentas/calculadora-autonomia-ebike.html">
+    <meta property="twitter:title" content="Calculadora de Autonomia para E-Bikes | Overcel">
+    <meta property="twitter:description"
+        content="Calcule a autonomia da sua bicicleta elétrica com nossa ferramenta interativa. Determine com precisão a distância que poderá percorrer com base na capacidade da bateria, peso, velocidade e outros fatores.">
+    <meta property="twitter:image" content="https://www.overcel.com.br/assets/images/blog/calculadora-ebike.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
+    <link rel="stylesheet" href="/assets/css/mobile-menu.css">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilos específicos para a calculadora -->
+    <style>
+        .calculator-container {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .calculator-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .calculator-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .calculator-form input, .calculator-form select {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            font-size: 16px;
+        }
+        
+        /* Correção para as opções dos dropdowns */
+        .calculator-form select option {
+            background-color: #fff;
+            color: #333; /* Cor escura para as opções */
+        }
+
+        .calculator-form input:focus, .calculator-form select:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .calculator-form .input-group {
+            position: relative;
+        }
+
+        .calculator-form .input-group .unit {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .calculate-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            grid-column: span 2;
+            margin-top: 10px;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 153, 255, 0.3);
+        }
+
+        .results {
+            margin-top: 30px;
+            background-color: var(--dark);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            display: none;
+        }
+
+        .results.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-title {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .result-range {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .result-details {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        .detail-value {
+            font-weight: 500;
+        }
+
+        .recommendations {
+            margin-top: 30px;
+        }
+
+        .recommendation {
+            background-color: var(--secondary);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .recommendation h4 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .recommendation p {
+            margin-bottom: 0;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .calculator-form {
+                grid-template-columns: 1fr;
+            }
+
+            .calculate-btn {
+                grid-column: span 1;
+            }
+
+            .calculator-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo-container">
+                    <a href="/index.html" class="logo">
+                        <img src="/assets/images/logoo.png" alt="Overcel Logo" class="logo-img">
+                        <span class="logo-text">OVERCEL</span>
+                    </a>
+                </div>
+  
+                <div class="navbar-right">
+                    <a href="https://api.whatsapp.com/send?phone=5511999714280" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Comprar agora</span>
+                    </a>
+  
+                    <div class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+  
+                <div class="menu-overlay"></div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Início</a></li>
+                    <li class="nav-item"><a href="/index.html#sobre" class="nav-link">Sobre Nós</a></li>
+                    <li class="nav-item"><a href="/index.html#produtos" class="nav-link">Produtos</a></li>
+                    <li class="nav-item"><a href="/index.html#aplicacoes" class="nav-link">Aplicações</a></li>
+                    <li class="nav-item"><a href="/index.html#contato" class="nav-link">Contato</a></li>
+                    <li class="nav-item"><a href="/blog/" class="nav-link active">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner do Artigo -->
+    <section class="article-banner">
+        <div class="container">
+            <div class="category-tag">
+                <a href="#">Ferramentas</a>
+            </div>
+            <h1 class="article-title">Calculadora de Autonomia para E-Bikes</h1>
+            <div class="article-meta">
+                <span class="article-date"><i class="far fa-calendar"></i> 01 Mai, 2025</span>
+                <span class="article-read-time"><i class="far fa-clock"></i> Ferramenta Interativa</span>
+                <span class="article-author"><i class="far fa-user"></i> Por Equipe Técnica Overcel</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="content-wrapper">
+                <!-- Article Content -->
+                <article class="article">
+                    <div class="article-content">
+                        <img src="/assets/images/blog/calculadora-ebike.png" alt="Calculadora de autonomia para e-bikes">
+                        
+                        <p>Uma das perguntas mais frequentes entre usuários e entusiastas de bicicletas elétricas é: "Qual a distância que consigo percorrer com uma carga da bateria?". Esta pergunta, embora simples, envolve múltiplos fatores que influenciam diretamente a autonomia de uma e-bike.</p>
+
+                        <p>Para ajudar a responder esta questão com maior precisão, desenvolvemos esta calculadora interativa que considera os principais elementos que afetam o consumo energético de uma bicicleta elétrica. Com esta ferramenta, você poderá estimar a autonomia da sua e-bike atual ou planejar com mais segurança a configuração de bateria para um novo projeto.</p>
+
+                        <div class="important-note">
+                            <h3>Nota importante:</h3>
+                            <p>Esta calculadora fornece uma estimativa baseada em modelos matemáticos e dados empíricos. A autonomia real pode variar devido a fatores adicionais como condições climáticas, estado de manutenção da bicicleta, estilo de pilotagem e características específicas do terreno.</p>
+                        </div>
+
+                        <h2 id="como-usar">Como Usar a Calculadora</h2>
+                        <p>Preencha os campos abaixo com as informações da sua bicicleta elétrica, bateria e condições de uso. Após inserir todos os dados, clique em "Calcular Autonomia" para obter o resultado estimado.</p>
+
+                        <!-- Calculadora -->
+                        <div class="calculator-container">
+                            <form class="calculator-form" id="rangeCalculator">
+                                <!-- Bateria -->
+                                <div class="form-group">
+                                    <label for="voltage">Voltagem da Bateria:</label>
+                                    <select id="voltage" name="voltage">
+                                        <option value="24">24V</option>
+                                        <option value="36" selected>36V</option>
+                                        <option value="48">48V</option>
+                                        <option value="52">52V</option>
+                                        <option value="60">60V</option>
+                                        <option value="72">72V</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="capacity">Capacidade da Bateria:</label>
+                                    <div class="input-group">
+                                        <input type="number" id="capacity" name="capacity" value="10" min="1" max="100" step="0.1">
+                                        <span class="unit">Ah</span>
+                                    </div>
+                                </div>
+
+                                <!-- Bicicleta e Ciclista -->
+                                <div class="form-group">
+                                    <label for="weight">Peso Total (Ciclista + Bicicleta):</label>
+                                    <div class="input-group">
+                                        <input type="number" id="weight" name="weight" value="90" min="30" max="250">
+                                        <span class="unit">kg</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="motorPower">Potência do Motor:</label>
+                                    <div class="input-group">
+                                        <input type="number" id="motorPower" name="motorPower" value="350" min="100" max="2000" step="50">
+                                        <span class="unit">W</span>
+                                    </div>
+                                </div>
+
+                                <!-- Condições de Uso -->
+                                <div class="form-group">
+                                    <label for="avgSpeed">Velocidade Média:</label>
+                                    <div class="input-group">
+                                        <input type="number" id="avgSpeed" name="avgSpeed" value="20" min="5" max="50">
+                                        <span class="unit">km/h</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="terrain">Tipo de Terreno:</label>
+                                    <select id="terrain" name="terrain">
+                                        <option value="1">Plano (Ciclovias, Asfalto)</option>
+                                        <option value="1.4" selected>Misto (Urbano com Algumas Subidas)</option>
+                                        <option value="1.8">Ondulado (Muitas Subidas)</option>
+                                        <option value="2.5">Montanhoso/Off-road</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="assistLevel">Nível de Assistência:</label>
+                                    <select id="assistLevel" name="assistLevel">
+                                        <option value="0.3">Baixo (Apenas Auxílio Leve)</option>
+                                        <option value="0.5" selected>Médio (Assistência Equilibrada)</option>
+                                        <option value="0.7">Alto (Assistência Potente)</option>
+                                        <option value="1">Máximo (Praticamente Sem Pedalar)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pedalEfficiency">Eficiência de Pedalada:</label>
+                                    <select id="pedalEfficiency" name="pedalEfficiency">
+                                        <option value="0.2">Baixa (Pedala Pouco ou Irregularmente)</option>
+                                        <option value="0.4" selected>Média (Pedala Consistentemente)</option>
+                                        <option value="0.6">Alta (Pedala com Potência)</option>
+                                        <option value="0.8">Muito Alta (Ciclista Experiente)</option>
+                                    </select>
+                                </div>
+
+                                <button type="button" id="calculateBtn" class="calculate-btn">Calcular Autonomia</button>
+                            </form>
+
+                            <!-- Resultados -->
+                            <div class="results" id="results">
+                                <h3 class="result-title">Autonomia Estimada</h3>
+                                <div class="result-value" id="rangeValue">45 km</div>
+                                <div class="result-range" id="rangeSpan">Estimativa entre 38 e 52 km</div>
+
+                                <div class="result-details">
+                                    <div class="detail-item">
+                                        <span>Energia Total Disponível:</span>
+                                        <span class="detail-value" id="totalEnergyValue">360 Wh</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span>Consumo Médio:</span>
+                                        <span class="detail-value" id="avgConsumptionValue">8 Wh/km</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span>Tempo de Operação Estimado:</span>
+                                        <span class="detail-value" id="operationTimeValue">2h 15min</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recomendações -->
+                            <div class="recommendations" id="recommendations" style="display: none;">
+                                <h3>Recomendações Personalizadas</h3>
+                                <div class="recommendation">
+                                    <h4>Otimização de Autonomia</h4>
+                                    <p id="optimizationRecommendation">Para aumentar a autonomia, considere utilizar um nível de assistência mais baixo em trajetos planos e reservar maior potência apenas para subidas.</p>
+                                </div>
+                                <div class="recommendation">
+                                    <h4>Bateria Recomendada</h4>
+                                    <p id="batteryRecommendation">Para sua necessidade atual, um pack de 36V 14Ah (aproximadamente 500Wh) ofereceria um equilíbrio ideal entre autonomia e custo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 id="fatores-influenciam">Fatores que Influenciam a Autonomia</h2>
+                        <p>A autonomia de uma bicicleta elétrica é determinada por diversos fatores que interagem entre si. Compreender essas variáveis ajuda a interpretar os resultados da calculadora e a tomar decisões mais informadas sobre seu sistema elétrico:</p>
+
+                        <h3>Bateria</h3>
+                        <ul>
+                            <li><strong>Capacidade:</strong> Medida em ampere-hora (Ah), representa a quantidade de energia armazenada</li>
+                            <li><strong>Voltagem:</strong> Influencia a eficiência geral do sistema e o desempenho do motor</li>
+                            <li><strong>Energia total:</strong> Calculada como Voltagem × Capacidade, medida em watt-hora (Wh)</li>
+                            <li><strong>Qualidade das células:</strong> Baterias com células de alta qualidade oferecem desempenho mais consistente</li>
+                        </ul>
+
+                        <h3>Bicicleta e Ciclista</h3>
+                        <ul>
+                            <li><strong>Peso total:</strong> Maior peso requer mais energia para movimentação, especialmente em subidas</li>
+                            <li><strong>Aerodinâmica:</strong> Posição do ciclista e desenho da bicicleta afetam a resistência do ar</li>
+                            <li><strong>Tipo e pressão dos pneus:</strong> Pneus adequados e corretamente calibrados reduzem o consumo</li>
+                            <li><strong>Eficiência da transmissão:</strong> Sistemas bem mantidos e lubrificados reduzem perdas de energia</li>
+                        </ul>
+
+                        <h3>Condições de Uso</h3>
+                        <ul>
+                            <li><strong>Terreno:</strong> Subidas e terrenos acidentados aumentam significativamente o consumo</li>
+                            <li><strong>Velocidade:</strong> Maiores velocidades enfrentam maior resistência do ar (proporcional ao quadrado da velocidade)</li>
+                            <li><strong>Temperatura ambiente:</strong> Baixas temperaturas reduzem temporariamente a capacidade da bateria</li>
+                            <li><strong>Ventos:</strong> Vento contrário aumenta o consumo, enquanto vento a favor pode reduzi-lo</li>
+                        </ul>
+
+                        <h3>Fatores de Pilotagem</h3>
+                        <ul>
+                            <li><strong>Nível de assistência:</strong> Níveis mais altos proporcionam mais potência, mas consomem mais energia</li>
+                            <li><strong>Estilo de pedalada:</strong> Pedalar junto com o motor reduz o consumo da bateria</li>
+                            <li><strong>Frequência de paradas:</strong> Arranques frequentes demandam mais energia</li>
+                            <li><strong>Manutenção geral:</strong> Componentes desajustados podem criar resistência adicional</li>
+                        </ul>
+
+                        <div class="tip-box">
+                            <h3>Dica:</h3>
+                            <p>Para maximizar a autonomia, mantenha uma cadência de pedalada constante entre 70-90 RPM, utilize a marcha correta para cada situação e ajuste o nível de assistência conforme o terreno, aumentando em subidas e reduzindo em descidas ou trechos planos.</p>
+                        </div>
+
+                        <h2 id="como-calcular">Como a Autonomia é Calculada</h2>
+                        <p>Para os interessados nos aspectos técnicos, nossa calculadora utiliza um modelo matemático que considera os seguintes elementos:</p>
+
+                        <h3>Energia Disponível</h3>
+                        <p>A energia total disponível na bateria é calculada usando a fórmula:</p>
+                        <p><strong>Energia (Wh) = Voltagem (V) × Capacidade (Ah)</strong></p>
+                        <p>Por exemplo, uma bateria de 36V e 10Ah fornece 360Wh de energia disponível.</p>
+
+                        <h3>Consumo Energético</h3>
+                        <p>O consumo por quilômetro é estimado considerando:</p>
+                        <ul>
+                            <li>Energia necessária para vencer a resistência ao rolamento</li>
+                            <li>Energia para vencer a resistência do ar (aumenta com o quadrado da velocidade)</li>
+                            <li>Energia para vencer a gravidade em subidas</li>
+                            <li>Eficiência do sistema motor/controlador (tipicamente 80-90%)</li>
+                            <li>Contribuição do ciclista através da pedalada</li>
+                        </ul>
+
+                        <p>A fórmula simplificada utilizada é:</p>
+                        <p><strong>Consumo (Wh/km) = Base de Consumo × Fator de Terreno × Fator de Assistência × Fator de Eficiência</strong></p>
+
+                        <h3>Cálculo Final</h3>
+                        <p>A autonomia é então calculada dividindo a energia disponível pelo consumo por quilômetro:</p>
+                        <p><strong>Autonomia (km) = Energia Disponível (Wh) ÷ Consumo (Wh/km)</strong></p>
+
+                        <p>O resultado inclui uma margem de variação para refletir as condições reais de uso, que podem diferir dos valores teóricos.</p>
+
+                        <h2 id="aumentar-autonomia">Como Aumentar a Autonomia</h2>
+                        <p>Existem diversas estratégias para maximizar a autonomia da sua e-bike:</p>
+
+                        <h3>Otimizações na Bicicleta</h3>
+                        <ul>
+                            <li><strong>Manutenção regular:</strong> Rolamentos limpos, corrente lubrificada e freios ajustados reduzem o atrito</li>
+                            <li><strong>Pneus adequados:</strong> Pneus de baixa resistência ao rolamento, corretamente calibrados</li>
+                            <li><strong>Redução de peso:</strong> Remova acessórios desnecessários e evite carregar itens pesados</li>
+                            <li><strong>Posição aerodinâmica:</strong> Uma postura mais baixa reduz a resistência do ar em velocidades maiores</li>
+                        </ul>
+
+                        <h3>Técnicas de Pilotagem</h3>
+                        <ul>
+                            <li><strong>Pedalada constante:</strong> Mantenha uma contribuição ativa, mesmo com assistência elétrica</li>
+                            <li><strong>Gestão de assistência:</strong> Use níveis mais baixos em terrenos planos e reserve potência para subidas</li>
+                            <li><strong>Aceleração gradual:</strong> Evite acelerações bruscas que consomem muita energia</li>
+                            <li><strong>Planejamento de rota:</strong> Quando possível, escolha rotas com menos subidas e paradas</li>
+                        </ul>
+
+                        <h3>Upgrades do Sistema</h3>
+                        <ul>
+                            <li><strong>Bateria de maior capacidade:</strong> Aumento direto na energia disponível</li>
+                            <li><strong>Controlador programável:</strong> Permite ajuste fino dos parâmetros de assistência</li>
+                            <li><strong>Display com mais informações:</strong> Monitore em tempo real seu consumo para otimizar o uso</li>
+                            <li><strong>Regeneração (se disponível):</strong> Sistemas com frenagem regenerativa recuperam parte da energia em descidas</li>
+                        </ul>
+
+                        <div class="help-section">
+                            <h2 id="precisa-de-ajuda">Precisa de uma bateria com maior autonomia?</h2>
+                            <p>Oferecemos packs personalizados de células 18650 de alta performance para qualquer configuração de e-bike, com capacidade otimizada para suas necessidades específicas de autonomia.</p>
+                            <a href="#" class="btn btn-secondary">
+                                <i class="fab fa-whatsapp"></i> FALAR COM ESPECIALISTA
+                            </a>
+                        </div>
+
+                        <h2 id="baterias-recomendadas">Baterias Recomendadas por Perfil de Uso</h2>
+                        <p>Com base em nossa experiência no desenvolvimento de baterias para e-bikes, preparamos recomendações para diferentes perfis de uso:</p>
+
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Perfil de Uso</th>
+                                    <th>Configuração Recomendada</th>
+                                    <th>Capacidade</th>
+                                    <th>Autonomia Típica</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Urbano Casual</td>
+                                    <td>36V (10S)</td>
+                                    <td>7-10Ah (250-360Wh)</td>
+                                    <td>30-50km</td>
+                                </tr>
+                                <tr>
+                                    <td>Urbano Intensivo</td>
+                                    <td>36V (10S) ou 48V (13S)</td>
+                                    <td>10-14Ah (360-670Wh)</td>
+                                    <td>50-80km</td>
+                                </tr>
+                                <tr>
+                                    <td>Pendular (Commuter)</td>
+                                    <td>48V (13S)</td>
+                                    <td>14-17.5Ah (670-840Wh)</td>
+                                    <td>80-100km</td>
+                                </tr>
+                                <tr>
+                                    <td>Trail/Mountain</td>
+                                    <td>48V (13S) ou 52V (14S)</td>
+                                    <td>14-21Ah (670-1090Wh)</td>
+                                    <td>40-70km (off-road)</td>
+                                </tr>
+                                <tr>
+                                    <td>Touring/Longa Distância</td>
+                                    <td>48V (13S) ou 52V (14S)</td>
+                                    <td>17.5-24.5Ah (840-1270Wh)</td>
+                                    <td>100-160km</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h2 id="perguntas-frequentes">Perguntas Frequentes sobre Autonomia</h2>
+
+                        <h3>Por que a autonomia real difere das especificações do fabricante?</h3>
+                        <p>Os fabricantes geralmente testam em condições ideais: terreno plano, peso padronizado, velocidade moderada e uso de assistência mínima. As condições reais de uso raramente são tão favoráveis, o que explica a diferença frequentemente observada entre as especificações e a experiência do usuário.</p>
+
+                        <h3>É possível carregar a bateria enquanto pedalo?</h3>
+                        <p>Embora algumas e-bikes ofereçam frenagem regenerativa, a energia recuperada é relativamente pequena (5-10% no máximo). Diferentemente de carros elétricos, que são mais pesados e atingem velocidades maiores, as bicicletas não conseguem regenerar energia significativa apenas com o movimento. Sistemas de carregamento via painéis solares portáteis são uma alternativa para viagens longas.</p>
+
+                        <h3>Qual a relação entre capacidade da bateria e peso?</h3>
+                        <p>Como regra geral, uma bateria de e-bike com células 18650 de boa qualidade pesa aproximadamente 2.5-3kg para 360Wh (equivalente a uma configuração 36V 10Ah). O peso aumenta proporcionalmente com a capacidade, então uma bateria de 720Wh pesaria cerca de 5-6kg. Este trade-off entre peso e capacidade é importante ao dimensionar uma bateria para suas necessidades específicas.</p>
+
+                        <h3>A configuração do motor afeta a autonomia?</h3>
+                        <p>Sim, diferentes tipos de motor consomem energia de forma distinta:</p>
+                        <ul>
+                            <li><strong>Hub motors (no cubo):</strong> Geralmente menos eficientes, especialmente em subidas</li>
+                            <li><strong>Mid-drive (no pedal):</strong> Mais eficientes por aproveitarem a transmissão da bicicleta</li>
+                            <li><strong>Motores com sensores de torque:</strong> Oferecem assistência mais natural e geralmente mais econômica do que motores apenas com sensor de cadência</li>
+                        </ul>
+
+                        <h3>Como o clima afeta a autonomia?</h3>
+                        <p>A temperatura tem impacto significativo no desempenho das baterias de lítio:</p>
+                        <ul>
+                            <li>Temperaturas muito baixas (abaixo de 5°C) podem reduzir temporariamente a capacidade em até 30%</li>
+                            <li>O ideal é manter a bateria entre 15°C e 25°C para melhor desempenho</li>
+                            <li>Em dias frios, é recomendável manter a bateria em ambiente interno antes do uso</li>
+                            <li>Em clima muito quente, evite expor a bateria ao sol direto para não degradar sua vida útil</li>
+                        </ul>
+
+                        <h2 id="consideracoes-finais">Considerações Finais</h2>
+                        <p>A autonomia de uma e-bike é um dos fatores mais importantes na experiência do usuário, afetando diretamente a utilidade e a satisfação com o veículo. Embora nossa calculadora forneça uma estimativa baseada em modelos matemáticos e dados empíricos, é importante lembrar que diversos fatores não facilmente quantificáveis também influenciam o resultado final.</p>
+
+                        <p>Para uma experiência otimizada, recomendamos começar com as estimativas da calculadora e ajustar suas expectativas com base na experiência real, considerando as particularidades do seu estilo de pilotagem e ambiente. Registrar dados reais de autonomia em diferentes condições pode ajudar a criar um perfil personalizado do consumo de energia da sua e-bike.</p>
+
+                        <p>Lembre-se de que a tecnologia de baterias continua evoluindo rapidamente, com células cada vez mais eficientes e leves. Uma bateria bem dimensionada e de qualidade é um investimento que melhora significativamente sua experiência com a bicicleta elétrica, ampliando suas possibilidades de uso e reduzindo a "ansiedade de autonomia".</p>
+
+                        <div class="article-tags">
+                            <a href="#" class="tag">E-Bike</a>
+                            <a href="#" class="tag">Autonomia</a>
+                            <a href="#" class="tag">Bateria</a>
+                            <a href="#" class="tag">Calculadora</a>
+                            <a href="#" class="tag">Células 18650</a>
+                            <a href="#" class="tag">Energia</a>
+                            <a href="#" class="tag">Ciclismo</a>
+                        </div>
+
+                        <div class="author-box">
+                            <div class="author-avatar">
+                                <img src="/assets/images/logoo.png" alt="Equipe Técnica Overcel" class="avatar">
+                            </div>
+                            <div class="author-info">
+                                <h3>Equipe Técnica Overcel</h3>
+                                <p>Grupo de engenheiros e especialistas em sistemas de energia para mobilidade elétrica, com vasta experiência no desenvolvimento e otimização de baterias para e-bikes e outras aplicações.</p>
+                            </div>
+                        </div>
+
+                        <div class="share-box">
+                            <span>Compartilhar:</span>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://x.com/" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.instagram.com/" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="related-articles">
+                        <h2>Artigos Relacionados</h2>
+                        <div class="article-cards">
+                            <div class="article-card">
+                                <div class="article-card-image">
+                                    <img src="/assets/images/blog/montar-ebike.png" alt="Guia Montagem de Baterias para E-Bikes">
+                                </div>
+                                <div class="article-card-content">
+                                    <span class="article-card-category">Bicicletas Elétricas</span>
+                                    <h3 class="article-card-title">Guia Completo: Como Montar uma Bateria para E-Bike</h3>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <div class="article-card-image">
+                                    <img src="/assets/images/blog/tutorial-bateria-torque.png" alt="Relação entre Voltagem e Torque">
+                                </div>
+                                <div class="article-card-content">
+                                    <span class="article-card-category">Tecnologia</span>
+                                    <h3 class="article-card-title">Entenda a Relação entre Voltagem da Bateria e Torque</h3>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <div class="article-card-image">
+                                    <img src="/assets/images/blog/bms.png" alt="BMS Explicado">
+                                </div>
+                                <div class="article-card-content">
+                                    <span class="article-card-category">Tecnologia</span>
+                                    <h3 class="article-card-title">BMS Explicado: Protegendo sua Bateria de Lítio</h3>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <div class="article-card-image">
+                                    <img src="/assets/images/blog/proteja.png" alt="Cuidados com Baterias">
+                                </div>
+                                <div class="article-card-content">
+                                    <span class="article-card-category">Tutoriais</span>
+                                    <h3 class="article-card-title">Cuidados Essenciais com Baterias de Lítio</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Índice do Artigo</h3>
+                        <ul class="article-index">
+                            <li><a href="#como-usar"><i class="fas fa-chevron-right"></i> Como Usar a Calculadora</a></li>
+                            <li><a href="#fatores-influenciam"><i class="fas fa-chevron-right"></i> Fatores que Influenciam</a></li>
+                            <li><a href="#como-calcular"><i class="fas fa-chevron-right"></i> Como a Autonomia é Calculada</a></li>
+                            <li><a href="#aumentar-autonomia"><i class="fas fa-chevron-right"></i> Como Aumentar a Autonomia</a></li>
+                            <li><a href="#baterias-recomendadas"><i class="fas fa-chevron-right"></i> Baterias Recomendadas</a></li>
+                            <li><a href="#perguntas-frequentes"><i class="fas fa-chevron-right"></i> Perguntas Frequentes</a></li>
+                            <li><a href="#consideracoes-finais"><i class="fas fa-chevron-right"></i> Considerações Finais</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Posts Populares</h3>
+                        <div class="popular-posts">
+                            <div class="popular-post">
+                                <div class="popular-post-image">
+                                    <img src="/assets/images/blog/montar-ebike.png" alt="Guia Montagem de Baterias para E-Bikes">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4>Guia Completo: Como Montar uma Bateria para E-Bike</h4>
+                                    <span class="post-date"><i class="far fa-calendar"></i> 15 Abr, 2025</span>
+                                </div>
+                            </div>
+                            <div class="popular-post">
+                                <div class="popular-post-image">
+                                    <img src="/assets/images/blog/bms.png" alt="BMS Explicado">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4>BMS Explicado: Protegendo sua Bateria de Lítio</h4>
+                                    <span class="post-date"><i class="far fa-calendar"></i> 20 Abr, 2025</span>
+                                </div>
+                            </div>
+                            <div class="popular-post">
+                                <div class="popular-post-image">
+                                    <img src="/assets/images/blog/proteja.png" alt="Cuidados com Baterias">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4>Cuidados Essenciais com Baterias de Lítio</h4>
+                                    <span class="post-date"><i class="far fa-calendar"></i> 18 Abr, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Categorias</h3>
+                        <ul class="categories-list">
+                            <li><a href="#">Bicicletas Elétricas <span>(8 artigos)</span></a></li>
+                            <li><a href="#">Ferramentas <span>(3 artigos)</span></a></li>
+                            <li><a href="#">Energia Solar <span>(6 artigos)</span></a></li>
+                            <li><a href="#">Tutoriais <span>(12 artigos)</span></a></li>
+                            <li><a href="#">Tecnologia <span>(9 artigos)</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Tags</h3>
+                        <div class="tags-cloud">
+                            <a href="#" class="tag">E-Bike</a>
+                            <a href="#" class="tag">Autonomia</a>
+                            <a href="#" class="tag">Bateria</a>
+                            <a href="#" class="tag">Calculadora</a>
+                            <a href="#" class="tag">Células 18650</a>
+                            <a href="#" class="tag">BMS</a>
+                            <a href="#" class="tag">Ciclismo</a>
+                            <a href="#" class="tag">Energia</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget cta-widget">
+                        <h3 class="widget-title">Precisa de uma Bateria de Maior Autonomia?</h3>
+                        <p>Conheça nossas soluções personalizadas de células 18650 para e-bikes com maior capacidade e desempenho.</p>
+                        <a href="#" class="btn btn-primary">Ver Produtos</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="enhanced-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-newsletter">
+                    <div class="newsletter-content">
+                        <h3 class="newsletter-title">Receba Novidades e Ofertas Exclusivas</h3>
+                        <p class="newsletter-text">
+                            Inscreva-se para receber atualizações sobre novos produtos, promoções e conteúdo técnico.
+                        </p>
+                    </div>
+                    <div class="newsletter-form">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" placeholder="Seu e-mail" required />
+                                <button type="submit" class="btn btn-primary">
+                                    Inscrever-se
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="/assets/images/logoo.png" alt="Overcel Logo" class="footer-logo-img" />
+                            <p>OVERCEL</p>
+                        </div>
+                        <p class="footer-tagline">Células de Bateria 18650 Importadas para Fabricantes de Baterias</p>
+                        <div class="footer-social">
+                            <a
+                                href="https://www.instagram.com/overcel.br/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-icon"
+                            >
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a
+                                href="https://www.youtube.com/@Overcelbr"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-icon"
+                            >
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/company/105758085/admin/dashboard/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-icon"
+                            >
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="footer-links-grid">
+                        <div class="footer-links-column">
+                            <h3>Produtos</h3>
+                            <ul>
+                                <li><a href="/pages/18650.html">Células 18650 26V</a></li>
+                                <li><a href="/pages/18650-33v.html">Células 18650 33V</a></li>
+                                <li><a href="/pages/18650-35v.html">Células 18650 35V</a></li>
+                                <li><a href="/pages/18650.html">Comparativo</a></li>
+                                <li><a href="/pages/18650.html">Guia de Escolha</a></li>
+                            </ul>
+                        </div>
+    
+                        <div class="footer-links-column">
+                            <h3>Aplicações</h3>
+                            <ul>
+                                <li><a href="/aplicacoes/bicicletas-eletricas.html">Bicicletas Elétricas</a></li>
+                                <li><a href="/aplicacoes/patinetes.elétricos.html">Patinetes Elétricos</a></li>
+                                <li><a href="/aplicacoes/energia-solar.html">Energia Solar</a></li>
+                                <li><a href="/aplicacoes/ferramentas.html">Ferramentas</a></li>
+                                <li><a href="/aplicacoes/ups-nobreak.html">UPS e Nobreaks</a></li>
+                            </ul>
+                        </div>
+    
+                        <div class="footer-links-column">
+                            <h3>Recursos</h3>
+                            <ul>
+                                <li><a href="/recursos/glossario.html">Glossário Técnico</a></li>
+                                <li><a href="/recursos/calculadora-bateria.html">Calculadora</a></li>
+                                <li><a href="/recursos/guia-montagem.html">Guia de Montagem</a></li>
+                                <li><a href="/recursos/dicas-seguranca.html">Dicas de Segurança</a></li>
+                                <li><a href="/sitemap.html">Mapa do Site</a></li>
+                            </ul>
+                        </div>
+    
+                        <div class="footer-links-column">
+                            <h3>Empresa</h3>
+                            <ul>
+                                <li><a href="/sobre-nos.html">Sobre Nós</a></li>
+                                <li><a href="/contato.html">Contato</a></li>
+                                <li><a href="/parceiros.html">Parceiros</a></li>
+                                <li><a href="/depoimentos.html">Aplicações</a></li>
+                                <li><a href="/politica-privacidade.html">Rodapé</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>WhatsApp</h4>
+                            <a href="https://api.whatsapp.com/send?phone=5511999714280">+55 (11) 99971-4280</a>
+                        </div>
+                    </div>
+    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>E-mail</h4>
+                            <a href="mailto:contato@overcel.com.br">contato@overcel.com.br</a>
+                        </div>
+                    </div>
+    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Localização</h4>
+                            <p>São Paulo, SP - Brasil</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Overcel - Todos os direitos reservados</p>
+                    </div>
+    
+                    <div class="footer-bottom-links">
+                        <a href="/termos-condicoes.html">Termos e Condições</a>
+                        <a href="/politica-cookies.html">Política de Cookies</a>
+                        <a href="/politica-devolucao.html">Política de Devolução</a>
+                        <a href="/sitemap.html">Mapa do Site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://api.whatsapp.com/send?phone=5511999714280" class="whatsapp-fixed">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript para a calculadora -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const calculateBtn = document.getElementById('calculateBtn');
+            const resultsSection = document.getElementById('results');
+            const recommendationsSection = document.getElementById('recommendations');
+            
+            // Função para calcular a autonomia
+            function calculateRange() {
+                // Obter valores do formulário
+                const voltage = parseFloat(document.getElementById('voltage').value);
+                const capacity = parseFloat(document.getElementById('capacity').value);
+                const weight = parseFloat(document.getElementById('weight').value);
+                const motorPower = parseFloat(document.getElementById('motorPower').value);
+                const avgSpeed = parseFloat(document.getElementById('avgSpeed').value);
+                const terrain = parseFloat(document.getElementById('terrain').value);
+                const assistLevel = parseFloat(document.getElementById('assistLevel').value);
+                const pedalEfficiency = parseFloat(document.getElementById('pedalEfficiency').value);
+                
+                // Cálculos
+                const totalEnergy = voltage * capacity; // Wh
+                
+                // Base de consumo (Wh/km) - Fórmula simplificada
+                let baseConsumption = (weight * 0.05) + (avgSpeed * 0.1) + ((motorPower/100) * 0.8);
+                
+                // Ajustes baseados nos fatores selecionados
+                let adjustedConsumption = baseConsumption * terrain * assistLevel * (1 - pedalEfficiency);
+                
+                // Calcular autonomia
+                let range = totalEnergy / adjustedConsumption;
+                
+                // Margem de variação (±15%)
+                let minRange = range * 0.85;
+                let maxRange = range * 1.15;
+                
+                // Tempo de operação estimado
+                let operationTime = range / avgSpeed;
+                let hours = Math.floor(operationTime);
+                let minutes = Math.round((operationTime - hours) * 60);
+                
+                // Exibir resultados
+                document.getElementById('rangeValue').textContent = Math.round(range) + ' km';
+                document.getElementById('rangeSpan').textContent = 'Estimativa entre ' + Math.round(minRange) + ' e ' + Math.round(maxRange) + ' km';
+                document.getElementById('totalEnergyValue').textContent = totalEnergy.toFixed(0) + ' Wh';
+                document.getElementById('avgConsumptionValue').textContent = adjustedConsumption.toFixed(1) + ' Wh/km';
+                document.getElementById('operationTimeValue').textContent = hours + 'h ' + minutes + 'min';
+                
+                // Mostrar recomendações personalizadas
+                generateRecommendations(range, totalEnergy, assistLevel, terrain, pedalEfficiency);
+                
+                // Mostrar seções de resultados
+                resultsSection.classList.add('active');
+                recommendationsSection.style.display = 'block';
+            }
+            
+            // Função para gerar recomendações personalizadas
+            function generateRecommendations(range, energy, assistLevel, terrain, pedalEfficiency) {
+                // Recomendação de otimização
+                let optimizationRecommendation = '';
+                if (assistLevel > 0.5 && pedalEfficiency < 0.4) {
+                    optimizationRecommendation = 'Para aumentar a autonomia, considere reduzir o nível de assistência e contribuir mais ativamente com a pedalada. Isso pode aumentar sua autonomia em até 30%.';
+                } else if (terrain > 1.5) {
+                    optimizationRecommendation = 'Para seu perfil de terreno acidentado, considere utilizar marchas mais leves nas subidas e economizar a bateria em trechos planos e descidas.';
+                } else {
+                    optimizationRecommendation = 'Sua configuração atual parece bem equilibrada. Para otimizar ainda mais, mantenha uma cadência constante de pedalada e calibre os pneus regularmente.';
+                }
+                
+                // Recomendação de bateria
+                let batteryRecommendation = '';
+                if (range < 30) {
+                    batteryRecommendation = 'Para maior autonomia, considere uma bateria de capacidade maior. Um pack de ' + (energy * 1.5).toFixed(0) + 'Wh aumentaria sua autonomia em aproximadamente 50%.';
+                } else if (range > 80) {
+                    batteryRecommendation = 'Sua configuração atual oferece excelente autonomia. Se peso for uma preocupação, você poderia considerar uma bateria menor sem comprometer significativamente seu alcance.';
+                } else {
+                    batteryRecommendation = 'Sua bateria atual parece adequada para uso diário. Para viagens mais longas, uma opção de ' + (energy * 1.3).toFixed(0) + 'Wh proporcionaria uma margem confortável de segurança.';
+                }
+                
+                // Atualizar recomendações na página
+                document.getElementById('optimizationRecommendation').textContent = optimizationRecommendation;
+                document.getElementById('batteryRecommendation').textContent = batteryRecommendation;
+            }
+            
+            // Evento de clique no botão de calcular
+            calculateBtn.addEventListener('click', calculateRange);
+        });
+    </script>
+
+    <!-- JavaScript para navegação e menu -->
+    <script src="/assets/js/blog.js"></script>
+    <script src="/assets/js/mobile-menu.js"></script>
+</body>
+</html>

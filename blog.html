@@ -130,39 +130,6 @@
             background: var(--primary);
         }
         
-        .blog-categories {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .blog-categories-list {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .blog-category-item a {
-            display: inline-block;
-            padding: 8px 15px;
-            border-radius: var(--radius-md);
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all var(--transition-normal);
-            font-size: 0.9rem;
-        }
-        
-        .blog-category-item a:hover,
-        .blog-category-item a.active {
-            background: rgba(var(--primary-rgb), 0.2);
-            color: var(--primary);
-        }
-        
         .blog-main {
             padding: var(--spacing-xl) 0;
             background-color: var(--darker);
@@ -271,32 +238,6 @@
         
         .blog-post-link:hover i {
             transform: translateX(3px);
-        }
-        
-        .blog-pagination {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-            margin-top: var(--spacing-lg);
-        }
-        
-        .blog-pagination-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-md);
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all var(--transition-normal);
-        }
-        
-        .blog-pagination-link:hover,
-        .blog-pagination-link.active {
-            background: var(--primary);
-            color: white;
         }
         
         .blog-featured {
@@ -604,22 +545,6 @@
         </div>
     </section>
 
-    <!-- Blog Categories -->
-    <div class="blog-categories">
-        <div class="blog-container">
-            <ul class="blog-categories-list">
-                <li class="blog-category-item"><a href="#" class="active">Todos</a></li>
-                <li class="blog-category-item"><a href="#">Bicicletas Elétricas</a></li>
-                <li class="blog-category-item"><a href="#">Energia Solar</a></li>
-                <li class="blog-category-item"><a href="#">Ferramentas</a></li>
-                <li class="blog-category-item"><a href="#">UPS & Nobreaks</a></li>
-                <li class="blog-category-item"><a href="#">Aplicações Industriais</a></li>
-                <li class="blog-category-item"><a href="#">Tutoriais</a></li>
-                <li class="blog-category-item"><a href="#">Tecnologia</a></li>
-            </ul>
-        </div>
-    </div>
-
     <!-- Blog Main Content -->
     <main class="blog-main">
         <div class="blog-container">
@@ -658,12 +583,12 @@
                                     <a href="#" class="blog-post-category">Bicicletas Elétricas</a>
                                 </div>
                                 <h3 class="blog-post-title">
-                                    <a href="/blog/guia-montagem-bateria-ebike.html">Guia Completo: Como Montar uma Bateria para E-Bike</a>
+                                    <a href="/blog/bateria-ebike.html">Guia Completo: Como Montar uma Bateria para E-Bike</a>
                                 </h3>
                                 <p class="blog-post-excerpt">
                                     Tutorial passo a passo para montar sua própria bateria de bicicleta elétrica com células 18650, incluindo ferramentas necessárias, técnicas de soldagem e configurações recomendadas.
                                 </p>
-                                <a href="/blog/guia-montagem-bateria-ebike.html" class="blog-post-link">
+                                <a href="/blog/bateria-ebike.html" class="blog-post-link">
                                     Ler mais <i class="fas fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -672,7 +597,7 @@
                     
                     <div class="blog-featured-secondary">
                         <article class="blog-post-card">
-                            <img src="/assets/images/blog/comparativo-baterias.jpg" alt="Comparativo Baterias" class="blog-post-image">
+                            <img src="/assets/images/blog/comparativo-baterias.png" alt="Comparativo Baterias" class="blog-post-image">
                             <div class="blog-post-content">
                                 <div class="blog-post-meta">
                                     <a href="#" class="blog-post-category">Energia Solar</a>
@@ -697,7 +622,7 @@
                 
                 <div class="blog-grid">
                     <article class="blog-post-card">
-                        <img src="/aplicacoes/ups-nobreak.html" alt="Dimensionamento UPS" class="blog-post-image">
+                        <img src="/assets/images/blog/dimensionamento-ups.png" alt="Dimensionamento UPS" class="blog-post-image">
                         <div class="blog-post-content">
                             <div class="blog-post-meta">
                                 <a href="#" class="blog-post-category">UPS & Nobreaks</a>
@@ -706,19 +631,19 @@
                                 </span>
                             </div>
                             <h3 class="blog-post-title">
-                                <a href="/aplicacoes/ups-nobreak.html">Guia Completo: Como Dimensionar um UPS</a>
+                                <a href="/blog/dimensionamento-ups.html">Guia Completo: Como Dimensionar um UPS</a>
                             </h3>
                             <p class="blog-post-excerpt">
                                 Aprenda a calcular corretamente a capacidade necessária para seu sistema UPS, considerando consumo, autonomia desejada e outros fatores críticos.
                             </p>
-                            <a href="/aplicacoes/ups-nobreak.html" class="blog-post-link">
+                            <a href="/blog/dimensionamento-ups.html" class="blog-post-link">
                                 Ler mais <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
                     
                     <article class="blog-post-card">
-                        <img src="/assets/images/blog/recondicionar-baterias.jpg" alt="Recondicionar Baterias" class="blog-post-image">
+                        <img src="/assets/images/blog/recondicionar-baterias.png" alt="Recondicionar Baterias" class="blog-post-image">
                         <div class="blog-post-content">
                             <div class="blog-post-meta">
                                 <a href="#" class="blog-post-category">Ferramentas</a>
@@ -739,7 +664,7 @@
                     </article>
                     
                     <article class="blog-post-card">
-                        <img src="/assets/images/blog/agvs-industriais.jpg" alt="AGVs Industriais" class="blog-post-image">
+                        <img src="/assets/images/blog/agvs.png" alt="AGVs Industriais" class="blog-post-image">
                         <div class="blog-post-content">
                             <div class="blog-post-meta">
                                 <a href="#" class="blog-post-category">Aplicações Industriais</a>
@@ -760,7 +685,7 @@
                     </article>
                     
                     <article class="blog-post-card">
-                        <img src="/assets/images/blog/instalacao-off-grid.jpg" alt="Instalação Off-Grid" class="blog-post-image">
+                        <img src="/assets/images/blog/off-grid.png" alt="Instalação Off-Grid" class="blog-post-image">
                         <div class="blog-post-content">
                             <div class="blog-post-meta">
                                 <a href="#" class="blog-post-category">Energia Solar</a>
@@ -781,7 +706,7 @@
                     </article>
                     
                     <article class="blog-post-card">
-                        <img src="/assets/images/blog/cuidados-baterias.jpg" alt="Cuidados com Baterias" class="blog-post-image">
+                        <img src="/assets/images/blog/cuidados.png" alt="Cuidados com Baterias" class="blog-post-image">
                         <div class="blog-post-content">
                             <div class="blog-post-meta">
                                 <a href="#" class="blog-post-category">Tutoriais</a>
@@ -790,19 +715,19 @@
                                 </span>
                             </div>
                             <h3 class="blog-post-title">
-                                <a href="/blog/cuidados-com-baterias-de-litio.html">Cuidados Essenciais com Baterias de Lítio</a>
+                                <a href="/blog/cuidados-bateria-litio.html">Cuidados Essenciais com Baterias de Lítio</a>
                             </h3>
                             <p class="blog-post-excerpt">
                                 Aprenda as melhores práticas para maximizar a vida útil e segurança das suas baterias de lítio em qualquer aplicação, desde o armazenamento até a operação diária.
                             </p>
-                            <a href="/blog/cuidados-com-baterias-de-litio.html" class="blog-post-link">
+                            <a href="/blog/cuidados-bateria-litio.html" class="blog-post-link">
                                 Ler mais <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
                     
                     <article class="blog-post-card">
-                        <img src="/assets/images/blog/convertendo-ups.jpg" alt="Convertendo UPS" class="blog-post-image">
+                        <img src="/assets/images/blog/convert-ups.png" alt="Convertendo UPS" class="blog-post-image">
                         <div class="blog-post-content">
                             <div class="blog-post-meta">
                                 <a href="#" class="blog-post-category">UPS & Nobreaks</a>
@@ -811,19 +736,19 @@
                                 </span>
                             </div>
                             <h3 class="blog-post-title">
-                                <a href="/blog/convertendo-ups-para-litio.html">Tutorial: Convertendo UPS de Chumbo-Ácido para Lítio</a>
+                                <a href="/blog/convertendo-ups-chumbo-litio.html">Tutorial: Convertendo UPS de Chumbo-Ácido para Lítio</a>
                             </h3>
                             <p class="blog-post-excerpt">
                                 Guia passo a passo para substituir as baterias de chumbo-ácido do seu UPS por um sistema moderno baseado em células 18650, aumentando autonomia e vida útil.
                             </p>
-                            <a href="/blog/convertendo-ups-para-litio.html" class="blog-post-link">
+                            <a href="/blog/convertendo-ups-chumbo-litio.html" class="blog-post-link">
                                 Ler mais <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
                     
                     <article class="blog-post-card">
-                        <img src="/assets/images/blog/torque-voltagem.jpg" alt="Torque e Voltagem" class="blog-post-image">
+                        <img src="/assets/images/blog/tutorial-bateria-torque.png" alt="Torque e Voltagem" class="blog-post-image">
                         <div class="blog-post-content">
                             <div class="blog-post-meta">
                                 <a href="#" class="blog-post-category">Ferramentas</a>
@@ -832,19 +757,19 @@
                                 </span>
                             </div>
                             <h3 class="blog-post-title">
-                                <a href="/blog/torque-vs-voltagem.html">Entenda a Relação entre Voltagem da Bateria e Torque</a>
+                                <a href="/blog/tutorial-bateria-torque.html">Entenda a Relação entre Voltagem da Bateria e Torque</a>
                             </h3>
                             <p class="blog-post-excerpt">
                                 Análise detalhada sobre como a tensão da bateria afeta o torque e potência em ferramentas elétricas, e como escolher a configuração ideal para cada aplicação.
                             </p>
-                            <a href="/blog/torque-vs-voltagem.html" class="blog-post-link">
+                            <a href="/blog/tutorial-bateria-torque.html" class="blog-post-link">
                                 Ler mais <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
                     
                     <article class="blog-post-card">
-                        <img src="/assets/images/blog/calculadora-autonomia.jpg" alt="Calculadora de Autonomia" class="blog-post-image">
+                        <img src="/assets/images/blog/calculadora-ebike.png" alt="Calculadora de Autonomia" class="blog-post-image">
                         <div class="blog-post-content">
                             <div class="blog-post-meta">
                                 <a href="#" class="blog-post-category">Bicicletas Elétricas</a>
@@ -853,19 +778,19 @@
                                 </span>
                             </div>
                             <h3 class="blog-post-title">
-                                <a href="/blog/calculadora-autonomia.html">Calculadora de Autonomia para E-Bikes</a>
+                                <a href="/blog/calculadora-ebike.html">Calculadora de Autonomia para E-Bikes</a>
                             </h3>
                             <p class="blog-post-excerpt">
                                 Ferramenta interativa para estimar a autonomia de sua bicicleta elétrica com base no peso, velocidade, terreno e configuração da bateria.
                             </p>
-                            <a href="/blog/calculadora-autonomia.html" class="blog-post-link">
+                            <a href="/blog/calculadora-ebike.html" class="blog-post-link">
                                 Ler mais <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
                     
                     <article class="blog-post-card">
-                        <img src="/assets/images/blog/normas-industriais.jpg" alt="Normas Industriais" class="blog-post-image">
+                        <img src="/assets/images/blog/normas-baterias.png" alt="Normas Industriais" class="blog-post-image">
                         <div class="blog-post-content">
                             <div class="blog-post-meta">
                                 <a href="#" class="blog-post-category">Aplicações Industriais</a>
@@ -874,25 +799,16 @@
                                 </span>
                             </div>
                             <h3 class="blog-post-title">
-                                <a href="/blog/normas-baterias-industriais.html">Normas e Certificações para Baterias em Ambientes Industriais</a>
+                                <a href="/blog/normas-baterias.html">Normas e Certificações para Baterias em Ambientes Industriais</a>
                             </h3>
                             <p class="blog-post-excerpt">
                                 Guia completo sobre as normas, classificações e certificações necessárias para utilização de baterias de lítio em ambientes industriais, incluindo áreas classificadas.
                             </p>
-                            <a href="/blog/normas-baterias-industriais.html" class="blog-post-link">
+                            <a href="/blog/normas-baterias.html" class="blog-post-link">
                                 Ler mais <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
-                </div>
-                
-                <div class="blog-pagination">
-                    <a href="#" class="blog-pagination-link active">1</a>
-                    <a href="#" class="blog-pagination-link">2</a>
-                    <a href="#" class="blog-pagination-link">3</a>
-                    <a href="#" class="blog-pagination-link">
-                        <i class="fas fa-chevron-right"></i>
-                    </a>
                 </div>
             </div>
             
@@ -910,29 +826,6 @@
 
     <!-- Footer -->
     <footer class="enhanced-footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="footer-newsletter">
-                    <div class="newsletter-content">
-                        <h3 class="newsletter-title">Receba Novidades e Ofertas Exclusivas</h3>
-                        <p class="newsletter-text">
-                            Inscreva-se para receber atualizações sobre novos produtos, promoções e conteúdo técnico.
-                        </p>
-                    </div>
-                    <div class="newsletter-form">
-                        <form>
-                            <div class="form-group">
-                                <input type="email" placeholder="Seu e-mail" required />
-                                <button type="submit" class="btn btn-primary">
-                                    Inscrever-se
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
         <div class="footer-main">
             <div class="container">
                 <div class="footer-content">
@@ -974,11 +867,9 @@
                         <div class="footer-links-column">
                             <h3>Produtos</h3>
                             <ul>
-                                <li><a href="/pages/18650-26v.html">Células 18650 26V</a></li>
+                                <li><a href="/pages/18650.html">Células 18650 26V</a></li>
                                 <li><a href="/pages/18650-33v.html">Células 18650 33V</a></li>
                                 <li><a href="/pages/18650-35v.html">Células 18650 35V</a></li>
-                                <li><a href="/produtos/comparativo-celulas.html">Comparativo</a></li>
-                                <li><a href="/produtos/guia-escolha.html">Guia de Escolha</a></li>
                             </ul>
                         </div>
     
@@ -986,11 +877,10 @@
                             <h3>Aplicações</h3>
                             <ul>
                                 <li><a href="/aplicacoes/bicicletas-eletricas.html">Bicicletas Elétricas</a></li>
-                                <li><a href="/aplicacoes/patinetes-eletricos.html">Patinetes Elétricos</a></li>
+                                <li><a href="/aplicacoes/patinetes.elétricos.html">Patinetes Elétricos</a></li>
                                 <li><a href="/aplicacoes/energia-solar.html">Energia Solar</a></li>
-                                <li><a href="/aplicacoes/ferramentas-eletricas.html">Ferramentas</a></li>
-                                <li><a href="/aplicacoes/ups-nobreaks.html">UPS e Nobreaks</a></li>
-                                <li><a href="/aplicacoes/aplicacoes-industriais.html">Aplicações Industriais</a></li>
+                                <li><a href="/aplicacoes/ferramentas.html">Ferramentas</a></li>
+                                <li><a href="/aplicacoes/ups-nobreak.html">UPS e Nobreaks</a></li>
                             </ul>
                         </div>
     
@@ -998,9 +888,9 @@
                             <h3>Recursos</h3>
                             <ul>
                                 <li><a href="/recursos/glossario.html">Glossário Técnico</a></li>
-                                <li><a href="/recursos/calculadora-bateria.html">Calculadora</a></li>
-                                <li><a href="/recursos/guia-montagem.html">Guia de Montagem</a></li>
-                                <li><a href="/recursos/dicas-seguranca.html">Dicas de Segurança</a></li>
+                                <li><a href="/blog/calculadora-ebike.html">Calculadora</a></li>
+                                <li><a href="/blog/bateria-ebike.html">Guia de Montagem</a></li>
+                                <li><a href="/blog/cuidados-bateria-litio.html">Dicas de Segurança</a></li>
                                 <li><a href="/sitemap.html">Mapa do Site</a></li>
                             </ul>
                         </div>
@@ -1008,11 +898,11 @@
                         <div class="footer-links-column">
                             <h3>Empresa</h3>
                             <ul>
-                                <li><a href="/sobre-nos.html">Sobre Nós</a></li>
-                                <li><a href="/contato.html">Contato</a></li>
-                                <li><a href="/parceiros.html">Parceiros</a></li>
-                                <li><a href="/depoimentos.html">Depoimentos</a></li>
-                                <li><a href="/politica-privacidade.html">Privacidade</a></li>
+                                <li><a href="/index.html">Sobre Nós</a></li>
+                                <li><a href="/index.html">Contato</a></li>
+                                <li><a href="/index.html">Parceiros</a></li>
+                                <li><a href="/index.html">Depoimentos</a></li>
+                                <li><a href="/index.html">Privacidade</a></li>
                             </ul>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
    <!-- Páginas de Produtos -->
    <url>
-      <loc>https://www.overcel.com.br/pages/18650-26v.html</loc>
+      <loc>https://www.overcel.com.br/bateria-li-ion-18650-recarregavel/18650-26v.html</loc>
       <lastmod>2025-05-05</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -14,7 +14,7 @@
       </image:image>
    </url>
    <url>
-      <loc>https://www.overcel.com.br/pages/18650-33v.html</loc>
+      <loc>https://www.overcel.com.br/bateria-li-ion-18650-recarregavel/18650-33v.html</loc>
       <lastmod>2025-05-05</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -25,7 +25,7 @@
       </image:image>
    </url>
    <url>
-      <loc>https://www.overcel.com.br/pages/18650-35v.html</loc>
+      <loc>https://www.overcel.com.br/bateria-li-ion-18650-recarregavel/18650-35v.html</loc>
       <lastmod>2025-05-05</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>

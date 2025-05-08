@@ -565,6 +565,7 @@
   letter-spacing: 1px;
   background: linear-gradient(to right, #fff, #0099ff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -751,6 +752,7 @@
   font-size: 1.5rem;
   background: linear-gradient(to right, #fff, var(--primary));
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   letter-spacing: 1px;
   margin: 0;

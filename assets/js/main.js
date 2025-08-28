@@ -144,9 +144,11 @@ document.addEventListener('DOMContentLoaded', function() {
             requiredFields.forEach(field => {
                 if (!field.value.trim()) {
                     isValid = false;
-                    field.classList.add('error');
+                    field.classList.add('form-error');
+                    showFieldError(field, 'Este campo é obrigatório');
                 } else {
-                    field.classList.remove('error');
+                    field.classList.remove('form-error');
+                    hideFieldError(field);
                 }
             });
             
@@ -156,16 +158,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailPattern.test(emailField.value)) {
                     isValid = false;
-                    emailField.classList.add('error');
+                    emailField.classList.add('form-error');
+                    showFieldError(emailField, 'Por favor, insira um email válido');
                 }
             }
             
             if (isValid) {
-                // Aqui você pode adicionar código para enviar o formulário via AJAX
-                // ou simplesmente mostrar uma mensagem de sucesso
-                
                 // Simular envio bem-sucedido
                 const submitBtn = contatoForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
                 submitBtn.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div>';
                 submitBtn.disabled = true;
                 
@@ -174,20 +176,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     contatoForm.reset();
                     
                     // Mostrar mensagem de sucesso
-                    const successMessage = document.createElement('div');
-                    successMessage.className = 'form-success-message';
-                    successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entraremos em contato em breve.';
-                    
-                    contatoForm.appendChild(successMessage);
+                    showSuccessMessage('Mensagem enviada com sucesso! Entraremos em contato em breve.');
                     
                     // Restaurar botão
-                    submitBtn.innerHTML = 'Enviar Mensagem';
+                    submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
-                    
-                    // Remover mensagem após alguns segundos
-                    setTimeout(function() {
-                        successMessage.remove();
-                    }, 5000);
                 }, 1500);
             }
         });
@@ -195,7 +188,82 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animação das partículas de energia no hero
     initEnergyParticles();
+    
+    // Inicializar animações da seção de novidades
+    initNovidadesAnimations();
+    
+    // Newsletter form
+    const newsletterForm = document.querySelector('.newsletter-form form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = this.querySelector('input[type="email"]');
+            const submitBtn = this.querySelector('button[type="submit"]');
+            
+            if (validateEmail(emailInput.value)) {
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = 'Inscrevendo...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    showSuccessMessage('Inscrição realizada com sucesso!');
+                    emailInput.value = '';
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 1000);
+            } else {
+                showError('Por favor, insira um email válido');
+            }
+        });
+    }
 });
+
+// Funções auxiliares para formulários
+function showFieldError(field, message) {
+    // Remove mensagem de erro anterior
+    hideFieldError(field);
+    
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    
+    field.parentNode.appendChild(errorDiv);
+}
+
+function hideFieldError(field) {
+    const existingError = field.parentNode.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+}
+
+function showSuccessMessage(message) {
+    const successDiv = document.createElement('div');
+    successDiv.className = 'form-success-message';
+    successDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+    
+    // Encontrar o formulário ativo ou usar o primeiro disponível
+    const form = document.querySelector('#contato-form') || document.querySelector('form');
+    if (form) {
+        form.appendChild(successDiv);
+        
+        // Remover mensagem após 5 segundos
+        setTimeout(() => {
+            successDiv.remove();
+        }, 5000);
+    }
+}
+
+function showError(message) {
+    // Implementar notificação de erro se necessário
+    alert(message);
+}
+
+function validateEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
 
 // Criar e animar partículas de energia na seção hero
 function initEnergyParticles() {
@@ -227,19 +295,48 @@ function initEnergyParticles() {
     }
 }
 
+// Inicializar animações da seção de novidades
+function initNovidadesAnimations() {
+    const novidadeCards = document.querySelectorAll('.novidade-card');
+    
+    novidadeCards.forEach((card, index) => {
+        // Animação de entrada escalonada
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease-out';
+        
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 300 + (index * 200));
+    });
+    
+    // Efeito de hover aprimorado para features
+    const featureItems = document.querySelectorAll('.feature-item');
+    featureItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateX(10px) scale(1.02)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateX(0) scale(1)';
+        });
+    });
+}
+
 // Simular efeitos de carregamento para elementos UI
 function simulateLoading(element, callback) {
-    element.classList.add('loading');
+    element.classList.add('btn-loading');
     
     setTimeout(() => {
-        element.classList.remove('loading');
+        element.classList.remove('btn-loading');
         if (typeof callback === 'function') {
             callback();
         }
     }, 1500);
 }
 
-// Função de mascara para telefone no formulário
+// Função de máscara para telefone no formulário
 function mascaraTelefone(input) {
     let valor = input.value.replace(/\D/g, '');
     let formatado = '';
@@ -267,4 +364,74 @@ document.addEventListener('DOMContentLoaded', function() {
             mascaraTelefone(this);
         });
     }
+});
+
+// Função para destacar novos produtos
+function highlightNewProducts() {
+    const newBadges = document.querySelectorAll('.produto-badge.new');
+    
+    newBadges.forEach(badge => {
+        // Adicionar efeito pulsante
+        setInterval(() => {
+            badge.style.animation = 'pulse-glow 1s ease-in-out';
+            
+            setTimeout(() => {
+                badge.style.animation = 'pulse-glow 2s infinite';
+            }, 1000);
+        }, 5000);
+    });
+}
+
+// Inicializar quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(highlightNewProducts, 2000); // Executar após 2 segundos
+});
+
+// Função para scroll suave personalizado para botões CTA
+function smoothScrollToSection(targetId) {
+    const targetElement = document.querySelector(targetId);
+    if (!targetElement) return;
+    
+    const headerHeight = document.querySelector('.header').offsetHeight;
+    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+    
+    window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+    });
+}
+
+// Adicionar funcionalidade aos botões de "Confira as Novidades"
+document.addEventListener('DOMContentLoaded', function() {
+    const novidadesCTA = document.querySelector('.novidades-cta .btn-cta');
+    if (novidadesCTA) {
+        novidadesCTA.addEventListener('click', function(e) {
+            e.preventDefault();
+            smoothScrollToSection('#produtos');
+            
+            // Destacar produtos novos após o scroll
+            setTimeout(() => {
+                const newProducts = document.querySelectorAll('.produto-card .produto-badge.new');
+                newProducts.forEach(badge => {
+                    const card = badge.closest('.produto-card');
+                    card.style.animation = 'glow 1s ease-in-out';
+                    
+                    setTimeout(() => {
+                        card.style.animation = '';
+                    }, 1000);
+                });
+            }, 800);
+        });
+    }
+});
+
+// Função para animação de contador nos stats - REMOVIDA
+// Esta função foi removida pois causava problemas de fluidez e valores incorretos
+
+// Inicializar contador quando a seção estiver visível - REMOVIDO
+// Esta função foi removida
+
+// Inicializar quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    // Removido initCounterAnimation para evitar animação problemática nos stats
 });

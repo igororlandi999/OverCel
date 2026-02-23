@@ -219,6 +219,10 @@
                             </li>
                             <li class="produto-feature-item">
                                 <i class="fas fa-check"></i>
+                                <span>Largura: 33mm, 68mm, 120mm, 250mm, 280mm, 300mm</span>
+                            </li>
+                            <li class="produto-feature-item">
+                                <i class="fas fa-check"></i>
                                 <span>Material: Poliolefina</span>
                             </li>
                             <li class="produto-feature-item">
@@ -246,6 +250,18 @@
                                 <span>Proteção contra Umidade e Poeira</span>
                             </li>
                         </ul>
+                    </div>
+
+                    <div class="produto-variantes">
+                        <h3 class="produto-variantes-title">Largura disponível</h3>
+                        <div class="produto-variantes-options">
+                            <button class="produto-variante-btn active" data-largura="33mm">33 mm</button>
+                            <button class="produto-variante-btn" data-largura="68mm">68 mm</button>
+                            <button class="produto-variante-btn" data-largura="120mm">120 mm</button>
+                            <button class="produto-variante-btn" data-largura="250mm">250 mm</button>
+                            <button class="produto-variante-btn" data-largura="280mm">280 mm</button>
+                            <button class="produto-variante-btn" data-largura="300mm">300 mm</button>
+                        </div>
                     </div>
 
                     <div class="produto-cta">
@@ -381,6 +397,10 @@
                                 <td class="highlighted">0,15 mm</td>
                             </tr>
                             <tr>
+                                <td class="spec-name">Largura</td>
+                                <td class="highlighted">33mm, 68mm, 120mm, 250mm, 280mm, 300mm</td>
+                            </tr>
+                            <tr>
                                 <td class="spec-name">Material</td>
                                 <td class="highlighted">Poliolefina</td>
                             </tr>
@@ -469,6 +489,16 @@
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/products.js"></script>
     <script src="../assets/js/load-footer.js"></script>
+    <script>
+        document.querySelectorAll('.produto-variante-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.produto-variante-btn').forEach(function(b) {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+    </script>
 </body>
 
 </html>

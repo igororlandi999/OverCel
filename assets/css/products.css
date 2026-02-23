@@ -223,6 +223,53 @@ OVERCEL - ESTILOS DE PÁGINAS DE PRODUTO
     font-size: 0.8rem;
 }
 
+/* Produto Variantes (Largura)
+============================================== */
+.produto-variantes {
+    margin-bottom: var(--spacing-lg);
+}
+
+.produto-variantes-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+}
+
+.produto-variantes-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.produto-variante-btn {
+    padding: 8px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-family: var(--font-body);
+}
+
+.produto-variante-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(0, 170, 255, 0.08);
+}
+
+.produto-variante-btn.active {
+    border-color: var(--primary);
+    background: rgba(0, 170, 255, 0.15);
+    color: var(--primary);
+    font-weight: 600;
+}
+
 .produto-cta {
     margin-top: var(--spacing-lg);
 }

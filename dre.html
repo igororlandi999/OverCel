@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DRE &mdash; Portal Financeiro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:            #0a0c0f;
+      --bg-surface:    #0f1218;
+      --bg-elevated:   #141820;
+      --bg-hover:      #1a2030;
+      --border:        #1e2535;
+      --border-light:  #252d3d;
+      --accent:        #00d4ff;
+      --accent-dim:    rgba(0,212,255,.12);
+      --accent-glow:   rgba(0,212,255,.25);
+      --positive:      #00e676;
+      --negative:      #ff4757;
+      --warning:       #ffa502;
+      --text:          #e8eaf0;
+      --text-muted:    #5a6480;
+      --text-dim:      #3a4260;
+      --font-display:  'Orbitron', monospace;
+      --font-body:     'Poppins', sans-serif;
+      --font-mono:     'Roboto Mono', monospace;
+      --radius:        6px;
+      --radius-lg:     10px;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      height: 58px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: .12em;
+      color: var(--accent);
+      text-shadow: 0 0 18px var(--accent-glow);
+    }
+
+    .logo-sep {
+      width: 1px;
+      height: 22px;
+      background: var(--border-light);
+    }
+
+    .logo-title {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 16px;
+      height: 34px;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: background .15s, color .15s, border-color .15s, box-shadow .15s;
+      white-space: nowrap;
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #000;
+    }
+    .btn-accent:hover { background: #33ddff; box-shadow: 0 0 14px var(--accent-glow); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .btn-outline:hover { background: var(--accent-dim); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border-light);
+    }
+    .btn-ghost:hover { background: var(--bg-hover); color: var(--text); }
+
+    .badge-admin {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 10px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 24px 60px;
+    }
+
+    /* ── MONTH NAV ── */
+    .month-nav {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .month-tab {
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .month-tab:hover { border-color: var(--border-light); color: var(--text); background: var(--bg-hover); }
+    .month-tab.active {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── DRE WRAPPER ── */
+    .dre-wrapper {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .dre-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-elevated);
+    }
+
+    .dre-header-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .dre-month-label {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: .08em;
+    }
+
+    /* ── TABLE ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead tr {
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border);
+    }
+
+    thead th {
+      padding: 10px 20px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-dim);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    thead th:not(:first-child) { text-align: right; }
+
+    /* ── ROWS ── */
+    tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+    tbody tr:last-child { border-bottom: none; }
+
+    .row-section-header td {
+      padding: 10px 20px 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .row-sub:hover { background: var(--bg-hover); }
+    .row-sub td { padding: 11px 20px; }
+
+    .row-total {
+      background: var(--bg-elevated);
+    }
+    .row-total td { padding: 12px 20px; }
+
+    .row-grand-total {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border-light) !important;
+    }
+    .row-grand-total td { padding: 14px 20px; }
+
+    .row-info { opacity: .75; }
+    .row-info:hover { opacity: 1; background: var(--bg-hover); }
+    .row-info td { padding: 10px 20px; }
+
+    /* ── CELLS ── */
+    .cell-label {
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .row-total .cell-label,
+    .row-grand-total .cell-label {
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .row-grand-total .cell-label {
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+
+    .cell-value {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .cell-pct {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .val-positive  { color: var(--positive); }
+    .val-negative  { color: var(--negative); }
+    .val-zero      { color: var(--text-dim); }
+    .val-neutral   { color: var(--text); }
+
+    /* ── EDIT INPUT ── */
+    .cell-input { text-align: right; padding: 6px 20px !important; }
+
+    .edit-input {
+      background: var(--bg);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      padding: 6px 10px;
+      width: 100%;
+      max-width: 200px;
+      outline: none;
+      text-align: right;
+      transition: box-shadow .15s;
+    }
+    .edit-input:focus { box-shadow: 0 0 0 2px var(--accent-glow); }
+    .edit-input::-webkit-inner-spin-button,
+    .edit-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+    /* ── MODALS ── */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.7);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.6);
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 13px;
+      padding: 9px 12px;
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .form-input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-glow); }
+    .form-input::placeholder { color: var(--text-dim); }
+
+    .form-help {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+
+    .form-error {
+      color: var(--negative);
+      font-size: 12px;
+      min-height: 18px;
+      margin-bottom: 10px;
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    /* ── STATUS BAR ── */
+    #status-bar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 10px 18px;
+      border-radius: var(--radius-lg);
+      font-size: 13px;
+      font-weight: 500;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .25s, transform .25s;
+      z-index: 500;
+      max-width: 320px;
+    }
+    #status-bar.show        { opacity: 1; transform: translateY(0); }
+    #status-bar.success     { background: rgba(0,230,118,.15); border: 1px solid var(--positive); color: var(--positive); }
+    #status-bar.error       { background: rgba(255,71,87,.15);  border: 1px solid var(--negative); color: var(--negative); }
+    #status-bar.loading     { background: rgba(0,212,255,.1);   border: 1px solid var(--accent);   color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      header { padding: 0 16px; }
+      .logo-title { display: none; }
+      main { padding: 16px 12px 60px; }
+      .dre-header-title { display: none; }
+      thead th, tbody td { padding: 9px 12px !important; }
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <header>
+    <div class="header-left">
+      <span class="logo">DRE</span>
+      <div class="logo-sep"></div>
+      <span class="logo-title">Demonstrativo de Resultado do Exerc&#237;cio</span>
+    </div>
+    <div class="header-right" id="header-actions"></div>
+  </header>
+
+  <main>
+    <div class="month-nav" id="month-nav"></div>
+    <div id="dre-container"></div>
+  </main>
+
+</div>
+
+<div id="status-bar"></div>
+
+<div class="overlay" id="modal-login" style="display:none;">
+  <div class="modal">
+    <div class="modal-title">Acesso administrativo</div>
+    <div class="form-group">
+      <label class="form-label">Senha</label>
+      <input type="password" class="form-input" id="login-password" placeholder="Digite a senha de admin" />
+    </div>
+    <div class="form-error" id="login-error"></div>
+    <div class="form-row">
+      <button class="btn btn-ghost" onclick="closeModal('modal-login')">Cancelar</button>
+      <button class="btn btn-accent" onclick="doLogin()">Entrar</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="modal-config" style="display:none;">
+  <div class="modal">
+    <div class="modal-title">Configura&#231;&#227;o do reposit&#243;rio</div>
+    <div class="form-group">
+      <label class="form-label">Usu&#225;rio GitHub</label>
+      <input type="text" class="form-input" id="cfg-user" placeholder="ex: seunome" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Nome do reposit&#243;rio</label>
+      <input type="text" class="form-input" id="cfg-repo" placeholder="ex: dre-portal" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Personal Access Token (PAT)</label>
+      <input type="password" class="form-input" id="cfg-pat" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+      <div class="form-help">Permiss&#227;o necess&#225;ria: Contents (read + write).<br>Armazenado apenas no seu navegador via localStorage.</div>
+    </div>
+    <div class="form-error" id="config-error"></div>
+    <div class="form-row">
+      <button class="btn btn-ghost" onclick="closeModal('modal-config')">Cancelar</button>
+      <button class="btn btn-accent" onclick="saveConfig()">Salvar configura&#231;&#227;o</button>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+var ADMIN_PASSWORD = 'admin123';
+var DASH = '\u2014';
+
+/* ─── ESTRUTURA DA DRE ───────────────────────────────────── */
+var DRE_STRUCTURE = [
+
+  { type: 'section', label: '(+) RECEITA BRUTA' },
+  { type: 'sub', key: 'vendas_diretas', label: 'Vendas diretas' },
+  { type: 'sub', key: 'marketplaces',   label: 'Marketplaces (l\u00edquido de comiss\u00e3o da plataforma)' },
+  { type: 'total', id: 'receita_bruta', label: '= RECEITA BRUTA TOTAL', color: 'positive' },
+
+  { type: 'section', label: '(-) DEDU\u00c7\u00d5ES DA RECEITA' },
+  { type: 'sub',     key: 'comissoes',   label: 'Comiss\u00f5es' },
+  { type: 'sub',     key: 'devolucoes',  label: 'Devolu\u00e7\u00f5es' },
+  { type: 'sub',     key: 'frete_venda', label: 'Frete de venda' },
+  { type: 'sub-pct', key: 'simples_pct', label: 'Simples Nacional', calcId: 'simples_valor' },
+  { type: 'total', id: 'receita_liquida', label: '= RECEITA L\u00cdQUIDA', color: 'dynamic' },
+
+  { type: 'section', label: '(-) CMV \u2014 CUSTO DOS PRODUTOS VENDIDOS' },
+  { type: 'sub', key: 'cmv', label: 'Custo dos produtos vendidos' },
+  { type: 'total-grand', id: 'lucro_bruto', label: '= LUCRO BRUTO', color: 'dynamic', showPct: true },
+
+  { type: 'section', label: '(-) DESPESAS OPERACIONAIS' },
+  { type: 'sub', key: 'pessoal',         label: 'Pessoal (sal\u00e1rios, INSS)' },
+  { type: 'sub', key: 'fixas',           label: 'Fixas (aluguel, contabilidade)' },
+  { type: 'sub', key: 'administrativas', label: 'Administrativas (banc\u00e1rias, materiais)' },
+  { type: 'total-grand', id: 'ebitda',   label: '= RESULTADO OPERACIONAL (EBITDA)', color: 'dynamic', showPct: false },
+
+  { type: 'section', label: '(-) RETIRADAS DE S\u00d3CIOS' },
+  { type: 'sub', key: 'dividendos', label: 'Antecipa\u00e7\u00e3o de dividendos' },
+  { type: 'total-grand', id: 'res_liquido', label: '= RESULTADO L\u00cdQUIDO', color: 'dynamic', showPct: true },
+
+  { type: 'divider' },
+  { type: 'info', key: 'saldo_caixa', label: '(informa\u00e7\u00e3o) Saldo de caixa acumulado' },
+  { type: 'info', key: 'estoque',     label: '(informa\u00e7\u00e3o) Estoque em R$' }
+
+];
+
+/* ─── STATE ──────────────────────────────────────────────── */
+var isAdmin      = false;
+var isEditMode   = false;
+var currentMonth = '2026-01';
+var allData      = {};
+var githubConfig = {};
+
+/* ─── MONTHS ─────────────────────────────────────────────── */
+function generateMonths() {
+  return [
+    '2026-01','2026-02','2026-03','2026-04',
+    '2026-05','2026-06','2026-07','2026-08',
+    '2026-09','2026-10','2026-11','2026-12'
+  ];
+}
+
+function formatMonthLabel(key) {
+  var parts = key.split('-');
+  var y = parts[0];
+  var m = parseInt(parts[1], 10);
+  var names = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  return names[m - 1] + ' ' + y;
+}
+
+/* ─── CÁLCULOS ───────────────────────────────────────────── */
+function calcTotals(d) {
+  var receita_bruta   = (d.vendas_diretas || 0) + (d.marketplaces || 0);
+  var simples_valor   = receita_bruta * ((d.simples_pct || 0) / 100);
+  var deducoes        = (d.comissoes || 0) + (d.devolucoes || 0) + (d.frete_venda || 0) + simples_valor;
+  var receita_liquida = receita_bruta - deducoes;
+  var lucro_bruto     = receita_liquida - (d.cmv || 0);
+  var desp_op         = (d.pessoal || 0) + (d.fixas || 0) + (d.administrativas || 0);
+  var ebitda          = lucro_bruto - desp_op;
+  var res_liquido     = ebitda - (d.dividendos || 0);
+  return {
+    receita_bruta:   receita_bruta,
+    simples_valor:   simples_valor,
+    receita_liquida: receita_liquida,
+    lucro_bruto:     lucro_bruto,
+    ebitda:          ebitda,
+    res_liquido:     res_liquido
+  };
+}
+
+/* ─── FORMAT ─────────────────────────────────────────────── */
+function fmtBRL(v) {
+  if (v === null || v === undefined) return DASH;
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency', currency: 'BRL',
+    minimumFractionDigits: 2, maximumFractionDigits: 2
+  }).format(v);
+}
+
+function fmtPct(val, base) {
+  if (!base) return DASH;
+  return (val / base * 100).toFixed(1) + '%';
+}
+
+function valClass(v) {
+  if (v === 0) return 'val-zero';
+  return v > 0 ? 'val-positive' : 'val-negative';
+}
+
+/* ─── RENDER MONTH NAV ───────────────────────────────────── */
+function renderMonthNav() {
+  var months = generateMonths();
+  var nav    = document.getElementById('month-nav');
+  nav.innerHTML = '';
+  months.forEach(function(m) {
+    var btn = document.createElement('button');
+    btn.className   = 'month-tab' + (m === currentMonth ? ' active' : '');
+    btn.textContent = formatMonthLabel(m);
+    btn.addEventListener('click', function() {
+      if (isEditMode) {
+        if (!confirm('H\u00e1 edi\u00e7\u00f5es em andamento. Deseja descart\u00e1-las?')) return;
+        isEditMode = false;
+      }
+      currentMonth = m;
+      renderAll();
+    });
+    nav.appendChild(btn);
+  });
+}
+
+/* ─── RENDER HEADER ──────────────────────────────────────── */
+function renderHeaderActions() {
+  var el = document.getElementById('header-actions');
+  el.innerHTML = '';
+
+  if (isAdmin) {
+    var badge = document.createElement('span');
+    badge.className   = 'badge-admin';
+    badge.textContent = 'Admin';
+    el.appendChild(badge);
+
+    if (isEditMode) {
+      var btnCancel = document.createElement('button');
+      btnCancel.className   = 'btn btn-ghost';
+      btnCancel.textContent = 'Cancelar';
+      btnCancel.addEventListener('click', cancelEdit);
+      el.appendChild(btnCancel);
+
+      var btnSave = document.createElement('button');
+      btnSave.className   = 'btn btn-accent';
+      btnSave.textContent = 'Salvar';
+      btnSave.addEventListener('click', saveData);
+      el.appendChild(btnSave);
+    } else {
+      var btnEdit = document.createElement('button');
+      btnEdit.className   = 'btn btn-outline';
+      btnEdit.textContent = 'Editar m\u00eas';
+      btnEdit.addEventListener('click', startEdit);
+      el.appendChild(btnEdit);
+    }
+
+    var btnCfg = document.createElement('button');
+    btnCfg.className   = 'btn btn-ghost';
+    btnCfg.textContent = 'Config GitHub';
+    btnCfg.addEventListener('click', function() { openModal('modal-config'); });
+    el.appendChild(btnCfg);
+
+    var btnOut = document.createElement('button');
+    btnOut.className   = 'btn btn-ghost';
+    btnOut.textContent = 'Sair';
+    btnOut.addEventListener('click', doLogout);
+    el.appendChild(btnOut);
+  } else {
+    var btnLogin = document.createElement('button');
+    btnLogin.className   = 'btn btn-ghost';
+    btnLogin.textContent = 'Acesso admin';
+    btnLogin.addEventListener('click', function() { openModal('modal-login'); });
+    el.appendChild(btnLogin);
+  }
+}
+
+/* ─── EMPTY MONTH ────────────────────────────────────────── */
+function emptyMonth() {
+  return {
+    vendas_diretas:  0,
+    marketplaces:    0,
+    comissoes:       0,
+    devolucoes:      0,
+    frete_venda:     0,
+    simples_pct:     0,
+    cmv:             0,
+    pessoal:         0,
+    fixas:           0,
+    administrativas: 0,
+    dividendos:      0,
+    saldo_caixa:     0,
+    estoque:         0
+  };
+}
+
+/* ─── RENDER DRE ─────────────────────────────────────────── */
+function renderDRE() {
+  var container = document.getElementById('dre-container');
+  var data      = allData[currentMonth] || emptyMonth();
+  var totals    = calcTotals(data);
+  var rb        = totals.receita_bruta;
+
+  container.innerHTML = '';
+
+  var wrapper = document.createElement('div');
+  wrapper.className = 'dre-wrapper';
+
+  var dreHead   = document.createElement('div');
+  dreHead.className = 'dre-header';
+  var titleSpan = document.createElement('span');
+  titleSpan.className   = 'dre-header-title';
+  titleSpan.textContent = 'Demonstrativo de Resultado do Exerc\u00edcio';
+  var monthSpan = document.createElement('span');
+  monthSpan.className   = 'dre-month-label';
+  monthSpan.textContent = formatMonthLabel(currentMonth);
+  dreHead.appendChild(titleSpan);
+  dreHead.appendChild(monthSpan);
+  wrapper.appendChild(dreHead);
+
+  var table   = document.createElement('table');
+  var thead   = document.createElement('thead');
+  var headRow = document.createElement('tr');
+  ['Linha DRE', 'Valor (R$)', '% Rec. Bruta'].forEach(function(h, i) {
+    var th = document.createElement('th');
+    th.textContent = h;
+    th.style.width = ['60%','24%','16%'][i];
+    headRow.appendChild(th);
+  });
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+
+  var tbody = document.createElement('tbody');
+
+  DRE_STRUCTURE.forEach(function(row) {
+    var tr = document.createElement('tr');
+
+    /* ── section ── */
+    if (row.type === 'section') {
+      tr.className = 'row-section-header';
+      var td = document.createElement('td');
+      td.setAttribute('colspan', '3');
+      td.textContent = row.label;
+      tr.appendChild(td);
+    }
+
+    /* ── divider ── */
+    else if (row.type === 'divider') {
+      tr.className = 'row-section-header';
+      var td = document.createElement('td');
+      td.setAttribute('colspan', '3');
+      td.style.padding = '4px 0';
+      tr.appendChild(td);
+    }
+
+    /* ── sub (valor R$) ── */
+    else if (row.type === 'sub') {
+      tr.className = 'row-sub';
+      var val      = data[row.key] !== undefined ? data[row.key] : 0;
+
+      var tdLabel  = document.createElement('td');
+      var labelDiv = document.createElement('div');
+      labelDiv.className   = 'cell-label';
+      labelDiv.textContent = row.label;
+      tdLabel.appendChild(labelDiv);
+      tr.appendChild(tdLabel);
+
+      if (isEditMode) {
+        var tdInp = document.createElement('td');
+        tdInp.className = 'cell-input';
+        tdInp.setAttribute('colspan', '2');
+        var inp = document.createElement('input');
+        inp.type        = 'number';
+        inp.className   = 'edit-input';
+        inp.step        = '0.01';
+        inp.dataset.key = row.key;
+        inp.value       = val;
+        inp.addEventListener('input', onInputChange);
+        tdInp.appendChild(inp);
+        tr.appendChild(tdInp);
+      } else {
+        var tdVal = document.createElement('td');
+        tdVal.className   = 'cell-value ' + (val === 0 ? 'val-zero' : 'val-neutral');
+        tdVal.textContent = val === 0 ? DASH : fmtBRL(val);
+        tr.appendChild(tdVal);
+        var tdPct = document.createElement('td');
+        tdPct.className   = 'cell-pct';
+        tdPct.textContent = (val && rb) ? fmtPct(val, rb) : DASH;
+        tr.appendChild(tdPct);
+      }
+    }
+
+    /* ── sub-pct (Simples Nacional) ── */
+    else if (row.type === 'sub-pct') {
+      tr.className = 'row-sub';
+      var pctVal  = data[row.key] !== undefined ? data[row.key] : 0;
+      var calcVal = totals[row.calcId] || 0;
+
+      var tdLabel  = document.createElement('td');
+      var labelDiv = document.createElement('div');
+      labelDiv.className   = 'cell-label';
+      labelDiv.style.cssText = 'display:flex;align-items:center;gap:10px;';
+
+      var labelTxt = document.createElement('span');
+      labelTxt.textContent = row.label;
+      labelDiv.appendChild(labelTxt);
+
+      if (isEditMode) {
+        var pctWrap = document.createElement('div');
+        pctWrap.style.cssText = 'display:flex;align-items:center;gap:4px;';
+
+        var inp = document.createElement('input');
+        inp.type        = 'number';
+        inp.className   = 'edit-input';
+        inp.step        = '0.01';
+        inp.min         = '0';
+        inp.max         = '100';
+        inp.placeholder = '0.00';
+        inp.dataset.key = row.key;
+        inp.value       = pctVal;
+        inp.style.width = '90px';
+        inp.addEventListener('input', onInputChange);
+
+        var sign = document.createElement('span');
+        sign.textContent   = '%';
+        sign.style.cssText = 'font-family:var(--font-mono);color:var(--text-muted);font-size:14px;';
+
+        pctWrap.appendChild(inp);
+        pctWrap.appendChild(sign);
+        labelDiv.appendChild(pctWrap);
+      } else {
+        if (pctVal > 0) {
+          var pctBadge = document.createElement('span');
+          pctBadge.textContent   = pctVal + '%';
+          pctBadge.style.cssText = 'font-family:var(--font-mono);font-size:13px;color:var(--text-muted);';
+          labelDiv.appendChild(pctBadge);
+        }
+      }
+
+      tdLabel.appendChild(labelDiv);
+      tr.appendChild(tdLabel);
+
+      var tdVal = document.createElement('td');
+      tdVal.className      = 'cell-value ' + (calcVal === 0 ? 'val-zero' : 'val-neutral');
+      tdVal.dataset.calcid = row.calcId;
+      tdVal.textContent    = calcVal === 0 ? DASH : fmtBRL(calcVal);
+      tr.appendChild(tdVal);
+
+      var tdPct = document.createElement('td');
+      tdPct.className   = 'cell-pct';
+      tdPct.textContent = (calcVal && rb) ? fmtPct(calcVal, rb) : DASH;
+      tr.appendChild(tdPct);
+    }
+
+    /* ── total ── */
+    else if (row.type === 'total') {
+      tr.className = 'row-total';
+      var val  = totals[row.id];
+      var cls  = row.color === 'positive' ? 'val-positive' : valClass(val);
+      var pctT = row.id === 'receita_bruta' ? '100.0%' : (rb ? fmtPct(val, rb) : DASH);
+
+      var tdLabel = document.createElement('td');
+      var ld      = document.createElement('div');
+      ld.className   = 'cell-label';
+      ld.textContent = row.label;
+      tdLabel.appendChild(ld);
+      tr.appendChild(tdLabel);
+
+      var tdVal = document.createElement('td');
+      tdVal.className   = 'cell-value ' + cls;
+      tdVal.textContent = fmtBRL(val);
+      tr.appendChild(tdVal);
+
+      var tdPct = document.createElement('td');
+      tdPct.className   = 'cell-pct';
+      tdPct.textContent = pctT;
+      tr.appendChild(tdPct);
+    }
+
+    /* ── total-grand ── */
+    else if (row.type === 'total-grand') {
+      tr.className = 'row-grand-total';
+      var val  = totals[row.id];
+      var cls  = valClass(val);
+      var pctT = rb ? fmtPct(val, rb) : DASH;
+
+      var tdLabel = document.createElement('td');
+      var ld      = document.createElement('div');
+      ld.className   = 'cell-label';
+      ld.textContent = row.label;
+      if (row.showPct && rb) {
+        var badge = document.createElement('span');
+        badge.style.cssText = 'color:var(--text-muted);font-size:11px;font-weight:400;margin-left:10px;';
+        badge.textContent   = '(' + pctT + ')';
+        ld.appendChild(badge);
+      }
+      tdLabel.appendChild(ld);
+      tr.appendChild(tdLabel);
+
+      var tdVal = document.createElement('td');
+      tdVal.className   = 'cell-value ' + cls;
+      tdVal.textContent = fmtBRL(val);
+      tr.appendChild(tdVal);
+
+      var tdPct = document.createElement('td');
+      tdPct.className   = 'cell-pct';
+      tdPct.textContent = pctT;
+      tr.appendChild(tdPct);
+    }
+
+    /* ── info ── */
+    else if (row.type === 'info') {
+      tr.className = 'row-info';
+      var val      = data[row.key] !== undefined ? data[row.key] : 0;
+
+      var tdLabel  = document.createElement('td');
+      var ld       = document.createElement('div');
+      ld.className   = 'cell-label';
+      ld.textContent = row.label;
+      tdLabel.appendChild(ld);
+      tr.appendChild(tdLabel);
+
+      if (isEditMode) {
+        var tdInp = document.createElement('td');
+        tdInp.className = 'cell-input';
+        tdInp.setAttribute('colspan', '2');
+        var inp = document.createElement('input');
+        inp.type        = 'number';
+        inp.className   = 'edit-input';
+        inp.step        = '0.01';
+        inp.dataset.key = row.key;
+        inp.value       = val;
+        inp.addEventListener('input', onInputChange);
+        tdInp.appendChild(inp);
+        tr.appendChild(tdInp);
+      } else {
+        var tdVal = document.createElement('td');
+        tdVal.className   = 'cell-value';
+        tdVal.textContent = val === 0 ? DASH : fmtBRL(val);
+        tr.appendChild(tdVal);
+        var tdPct = document.createElement('td');
+        tdPct.className   = 'cell-pct';
+        tdPct.textContent = DASH;
+        tr.appendChild(tdPct);
+      }
+    }
+
+    tbody.appendChild(tr);
+  });
+
+  table.appendChild(tbody);
+  wrapper.appendChild(table);
+  container.appendChild(wrapper);
+}
+
+function renderAll() {
+  renderMonthNav();
+  renderHeaderActions();
+  renderDRE();
+}
+
+/* ─── EDIT ───────────────────────────────────────────────── */
+function startEdit() {
+  if (!isAdmin) return;
+  if (!allData[currentMonth]) allData[currentMonth] = emptyMonth();
+  isEditMode = true;
+  renderAll();
+  setTimeout(function() {
+    var first = document.querySelector('.edit-input');
+    if (first) first.focus();
+  }, 50);
+}
+
+function cancelEdit() {
+  isEditMode = false;
+  renderAll();
+}
+
+function onInputChange() {
+  var inputs = document.querySelectorAll('.edit-input');
+  var draft  = {};
+  inputs.forEach(function(inp) {
+    draft[inp.dataset.key] = parseFloat(inp.value) || 0;
+  });
+
+  var base = Object.assign({}, allData[currentMonth] || emptyMonth(), draft);
+  var t    = calcTotals(base);
+  var rb   = t.receita_bruta;
+
+  document.querySelectorAll('.row-total, .row-grand-total').forEach(function(tr) {
+    var ld = tr.querySelector('.cell-label');
+    if (!ld) return;
+    var labelText = ld.firstChild ? ld.firstChild.textContent.trim() : ld.textContent.trim();
+
+    DRE_STRUCTURE.forEach(function(row) {
+      if (row.type !== 'total' && row.type !== 'total-grand') return;
+      if (labelText !== row.label) return;
+
+      var val  = t[row.id];
+      var cls  = row.color === 'positive' ? 'val-positive' : valClass(val);
+      var pctT = row.id === 'receita_bruta' ? '100.0%' : (rb ? fmtPct(val, rb) : DASH);
+
+      var tdVal = tr.querySelector('.cell-value');
+      var tdPct = tr.querySelector('.cell-pct');
+      if (tdVal) { tdVal.textContent = fmtBRL(val); tdVal.className = 'cell-value ' + cls; }
+      if (tdPct) { tdPct.textContent = pctT; }
+
+      if (row.type === 'total-grand' && row.showPct) {
+        var sp = ld.querySelector('span');
+        if (sp) sp.textContent = '(' + pctT + ')';
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-calcid]').forEach(function(td) {
+    var cid = td.dataset.calcid;
+    if (t[cid] !== undefined) {
+      var v = t[cid];
+      td.textContent = v === 0 ? DASH : fmtBRL(v);
+      td.className   = 'cell-value ' + (v === 0 ? 'val-zero' : 'val-neutral');
+    }
+  });
+}
+
+/* ─── AUTH ───────────────────────────────────────────────── */
+function doLogin() {
+  var pwd = document.getElementById('login-password').value;
+  if (pwd === ADMIN_PASSWORD) {
+    isAdmin = true;
+    closeModal('modal-login');
+    document.getElementById('login-password').value = '';
+    document.getElementById('login-error').textContent = '';
+    githubConfig = loadConfig();
+    renderAll();
+    if (!githubConfig.user || !githubConfig.repo || !githubConfig.pat) {
+      setTimeout(function() { openModal('modal-config'); }, 300);
+    }
+  } else {
+    document.getElementById('login-error').textContent = 'Senha incorreta.';
+  }
+}
+
+function doLogout() {
+  if (isEditMode) {
+    if (!confirm('H\u00e1 edi\u00e7\u00f5es em andamento. Deseja descartar e sair?')) return;
+  }
+  isAdmin    = false;
+  isEditMode = false;
+  renderAll();
+}
+
+/* ─── GITHUB CONFIG ──────────────────────────────────────── */
+function loadConfig() {
+  try { return JSON.parse(localStorage.getItem('dre_gh_config') || '{}'); }
+  catch (e) { return {}; }
+}
+
+function saveConfig() {
+  var user = document.getElementById('cfg-user').value.trim();
+  var repo = document.getElementById('cfg-repo').value.trim();
+  var pat  = document.getElementById('cfg-pat').value.trim();
+  if (!user || !repo || !pat) {
+    document.getElementById('config-error').textContent = 'Todos os campos s\u00e3o obrigat\u00f3rios.';
+    return;
+  }
+  githubConfig = { user: user, repo: repo, pat: pat };
+  localStorage.setItem('dre_gh_config', JSON.stringify(githubConfig));
+  closeModal('modal-config');
+  showStatus('Configura\u00e7\u00e3o salva.', 'success');
+}
+
+/* ─── LOAD DATA ──────────────────────────────────────────── */
+function loadData() {
+  githubConfig = loadConfig();
+  var rawUrl = '';
+
+  if (githubConfig.user && githubConfig.repo) {
+    rawUrl = 'https://raw.githubusercontent.com/' + githubConfig.user + '/' + githubConfig.repo + '/main/data.json';
+  } else {
+    rawUrl = './data.json';
+  }
+
+  return fetch(rawUrl + '?t=' + Date.now())
+    .then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function(json) { allData = json; })
+    .catch(function(e) {
+      allData = {};
+      console.warn('data.json nao encontrado:', e.message);
+    });
+}
+
+/* ─── SAVE DATA ──────────────────────────────────────────── */
+function saveData() {
+  githubConfig = loadConfig();
+
+  if (!githubConfig.user || !githubConfig.repo || !githubConfig.pat) {
+    showStatus('Configure o GitHub primeiro.', 'error');
+    openModal('modal-config');
+    return;
+  }
+
+  var inputs = document.querySelectorAll('.edit-input');
+  if (!allData[currentMonth]) allData[currentMonth] = emptyMonth();
+  inputs.forEach(function(inp) {
+    allData[currentMonth][inp.dataset.key] = parseFloat(inp.value) || 0;
+  });
+
+  showStatus('Salvando...', 'loading');
+
+  var user   = githubConfig.user;
+  var repo   = githubConfig.repo;
+  var pat    = githubConfig.pat;
+  var apiUrl = 'https://api.github.com/repos/' + user + '/' + repo + '/contents/data.json';
+
+  fetch(apiUrl, {
+    headers: { 'Authorization': 'token ' + pat, 'Accept': 'application/vnd.github+json' }
+  })
+  .then(function(res) {
+    if (res.ok) return res.json().then(function(d) { return d.sha; });
+    if (res.status === 401) throw new Error('Token inv\u00e1lido. Gere um novo PAT.');
+    if (res.status === 403) throw new Error('Token sem permiss\u00e3o. Marque o escopo "repo".');
+    if (res.status === 404) return null;
+    throw new Error('Erro ao buscar arquivo: ' + res.status);
+  })
+  .then(function(sha) {
+    var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(allData, null, 2))));
+    var body    = { message: 'DRE: atualiza ' + currentMonth, content: encoded };
+    if (sha) body.sha = sha;
+    return fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': 'token ' + pat,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+  })
+  .then(function(res) {
+    if (!res.ok) {
+      return res.json().then(function(err) {
+        throw new Error(err.message || 'HTTP ' + res.status);
+      });
+    }
+    isEditMode = false;
+    showStatus('Salvo com sucesso no GitHub.', 'success');
+    renderAll();
+  })
+  .catch(function(e) {
+    showStatus('Erro: ' + e.message, 'error');
+    console.error('SAVE ERROR:', e);
+  });
+}
+
+/* ─── MODALS ─────────────────────────────────────────────── */
+function openModal(id) {
+  document.getElementById(id).style.display = 'flex';
+  if (id === 'modal-config') {
+    var cfg = loadConfig();
+    document.getElementById('cfg-user').value = cfg.user || '';
+    document.getElementById('cfg-repo').value = cfg.repo || '';
+    document.getElementById('cfg-pat').value  = cfg.pat  || '';
+    document.getElementById('config-error').textContent = '';
+  }
+  if (id === 'modal-login') {
+    document.getElementById('login-error').textContent = '';
+    setTimeout(function() { document.getElementById('login-password').focus(); }, 50);
+  }
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = 'none';
+}
+
+document.querySelectorAll('.overlay').forEach(function(ov) {
+  ov.addEventListener('click', function(e) {
+    if (e.target === ov) closeModal(ov.id);
+  });
+});
+
+document.getElementById('login-password').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') doLogin();
+});
+
+/* ─── STATUS BAR ─────────────────────────────────────────── */
+var statusTimer = null;
+function showStatus(msg, type) {
+  type   = type || 'success';
+  var el = document.getElementById('status-bar');
+  el.textContent = msg;
+  el.className   = 'show ' + type;
+  if (statusTimer) clearTimeout(statusTimer);
+  if (type !== 'loading') {
+    statusTimer = setTimeout(function() { el.className = ''; }, 4000);
+  }
+}
+
+/* ─── INIT ───────────────────────────────────────────────── */
+renderAll();
+loadData().then(function() { renderAll(); });
+</script>
+</body>
+</html>

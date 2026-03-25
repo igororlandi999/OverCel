@@ -1,18 +1,19 @@
 {
   "2026-01": {
-    "vendas_diretas": 2222,
-    "marketplaces": 22220,
-    "comissoes": 2220,
-    "devolucoes": 22220,
-    "cmv": 22220,
-    "pessoal": 22220,
-    "fixas": 22220,
-    "administrativas": 22220,
-    "frete_venda": 22220,
+    "vendas_diretas": 110947,
+    "marketplaces": 0,
+    "comissoes": 1671,
+    "devolucoes": 0,
+    "cmv": 66733.11,
+    "pessoal": 2800,
+    "fixas": 500,
+    "administrativas": 0,
+    "frete_venda": 2172,
     "simples": 0,
     "dividendos": 0,
-    "saldo_caixa": 0,
-    "estoque": 0
+    "saldo_caixa": 110221.38,
+    "estoque": 54230.78,
+    "simples_pct": 4
   },
   "2026-02": {
     "vendas_diretas": 0,

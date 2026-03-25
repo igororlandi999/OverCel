@@ -112,24 +112,13 @@
       white-space: nowrap;
     }
 
-    .btn-accent {
-      background: var(--accent);
-      color: #000;
-    }
+    .btn-accent  { background: var(--accent); color: #000; }
     .btn-accent:hover { background: #33ddff; box-shadow: 0 0 14px var(--accent-glow); }
 
-    .btn-outline {
-      background: transparent;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
+    .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
     .btn-outline:hover { background: var(--accent-dim); }
 
-    .btn-ghost {
-      background: transparent;
-      color: var(--text-muted);
-      border: 1px solid var(--border-light);
-    }
+    .btn-ghost { background: transparent; color: var(--text-muted); border: 1px solid var(--border-light); }
     .btn-ghost:hover { background: var(--bg-hover); color: var(--text); }
 
     .badge-admin {
@@ -150,10 +139,38 @@
 
     /* ── MAIN ── */
     main {
-      max-width: 1100px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 28px 24px 60px;
     }
+
+    /* ── VIEW SWITCHER ── */
+    .view-switcher {
+      display: flex;
+      width: fit-content;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .view-tab {
+      padding: 7px 22px;
+      background: transparent;
+      border: none;
+      border-right: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .view-tab:last-child { border-right: none; }
+    .view-tab:hover { background: var(--bg-hover); color: var(--text); }
+    .view-tab.active { background: var(--accent-dim); color: var(--accent); }
 
     /* ── MONTH NAV ── */
     .month-nav {
@@ -176,12 +193,7 @@
       transition: all .15s;
     }
     .month-tab:hover { border-color: var(--border-light); color: var(--text); background: var(--bg-hover); }
-    .month-tab.active {
-      background: var(--accent-dim);
-      border-color: var(--accent);
-      color: var(--accent);
-      font-weight: 600;
-    }
+    .month-tab.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); font-weight: 600; }
 
     /* ── DRE WRAPPER ── */
     .dre-wrapper {
@@ -217,15 +229,9 @@
     }
 
     /* ── TABLE ── */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+    table { width: 100%; border-collapse: collapse; }
 
-    thead tr {
-      background: var(--bg-elevated);
-      border-bottom: 1px solid var(--border);
-    }
+    thead tr { background: var(--bg-elevated); border-bottom: 1px solid var(--border); }
 
     thead th {
       padding: 10px 20px;
@@ -238,7 +244,6 @@
     }
     thead th:not(:first-child) { text-align: right; }
 
-    /* ── ROWS ── */
     tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
     tbody tr:last-child { border-bottom: none; }
 
@@ -256,32 +261,20 @@
     .row-sub:hover { background: var(--bg-hover); }
     .row-sub td { padding: 11px 20px; }
 
-    .row-total {
-      background: var(--bg-elevated);
-    }
+    .row-total { background: var(--bg-elevated); }
     .row-total td { padding: 12px 20px; }
 
-    .row-grand-total {
-      background: var(--bg-elevated);
-      border-top: 1px solid var(--border-light) !important;
-    }
+    .row-grand-total { background: var(--bg-elevated); border-top: 1px solid var(--border-light) !important; }
     .row-grand-total td { padding: 14px 20px; }
 
     .row-info { opacity: .75; }
     .row-info:hover { opacity: 1; background: var(--bg-hover); }
     .row-info td { padding: 10px 20px; }
 
-    /* ── CELLS ── */
-    .cell-label {
-      font-size: 13px;
-      color: var(--text);
-    }
+    .cell-label { font-size: 13px; color: var(--text); }
 
     .row-total .cell-label,
-    .row-grand-total .cell-label {
-      font-weight: 600;
-      font-size: 13px;
-    }
+    .row-grand-total .cell-label { font-weight: 600; font-size: 13px; }
 
     .row-grand-total .cell-label {
       font-family: var(--font-display);
@@ -305,10 +298,10 @@
       white-space: nowrap;
     }
 
-    .val-positive  { color: var(--positive); }
-    .val-negative  { color: var(--negative); }
-    .val-zero      { color: var(--text-dim); }
-    .val-neutral   { color: var(--text); }
+    .val-positive { color: var(--positive); }
+    .val-negative { color: var(--negative); }
+    .val-zero     { color: var(--text-dim); }
+    .val-neutral  { color: var(--text); }
 
     /* ── EDIT INPUT ── */
     .cell-input { text-align: right; padding: 6px 20px !important; }
@@ -330,6 +323,43 @@
     .edit-input:focus { box-shadow: 0 0 0 2px var(--accent-glow); }
     .edit-input::-webkit-inner-spin-button,
     .edit-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+    /* ── COMPARATIVO ── */
+    .comp-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* sticky first column */
+    .comp-table th:first-child,
+    .comp-table td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      min-width: 230px;
+      max-width: 260px;
+    }
+    .comp-table thead th:first-child     { background: var(--bg-elevated); z-index: 3; }
+    .comp-table .row-section-header td   { background: var(--bg); }
+    .comp-table .row-sub td:first-child  { background: var(--bg-surface); }
+    .comp-table .row-total td:first-child,
+    .comp-table .row-grand-total td:first-child { background: var(--bg-elevated); }
+    .comp-table .row-info td:first-child { background: var(--bg-surface); }
+
+    .comp-table th,
+    .comp-table td { min-width: 136px; }
+
+    /* highlight current month column header */
+    .comp-table th.col-current {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .comp-empty {
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
 
     /* ── MODALS ── */
     .overlay {
@@ -426,10 +456,10 @@
       z-index: 500;
       max-width: 320px;
     }
-    #status-bar.show        { opacity: 1; transform: translateY(0); }
-    #status-bar.success     { background: rgba(0,230,118,.15); border: 1px solid var(--positive); color: var(--positive); }
-    #status-bar.error       { background: rgba(255,71,87,.15);  border: 1px solid var(--negative); color: var(--negative); }
-    #status-bar.loading     { background: rgba(0,212,255,.1);   border: 1px solid var(--accent);   color: var(--accent); }
+    #status-bar.show    { opacity: 1; transform: translateY(0); }
+    #status-bar.success { background: rgba(0,230,118,.15); border: 1px solid var(--positive); color: var(--positive); }
+    #status-bar.error   { background: rgba(255,71,87,.15);  border: 1px solid var(--negative); color: var(--negative); }
+    #status-bar.loading { background: rgba(0,212,255,.1);   border: 1px solid var(--accent);   color: var(--accent); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
@@ -454,7 +484,10 @@
   </header>
 
   <main>
-    <div class="month-nav" id="month-nav"></div>
+    <div class="view-switcher" id="view-switcher"></div>
+    <div id="month-nav-wrap">
+      <div class="month-nav" id="month-nav"></div>
+    </div>
     <div id="dre-container"></div>
   </main>
 
@@ -545,6 +578,7 @@ var DRE_STRUCTURE = [
 /* ─── STATE ──────────────────────────────────────────────── */
 var isAdmin      = false;
 var isEditMode   = false;
+var currentView  = 'mensal';
 var currentMonth = '2026-01';
 var allData      = {};
 var githubConfig = {};
@@ -605,10 +639,34 @@ function valClass(v) {
   return v > 0 ? 'val-positive' : 'val-negative';
 }
 
-/* ─── RENDER MONTH NAV ───────────────────────────────────── */
+/* ─── VIEW SWITCHER ──────────────────────────────────────── */
+function renderViewSwitcher() {
+  var el = document.getElementById('view-switcher');
+  el.innerHTML = '';
+  [{ id: 'mensal', label: 'Mensal' }, { id: 'comparativo', label: 'Comparativo' }].forEach(function(v) {
+    var btn = document.createElement('button');
+    btn.className   = 'view-tab' + (v.id === currentView ? ' active' : '');
+    btn.textContent = v.label;
+    btn.addEventListener('click', function() {
+      if (isEditMode) {
+        if (!confirm('H\u00e1 edi\u00e7\u00f5es em andamento. Deseja descart\u00e1-las?')) return;
+        isEditMode = false;
+      }
+      currentView = v.id;
+      renderAll();
+    });
+    el.appendChild(btn);
+  });
+}
+
+/* ─── MONTH NAV ──────────────────────────────────────────── */
 function renderMonthNav() {
+  var wrap = document.getElementById('month-nav-wrap');
+  var nav  = document.getElementById('month-nav');
+  wrap.style.display = currentView === 'mensal' ? '' : 'none';
+  if (currentView !== 'mensal') return;
+
   var months = generateMonths();
-  var nav    = document.getElementById('month-nav');
   nav.innerHTML = '';
   months.forEach(function(m) {
     var btn = document.createElement('button');
@@ -626,7 +684,7 @@ function renderMonthNav() {
   });
 }
 
-/* ─── RENDER HEADER ──────────────────────────────────────── */
+/* ─── HEADER ACTIONS ─────────────────────────────────────── */
 function renderHeaderActions() {
   var el = document.getElementById('header-actions');
   el.innerHTML = '';
@@ -637,24 +695,26 @@ function renderHeaderActions() {
     badge.textContent = 'Admin';
     el.appendChild(badge);
 
-    if (isEditMode) {
-      var btnCancel = document.createElement('button');
-      btnCancel.className   = 'btn btn-ghost';
-      btnCancel.textContent = 'Cancelar';
-      btnCancel.addEventListener('click', cancelEdit);
-      el.appendChild(btnCancel);
+    if (currentView === 'mensal') {
+      if (isEditMode) {
+        var btnCancel = document.createElement('button');
+        btnCancel.className   = 'btn btn-ghost';
+        btnCancel.textContent = 'Cancelar';
+        btnCancel.addEventListener('click', cancelEdit);
+        el.appendChild(btnCancel);
 
-      var btnSave = document.createElement('button');
-      btnSave.className   = 'btn btn-accent';
-      btnSave.textContent = 'Salvar';
-      btnSave.addEventListener('click', saveData);
-      el.appendChild(btnSave);
-    } else {
-      var btnEdit = document.createElement('button');
-      btnEdit.className   = 'btn btn-outline';
-      btnEdit.textContent = 'Editar m\u00eas';
-      btnEdit.addEventListener('click', startEdit);
-      el.appendChild(btnEdit);
+        var btnSave = document.createElement('button');
+        btnSave.className   = 'btn btn-accent';
+        btnSave.textContent = 'Salvar';
+        btnSave.addEventListener('click', saveData);
+        el.appendChild(btnSave);
+      } else {
+        var btnEdit = document.createElement('button');
+        btnEdit.className   = 'btn btn-outline';
+        btnEdit.textContent = 'Editar m\u00eas';
+        btnEdit.addEventListener('click', startEdit);
+        el.appendChild(btnEdit);
+      }
     }
 
     var btnCfg = document.createElement('button');
@@ -680,23 +740,14 @@ function renderHeaderActions() {
 /* ─── EMPTY MONTH ────────────────────────────────────────── */
 function emptyMonth() {
   return {
-    vendas_diretas:  0,
-    marketplaces:    0,
-    comissoes:       0,
-    devolucoes:      0,
-    frete_venda:     0,
-    simples_pct:     0,
-    cmv:             0,
-    pessoal:         0,
-    fixas:           0,
-    administrativas: 0,
-    dividendos:      0,
-    saldo_caixa:     0,
-    estoque:         0
+    vendas_diretas:  0, marketplaces: 0,
+    comissoes: 0, devolucoes: 0, frete_venda: 0, simples_pct: 0,
+    cmv: 0, pessoal: 0, fixas: 0, administrativas: 0,
+    dividendos: 0, saldo_caixa: 0, estoque: 0
   };
 }
 
-/* ─── RENDER DRE ─────────────────────────────────────────── */
+/* ─── RENDER DRE (mensal) ────────────────────────────────── */
 function renderDRE() {
   var container = document.getElementById('dre-container');
   var data      = allData[currentMonth] || emptyMonth();
@@ -708,7 +759,7 @@ function renderDRE() {
   var wrapper = document.createElement('div');
   wrapper.className = 'dre-wrapper';
 
-  var dreHead   = document.createElement('div');
+  var dreHead = document.createElement('div');
   dreHead.className = 'dre-header';
   var titleSpan = document.createElement('span');
   titleSpan.className   = 'dre-header-title';
@@ -720,8 +771,8 @@ function renderDRE() {
   dreHead.appendChild(monthSpan);
   wrapper.appendChild(dreHead);
 
-  var table   = document.createElement('table');
-  var thead   = document.createElement('thead');
+  var table = document.createElement('table');
+  var thead = document.createElement('thead');
   var headRow = document.createElement('tr');
   ['Linha DRE', 'Valor (R$)', '% Rec. Bruta'].forEach(function(h, i) {
     var th = document.createElement('th');
@@ -737,213 +788,115 @@ function renderDRE() {
   DRE_STRUCTURE.forEach(function(row) {
     var tr = document.createElement('tr');
 
-    /* ── section ── */
     if (row.type === 'section') {
       tr.className = 'row-section-header';
-      var td = document.createElement('td');
-      td.setAttribute('colspan', '3');
-      td.textContent = row.label;
+      var td = document.createElement('td'); td.setAttribute('colspan','3'); td.textContent = row.label;
       tr.appendChild(td);
     }
-
-    /* ── divider ── */
     else if (row.type === 'divider') {
       tr.className = 'row-section-header';
-      var td = document.createElement('td');
-      td.setAttribute('colspan', '3');
-      td.style.padding = '4px 0';
+      var td = document.createElement('td'); td.setAttribute('colspan','3'); td.style.padding = '4px 0';
       tr.appendChild(td);
     }
-
-    /* ── sub (valor R$) ── */
     else if (row.type === 'sub') {
       tr.className = 'row-sub';
-      var val      = data[row.key] !== undefined ? data[row.key] : 0;
-
-      var tdLabel  = document.createElement('td');
-      var labelDiv = document.createElement('div');
-      labelDiv.className   = 'cell-label';
-      labelDiv.textContent = row.label;
-      tdLabel.appendChild(labelDiv);
-      tr.appendChild(tdLabel);
-
+      var val = data[row.key] !== undefined ? data[row.key] : 0;
+      var tdL = document.createElement('td');
+      var ld  = document.createElement('div'); ld.className = 'cell-label'; ld.textContent = row.label;
+      tdL.appendChild(ld); tr.appendChild(tdL);
       if (isEditMode) {
-        var tdInp = document.createElement('td');
-        tdInp.className = 'cell-input';
-        tdInp.setAttribute('colspan', '2');
-        var inp = document.createElement('input');
-        inp.type        = 'number';
-        inp.className   = 'edit-input';
-        inp.step        = '0.01';
-        inp.dataset.key = row.key;
-        inp.value       = val;
-        inp.addEventListener('input', onInputChange);
-        tdInp.appendChild(inp);
-        tr.appendChild(tdInp);
+        var tdI = document.createElement('td'); tdI.className = 'cell-input'; tdI.setAttribute('colspan','2');
+        var inp = document.createElement('input'); inp.type = 'number'; inp.className = 'edit-input';
+        inp.step = '0.01'; inp.dataset.key = row.key; inp.value = val;
+        inp.addEventListener('input', onInputChange); tdI.appendChild(inp); tr.appendChild(tdI);
       } else {
-        var tdVal = document.createElement('td');
-        tdVal.className   = 'cell-value ' + (val === 0 ? 'val-zero' : 'val-neutral');
-        tdVal.textContent = val === 0 ? DASH : fmtBRL(val);
-        tr.appendChild(tdVal);
-        var tdPct = document.createElement('td');
-        tdPct.className   = 'cell-pct';
-        tdPct.textContent = (val && rb) ? fmtPct(val, rb) : DASH;
-        tr.appendChild(tdPct);
+        var tdV = document.createElement('td');
+        tdV.className = 'cell-value ' + (val === 0 ? 'val-zero' : 'val-neutral');
+        tdV.textContent = val === 0 ? DASH : fmtBRL(val); tr.appendChild(tdV);
+        var tdP = document.createElement('td'); tdP.className = 'cell-pct';
+        tdP.textContent = (val && rb) ? fmtPct(val, rb) : DASH; tr.appendChild(tdP);
       }
     }
-
-    /* ── sub-pct (Simples Nacional) ── */
     else if (row.type === 'sub-pct') {
       tr.className = 'row-sub';
       var pctVal  = data[row.key] !== undefined ? data[row.key] : 0;
       var calcVal = totals[row.calcId] || 0;
-
-      var tdLabel  = document.createElement('td');
+      var tdL  = document.createElement('td');
       var labelDiv = document.createElement('div');
-      labelDiv.className   = 'cell-label';
-      labelDiv.style.cssText = 'display:flex;align-items:center;gap:10px;';
-
-      var labelTxt = document.createElement('span');
-      labelTxt.textContent = row.label;
+      labelDiv.className = 'cell-label'; labelDiv.style.cssText = 'display:flex;align-items:center;gap:10px;';
+      var labelTxt = document.createElement('span'); labelTxt.textContent = row.label;
       labelDiv.appendChild(labelTxt);
-
       if (isEditMode) {
-        var pctWrap = document.createElement('div');
-        pctWrap.style.cssText = 'display:flex;align-items:center;gap:4px;';
-
-        var inp = document.createElement('input');
-        inp.type        = 'number';
-        inp.className   = 'edit-input';
-        inp.step        = '0.01';
-        inp.min         = '0';
-        inp.max         = '100';
-        inp.placeholder = '0.00';
-        inp.dataset.key = row.key;
-        inp.value       = pctVal;
-        inp.style.width = '90px';
+        var pw = document.createElement('div'); pw.style.cssText = 'display:flex;align-items:center;gap:4px;';
+        var inp = document.createElement('input'); inp.type = 'number'; inp.className = 'edit-input';
+        inp.step = '0.01'; inp.min = '0'; inp.max = '100'; inp.placeholder = '0.00';
+        inp.dataset.key = row.key; inp.value = pctVal; inp.style.width = '90px';
         inp.addEventListener('input', onInputChange);
-
-        var sign = document.createElement('span');
-        sign.textContent   = '%';
+        var sign = document.createElement('span'); sign.textContent = '%';
         sign.style.cssText = 'font-family:var(--font-mono);color:var(--text-muted);font-size:14px;';
-
-        pctWrap.appendChild(inp);
-        pctWrap.appendChild(sign);
-        labelDiv.appendChild(pctWrap);
+        pw.appendChild(inp); pw.appendChild(sign); labelDiv.appendChild(pw);
       } else {
         if (pctVal > 0) {
-          var pctBadge = document.createElement('span');
-          pctBadge.textContent   = pctVal + '%';
-          pctBadge.style.cssText = 'font-family:var(--font-mono);font-size:13px;color:var(--text-muted);';
-          labelDiv.appendChild(pctBadge);
+          var pb = document.createElement('span'); pb.textContent = pctVal + '%';
+          pb.style.cssText = 'font-family:var(--font-mono);font-size:13px;color:var(--text-muted);';
+          labelDiv.appendChild(pb);
         }
       }
-
-      tdLabel.appendChild(labelDiv);
-      tr.appendChild(tdLabel);
-
-      var tdVal = document.createElement('td');
-      tdVal.className      = 'cell-value ' + (calcVal === 0 ? 'val-zero' : 'val-neutral');
-      tdVal.dataset.calcid = row.calcId;
-      tdVal.textContent    = calcVal === 0 ? DASH : fmtBRL(calcVal);
-      tr.appendChild(tdVal);
-
-      var tdPct = document.createElement('td');
-      tdPct.className   = 'cell-pct';
-      tdPct.textContent = (calcVal && rb) ? fmtPct(calcVal, rb) : DASH;
-      tr.appendChild(tdPct);
+      tdL.appendChild(labelDiv); tr.appendChild(tdL);
+      var tdV = document.createElement('td');
+      tdV.className = 'cell-value ' + (calcVal === 0 ? 'val-zero' : 'val-neutral');
+      tdV.dataset.calcid = row.calcId; tdV.textContent = calcVal === 0 ? DASH : fmtBRL(calcVal);
+      tr.appendChild(tdV);
+      var tdP = document.createElement('td'); tdP.className = 'cell-pct';
+      tdP.textContent = (calcVal && rb) ? fmtPct(calcVal, rb) : DASH; tr.appendChild(tdP);
     }
-
-    /* ── total ── */
     else if (row.type === 'total') {
       tr.className = 'row-total';
       var val  = totals[row.id];
       var cls  = row.color === 'positive' ? 'val-positive' : valClass(val);
       var pctT = row.id === 'receita_bruta' ? '100.0%' : (rb ? fmtPct(val, rb) : DASH);
-
-      var tdLabel = document.createElement('td');
-      var ld      = document.createElement('div');
-      ld.className   = 'cell-label';
-      ld.textContent = row.label;
-      tdLabel.appendChild(ld);
-      tr.appendChild(tdLabel);
-
-      var tdVal = document.createElement('td');
-      tdVal.className   = 'cell-value ' + cls;
-      tdVal.textContent = fmtBRL(val);
-      tr.appendChild(tdVal);
-
-      var tdPct = document.createElement('td');
-      tdPct.className   = 'cell-pct';
-      tdPct.textContent = pctT;
-      tr.appendChild(tdPct);
+      var tdL = document.createElement('td');
+      var ld  = document.createElement('div'); ld.className = 'cell-label'; ld.textContent = row.label;
+      tdL.appendChild(ld); tr.appendChild(tdL);
+      var tdV = document.createElement('td'); tdV.className = 'cell-value ' + cls; tdV.textContent = fmtBRL(val);
+      tr.appendChild(tdV);
+      var tdP = document.createElement('td'); tdP.className = 'cell-pct'; tdP.textContent = pctT;
+      tr.appendChild(tdP);
     }
-
-    /* ── total-grand ── */
     else if (row.type === 'total-grand') {
       tr.className = 'row-grand-total';
       var val  = totals[row.id];
       var cls  = valClass(val);
       var pctT = rb ? fmtPct(val, rb) : DASH;
-
-      var tdLabel = document.createElement('td');
-      var ld      = document.createElement('div');
-      ld.className   = 'cell-label';
-      ld.textContent = row.label;
+      var tdL = document.createElement('td');
+      var ld  = document.createElement('div'); ld.className = 'cell-label'; ld.textContent = row.label;
       if (row.showPct && rb) {
         var badge = document.createElement('span');
         badge.style.cssText = 'color:var(--text-muted);font-size:11px;font-weight:400;margin-left:10px;';
-        badge.textContent   = '(' + pctT + ')';
-        ld.appendChild(badge);
+        badge.textContent = '(' + pctT + ')'; ld.appendChild(badge);
       }
-      tdLabel.appendChild(ld);
-      tr.appendChild(tdLabel);
-
-      var tdVal = document.createElement('td');
-      tdVal.className   = 'cell-value ' + cls;
-      tdVal.textContent = fmtBRL(val);
-      tr.appendChild(tdVal);
-
-      var tdPct = document.createElement('td');
-      tdPct.className   = 'cell-pct';
-      tdPct.textContent = pctT;
-      tr.appendChild(tdPct);
+      tdL.appendChild(ld); tr.appendChild(tdL);
+      var tdV = document.createElement('td'); tdV.className = 'cell-value ' + cls; tdV.textContent = fmtBRL(val);
+      tr.appendChild(tdV);
+      var tdP = document.createElement('td'); tdP.className = 'cell-pct'; tdP.textContent = pctT;
+      tr.appendChild(tdP);
     }
-
-    /* ── info ── */
     else if (row.type === 'info') {
       tr.className = 'row-info';
-      var val      = data[row.key] !== undefined ? data[row.key] : 0;
-
-      var tdLabel  = document.createElement('td');
-      var ld       = document.createElement('div');
-      ld.className   = 'cell-label';
-      ld.textContent = row.label;
-      tdLabel.appendChild(ld);
-      tr.appendChild(tdLabel);
-
+      var val = data[row.key] !== undefined ? data[row.key] : 0;
+      var tdL = document.createElement('td');
+      var ld  = document.createElement('div'); ld.className = 'cell-label'; ld.textContent = row.label;
+      tdL.appendChild(ld); tr.appendChild(tdL);
       if (isEditMode) {
-        var tdInp = document.createElement('td');
-        tdInp.className = 'cell-input';
-        tdInp.setAttribute('colspan', '2');
-        var inp = document.createElement('input');
-        inp.type        = 'number';
-        inp.className   = 'edit-input';
-        inp.step        = '0.01';
-        inp.dataset.key = row.key;
-        inp.value       = val;
-        inp.addEventListener('input', onInputChange);
-        tdInp.appendChild(inp);
-        tr.appendChild(tdInp);
+        var tdI = document.createElement('td'); tdI.className = 'cell-input'; tdI.setAttribute('colspan','2');
+        var inp = document.createElement('input'); inp.type = 'number'; inp.className = 'edit-input';
+        inp.step = '0.01'; inp.dataset.key = row.key; inp.value = val;
+        inp.addEventListener('input', onInputChange); tdI.appendChild(inp); tr.appendChild(tdI);
       } else {
-        var tdVal = document.createElement('td');
-        tdVal.className   = 'cell-value';
-        tdVal.textContent = val === 0 ? DASH : fmtBRL(val);
-        tr.appendChild(tdVal);
-        var tdPct = document.createElement('td');
-        tdPct.className   = 'cell-pct';
-        tdPct.textContent = DASH;
-        tr.appendChild(tdPct);
+        var tdV = document.createElement('td'); tdV.className = 'cell-value';
+        tdV.textContent = val === 0 ? DASH : fmtBRL(val); tr.appendChild(tdV);
+        var tdP = document.createElement('td'); tdP.className = 'cell-pct'; tdP.textContent = DASH;
+        tr.appendChild(tdP);
       }
     }
 
@@ -955,10 +908,143 @@ function renderDRE() {
   container.appendChild(wrapper);
 }
 
+/* ─── RENDER COMPARATIVO ─────────────────────────────────── */
+function renderComparativo() {
+  var container = document.getElementById('dre-container');
+  container.innerHTML = '';
+
+  var months = generateMonths();
+
+  var monthsData   = {};
+  var monthsTotals = {};
+  months.forEach(function(m) {
+    var d = allData[m] || emptyMonth();
+    monthsData[m]   = d;
+    monthsTotals[m] = calcTotals(d);
+  });
+
+  function hasData(m) {
+    var d = allData[m];
+    return d && Object.keys(d).some(function(k) { return d[k] !== 0; });
+  }
+
+  function getVal(row, m) {
+    var d = monthsData[m];
+    var t = monthsTotals[m];
+    if (row.type === 'sub')         return d[row.key] !== undefined ? d[row.key] : 0;
+    if (row.type === 'sub-pct')     return t[row.calcId] || 0;
+    if (row.type === 'total')       return t[row.id];
+    if (row.type === 'total-grand') return t[row.id];
+    if (row.type === 'info')        return d[row.key] !== undefined ? d[row.key] : 0;
+    return null;
+  }
+
+  var wrapper = document.createElement('div');
+  wrapper.className = 'dre-wrapper';
+
+  var dreHead = document.createElement('div');
+  dreHead.className = 'dre-header';
+  var ts = document.createElement('span'); ts.className = 'dre-header-title'; ts.textContent = 'Comparativo Anual';
+  var ys = document.createElement('span'); ys.className = 'dre-month-label'; ys.textContent = '2026';
+  dreHead.appendChild(ts); dreHead.appendChild(ys);
+  wrapper.appendChild(dreHead);
+
+  var scrollDiv = document.createElement('div');
+  scrollDiv.className = 'comp-scroll';
+
+  var table = document.createElement('table');
+  table.className = 'comp-table';
+
+  /* thead */
+  var thead   = document.createElement('thead');
+  var headRow = document.createElement('tr');
+  var thL = document.createElement('th'); thL.textContent = 'Linha DRE'; headRow.appendChild(thL);
+  months.forEach(function(m) {
+    var th = document.createElement('th');
+    th.textContent = formatMonthLabel(m);
+    if (m === currentMonth) th.className = 'col-current';
+    if (!hasData(m)) th.style.color = 'var(--text-dim)';
+    headRow.appendChild(th);
+  });
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+
+  /* tbody */
+  var tbody = document.createElement('tbody');
+
+  DRE_STRUCTURE.forEach(function(row) {
+    var tr = document.createElement('tr');
+
+    if (row.type === 'section') {
+      tr.className = 'row-section-header';
+      var td = document.createElement('td');
+      td.setAttribute('colspan', String(months.length + 1));
+      td.textContent = row.label;
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+      return;
+    }
+
+    if (row.type === 'divider') {
+      tr.className = 'row-section-header';
+      var td = document.createElement('td');
+      td.setAttribute('colspan', String(months.length + 1));
+      td.style.padding = '4px 0';
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+      return;
+    }
+
+    /* row class */
+    if      (row.type === 'sub' || row.type === 'sub-pct') tr.className = 'row-sub';
+    else if (row.type === 'info')        tr.className = 'row-info';
+    else if (row.type === 'total')       tr.className = 'row-total';
+    else if (row.type === 'total-grand') tr.className = 'row-grand-total';
+
+    /* label */
+    var tdL  = document.createElement('td');
+    var ld   = document.createElement('div'); ld.className = 'cell-label'; ld.textContent = row.label;
+    tdL.appendChild(ld); tr.appendChild(tdL);
+
+    /* one cell per month */
+    months.forEach(function(m) {
+      var td  = document.createElement('td');
+      var val = getVal(row, m);
+
+      if (!hasData(m)) {
+        td.className = 'cell-value comp-empty'; td.textContent = DASH;
+        tr.appendChild(td); return;
+      }
+
+      var cls = 'val-neutral';
+      if      (row.type === 'total' && row.color === 'positive') cls = 'val-positive';
+      else if (row.type === 'total' || row.type === 'total-grand') cls = valClass(val);
+      else    cls = val === 0 ? 'val-zero' : 'val-neutral';
+
+      td.className   = 'cell-value ' + cls;
+      td.textContent = val === 0 ? DASH : fmtBRL(val);
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+
+  table.appendChild(tbody);
+  scrollDiv.appendChild(table);
+  wrapper.appendChild(scrollDiv);
+  container.appendChild(wrapper);
+}
+
+/* ─── RENDER ALL ─────────────────────────────────────────── */
 function renderAll() {
+  renderViewSwitcher();
   renderMonthNav();
   renderHeaderActions();
-  renderDRE();
+  if (currentView === 'mensal') {
+    renderDRE();
+  } else {
+    renderComparativo();
+  }
 }
 
 /* ─── EDIT ───────────────────────────────────────────────── */
@@ -993,20 +1079,16 @@ function onInputChange() {
     var ld = tr.querySelector('.cell-label');
     if (!ld) return;
     var labelText = ld.firstChild ? ld.firstChild.textContent.trim() : ld.textContent.trim();
-
     DRE_STRUCTURE.forEach(function(row) {
       if (row.type !== 'total' && row.type !== 'total-grand') return;
       if (labelText !== row.label) return;
-
       var val  = t[row.id];
       var cls  = row.color === 'positive' ? 'val-positive' : valClass(val);
       var pctT = row.id === 'receita_bruta' ? '100.0%' : (rb ? fmtPct(val, rb) : DASH);
-
       var tdVal = tr.querySelector('.cell-value');
       var tdPct = tr.querySelector('.cell-pct');
       if (tdVal) { tdVal.textContent = fmtBRL(val); tdVal.className = 'cell-value ' + cls; }
       if (tdPct) { tdPct.textContent = pctT; }
-
       if (row.type === 'total-grand' && row.showPct) {
         var sp = ld.querySelector('span');
         if (sp) sp.textContent = '(' + pctT + ')';
@@ -1075,13 +1157,11 @@ function saveConfig() {
 function loadData() {
   githubConfig = loadConfig();
   var rawUrl = '';
-
   if (githubConfig.user && githubConfig.repo) {
     rawUrl = 'https://raw.githubusercontent.com/' + githubConfig.user + '/' + githubConfig.repo + '/main/data.json';
   } else {
     rawUrl = './data.json';
   }
-
   return fetch(rawUrl + '?t=' + Date.now())
     .then(function(res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -1097,19 +1177,16 @@ function loadData() {
 /* ─── SAVE DATA ──────────────────────────────────────────── */
 function saveData() {
   githubConfig = loadConfig();
-
   if (!githubConfig.user || !githubConfig.repo || !githubConfig.pat) {
     showStatus('Configure o GitHub primeiro.', 'error');
     openModal('modal-config');
     return;
   }
-
   var inputs = document.querySelectorAll('.edit-input');
   if (!allData[currentMonth]) allData[currentMonth] = emptyMonth();
   inputs.forEach(function(inp) {
     allData[currentMonth][inp.dataset.key] = parseFloat(inp.value) || 0;
   });
-
   showStatus('Salvando...', 'loading');
 
   var user   = githubConfig.user;

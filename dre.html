@@ -330,6 +330,21 @@
       -webkit-overflow-scrolling: touch;
     }
 
+    .comp-scroll::-webkit-scrollbar {
+      height: 10px;
+    }
+    .comp-scroll::-webkit-scrollbar-track {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .comp-scroll::-webkit-scrollbar-thumb {
+      background: var(--border-light);
+      border-radius: 6px;
+    }
+    .comp-scroll::-webkit-scrollbar-thumb:hover {
+      background: var(--text-muted);
+    }
+
     /* sticky first column */
     .comp-table th:first-child,
     .comp-table td:first-child {

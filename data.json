@@ -32,18 +32,19 @@
     "simples_pct": 7.43
   },
   "2026-03": {
-    "vendas_diretas": 0,
+    "vendas_diretas": 293358.6,
     "marketplaces": 0,
-    "comissoes": 0,
-    "devolucoes": 0,
-    "cmv": 0,
-    "pessoal": 0,
-    "fixas": 0,
-    "administrativas": 0,
-    "frete_venda": 0,
+    "comissoes": 2703,
+    "devolucoes": 30,
+    "cmv": 195027.39,
+    "pessoal": 2800,
+    "fixas": 500,
+    "administrativas": 337.74,
+    "frete_venda": 4180,
     "simples": 0,
-    "dividendos": 0,
-    "saldo_caixa": 0,
-    "estoque": 0
+    "dividendos": 68771.9,
+    "saldo_caixa": 59442.3,
+    "estoque": 173467.15,
+    "simples_pct": 0
   }
 }

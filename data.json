@@ -46,5 +46,20 @@
     "saldo_caixa": 59442.3,
     "estoque": 173467.15,
     "simples_pct": 7.43
+  },
+  "2026-04": {
+    "vendas_diretas": 243786.19,
+    "marketplaces": 0,
+    "comissoes": 2800.35,
+    "devolucoes": 0,
+    "frete_venda": 3442.4,
+    "simples_pct": 7.43,
+    "cmv": 168378.47,
+    "pessoal": 2800,
+    "fixas": 500,
+    "administrativas": 337.85,
+    "dividendos": 27040,
+    "saldo_caixa": 89539.97,
+    "estoque": 0
   }
 }

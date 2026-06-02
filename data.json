@@ -61,5 +61,20 @@
     "dividendos": 27040,
     "saldo_caixa": 89539.97,
     "estoque": 108855.49
+  },
+  "2026-05": {
+    "vendas_diretas": 468738.14,
+    "marketplaces": 0,
+    "comissoes": 1846.05,
+    "devolucoes": 0,
+    "frete_venda": 5464.89,
+    "simples_pct": 0,
+    "cmv": 0,
+    "pessoal": 0,
+    "fixas": 0,
+    "administrativas": 0,
+    "dividendos": 0,
+    "saldo_caixa": 0,
+    "estoque": 0
   }
 }

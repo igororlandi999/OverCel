@@ -97,5 +97,21 @@
     "saldo_caixa": 139598.75,
     "estoque": 231187.24,
     "dinheiroAplicado": 0
+  },
+  "2026-07": {
+    "vendas_diretas": 33333333333333332,
+    "marketplaces": 0,
+    "comissoes": 0,
+    "devolucoes": 0,
+    "frete_venda": 0,
+    "simples_pct": 0,
+    "cmv": 0,
+    "pessoal": 0,
+    "fixas": 0,
+    "administrativas": 0,
+    "dividendos": 0,
+    "saldo_caixa": 0,
+    "estoque": 0,
+    "dinheiroAplicado": 0
   }
 }

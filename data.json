@@ -13,7 +13,8 @@
     "dividendos": 0,
     "saldo_caixa": 110221.38,
     "estoque": 54230.78,
-    "simples_pct": 4
+    "simples_pct": 4,
+    "dinheiroAplicado": 0
   },
   "2026-02": {
     "vendas_diretas": 202494.49,
@@ -29,7 +30,8 @@
     "dividendos": 35126.08,
     "saldo_caixa": 25638.59,
     "estoque": 117983.08,
-    "simples_pct": 7.43
+    "simples_pct": 7.43,
+    "dinheiroAplicado": 0
   },
   "2026-03": {
     "vendas_diretas": 293358.6,
@@ -45,7 +47,8 @@
     "dividendos": 68771.9,
     "saldo_caixa": 59442.3,
     "estoque": 173467.15,
-    "simples_pct": 8.7496
+    "simples_pct": 8.7496,
+    "dinheiroAplicado": 0
   },
   "2026-04": {
     "vendas_diretas": 243786.19,
@@ -60,7 +63,8 @@
     "administrativas": 337.85,
     "dividendos": 27040,
     "saldo_caixa": 89539.97,
-    "estoque": 108855.49
+    "estoque": 108855.49,
+    "dinheiroAplicado": 0
   },
   "2026-05": {
     "vendas_diretas": 468738.14,
@@ -75,7 +79,8 @@
     "administrativas": 224.83,
     "dividendos": 60340.04,
     "saldo_caixa": 84631.03,
-    "estoque": 356728.56
+    "estoque": 356728.56,
+    "dinheiroAplicado": 0
   },
   "2026-06": {
     "vendas_diretas": 206227.15,
@@ -90,6 +95,7 @@
     "administrativas": 2680.78,
     "dividendos": 50597.84,
     "saldo_caixa": 139598.75,
-    "estoque": 231187.24
+    "estoque": 231187.24,
+    "dinheiroAplicado": 0
   }
 }

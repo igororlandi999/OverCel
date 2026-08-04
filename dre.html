@@ -395,7 +395,8 @@ var DRE_STRUCTURE = [
   { type: 'total-grand', id: 'res_liquido', label: '= RESULTADO L\u00cdQUIDO', color: 'dynamic', showPct: true },
   { type: 'divider' },
   { type: 'info', key: 'saldo_caixa', label: '(informa\u00e7\u00e3o) Saldo de caixa acumulado' },
-  { type: 'info', key: 'estoque',     label: '(informa\u00e7\u00e3o) Estoque em R$' }
+  { type: 'info', key: 'estoque',     label: '(informa\u00e7\u00e3o) Estoque em R$' },
+  { type: 'info', key: 'dinheiroAplicado', label: '(informa\u00e7\u00e3o) Dinheiro aplicado' }
 ];
 
 /* ─── STATE ──────────────────────────────────────────────── */
@@ -594,7 +595,7 @@ function renderHeaderActions() {
 function emptyMonth() {
   return { vendas_diretas:0, marketplaces:0, comissoes:0, devolucoes:0, frete_venda:0,
            simples_pct:0, cmv:0, pessoal:0, fixas:0, administrativas:0,
-           dividendos:0, saldo_caixa:0, estoque:0 };
+           dividendos:0, saldo_caixa:0, estoque:0, dinheiroAplicado:0 };
 }
 
 /* ─── RENDER DRE (mensal) ────────────────────────────────── */

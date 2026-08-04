@@ -99,13 +99,13 @@
     "dinheiroAplicado": 0
   },
   "2026-07": {
-    "vendas_diretas": 23213,
+    "vendas_diretas": 172899.4,
     "marketplaces": 0,
-    "comissoes": 0,
+    "comissoes": 1598.17,
     "devolucoes": 0,
     "frete_venda": 0,
     "simples_pct": 0,
-    "cmv": 0,
+    "cmv": 90687.19,
     "pessoal": 0,
     "fixas": 0,
     "administrativas": 0,

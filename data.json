@@ -145,5 +145,21 @@
     "saldo_caixa": 95035.72,
     "estoque": 78833.81,
     "dinheiroAplicado": 0
+  },
+  "2026-10": {
+    "vendas_diretas": 180835.7,
+    "marketplaces": 0,
+    "comissoes": 3934.38,
+    "devolucoes": 0,
+    "frete_venda": 1865.29,
+    "simples_pct": 0,
+    "cmv": 115030.44,
+    "pessoal": 2800,
+    "fixas": 3403.89,
+    "administrativas": 285.18,
+    "dividendos": 83247.92,
+    "saldo_caixa": 0,
+    "estoque": 0,
+    "dinheiroAplicado": 0
   }
 }
